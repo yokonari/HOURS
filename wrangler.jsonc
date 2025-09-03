@@ -1,0 +1,29 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "laffy",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2025-09-01",
+	// ビルド後のJSを縮小化
+	"minify": true,
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "laffy"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "laffy_db",
+			"database_name": "laffy-db",
+			"database_id": "c0cfddb9-0342-4841-a0be-4ddd181c75b1"
+		}
+	]
+}
