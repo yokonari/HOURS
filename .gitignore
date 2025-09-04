@@ -61,3 +61,8 @@ out
 *.swp
 .vscode
 
+*:Zone.Identifier
+
+.dev.vars
+.wrangler/
+
