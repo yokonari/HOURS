@@ -30,16 +30,25 @@ type ApiResponse = {
 };
 
 export default function HomePage() {
-  const [q, setQ] = useState('cafe tokyo');
+  const [q, setQ] = useState('カフェ');     // ← 検索確定用（実際にAPIへ送る）
+  const [qInput, setQInput] = useState('カフェ'); // ← 入力欄表示用
+  const dirty = qInput !== q; // 入力が確定していない = true
+  // 追加
+  const [hasSearched, setHasSearched] = useState(false);
+
   const [useGeo, setUseGeo] = useState(true);
   const [lat, setLat] = useState<number | undefined>(undefined);
   const [lng, setLng] = useState<number | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<Place[]>([]);
-  const [page, setPage] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
   const loaderRef = useRef<HTMLDivElement | null>(null);
+  const [cursor, setCursor] = useState<string | null>(null);
+  const seenRef = useRef<Set<string>>(new Set());
+
+  const makeKey = (p: Place) =>
+    p.id ?? `${p.displayName?.text ?? ''}|${p.formattedAddress ?? ''}`;
 
   useEffect(() => {
     if (!useGeo) return;
@@ -67,78 +76,107 @@ export default function HomePage() {
     };
   }, [useGeo]);
 
-  const queryString = useMemo(() => {
-    const params = new URLSearchParams();
-    if (q) params.set('q', q);
-    if (useGeo && lat != null && lng != null) {
-      params.set('lat', String(lat));
-      params.set('lng', String(lng));
-    }
-    params.set('page', String(page));
-    return params.toString();
-  }, [q, useGeo, lat, lng, page]);
+  const fetchPlaces = useCallback(
+    async (
+      append = false,
+      overrides?: Partial<{ q: string; useGeo: boolean; lat: number; lng: number; cursor: string | null }>
+    ) => {
+      setLoading(true);
+      setError(null);
+      abortRef.current?.abort();
+      const controller = new AbortController();
+      abortRef.current = controller;
 
-  const fetchPlaces = useCallback(async (append = false) => {
-    setLoading(true);
-    setError(null);
-    abortRef.current?.abort();
-    const controller = new AbortController();
-    abortRef.current = controller;
+      // ここで毎回 params を構築（最新値 or overrides）
+      const Q       = overrides?.q       ?? q;
+      const USE_GEO = overrides?.useGeo  ?? useGeo;
+      const LAT     = overrides?.lat     ?? lat;
+      const LNG     = overrides?.lng     ?? lng;
+      const CURSOR  = overrides?.cursor  ?? cursor;
 
-    try {
-      const res = await fetch(`/api/places?${queryString}`, {
-        method: 'GET',
-        signal: controller.signal,
-        headers: { Accept: 'application/json' },
-      });
-      const text = await res.text();
-      if (!res.ok) {
-        if (!append) setResults([]);
-        setError(text || `検索に失敗しました (HTTP ${res.status})`);
-        return;
+      const params = new URLSearchParams();
+      if (Q) params.set('q', Q);
+      if (USE_GEO && LAT != null && LNG != null) {
+        params.set('lat', String(LAT));
+        params.set('lng', String(LNG));
       }
-      const data: ApiResponse = text ? JSON.parse(text) : { places: [] };
-      setResults((prev) => (append ? [...prev, ...(data.places ?? [])] : data.places ?? []));
-    } catch (e: any) {
-      if (e?.name === 'AbortError') return;
-      setError(e?.message ?? '不明なエラーが発生しました');
-      if (!append) setResults([]);
-    } finally {
-      setLoading(false);
-    }
-  }, [queryString]);
+      if (CURSOR) params.set('cursor', CURSOR);
 
+      try {
+        const res = await fetch(`/api/places?${params.toString()}`, {
+          method: 'GET',
+          signal: controller.signal,
+          headers: { Accept: 'application/json' },
+        });
+        const text = await res.text();
+
+        if (!res.ok) {
+          let message = text || `検索に失敗しました (HTTP ${res.status})`;
+          try {
+            const errJson = JSON.parse(text);
+            if (errJson?.message) message = errJson.message;
+            if (res.status === 400 && String(errJson?.message).includes('Request parameters for paging requests must match')) {
+              message = '検索条件を変更したため続きの取得に失敗しました。もう一度検索してください。';
+              setCursor(null); // これ以上のページングを止める
+            }
+          } catch {}
+          if (!append) setResults([]);
+          setError(message);
+          return;
+        }
+
+        const data: ApiResponse = text ? JSON.parse(text) : { places: [] };
+
+        if (!append) seenRef.current = new Set();
+
+        const incoming = data.places ?? [];
+        const unique: Place[] = [];
+        for (const p of incoming) {
+          const key = p.id ?? `${p.displayName?.text ?? ''}|${p.formattedAddress ?? ''}`;
+          if (!key) continue;
+          if (seenRef.current.has(key)) continue;
+          seenRef.current.add(key);
+          unique.push(p);
+        }
+
+        setResults(prev => (append ? [...prev, ...unique] : unique));
+        setCursor(data.nextPageToken ?? null);
+      } catch (e: any) {
+        if (e?.name !== 'AbortError') {
+          setError(e?.message ?? '不明なエラーが発生しました');
+          if (!append) setResults([]);
+        }
+      } finally {
+        setLoading(false);
+      }
+    },
+    [q, useGeo, lat, lng, cursor]
+  );
+
+  // クエリ/位置条件が変わったら cursor をリセットして再検索
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setPage(0);
-    fetchPlaces(false);
+    // 1) 状態を確定
+    setQ(qInput);
+    setCursor(null);
+    seenRef.current = new Set();
+    setHasSearched(true);
+
+    // 2) その場の値で検索（オーバーライドを渡す）
+    fetchPlaces(false, { q: qInput, cursor: null });
   };
 
-  useEffect(() => {
-    setPage(0);
-    fetchPlaces(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // 無限スクロール: IntersectionObserver
+  // 無限スクロール: 次ページがある時だけ発火
   useEffect(() => {
     if (!loaderRef.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loading) {
-          setPage((p) => p + 1);
-        }
-      },
-      { threshold: 1.0 }
-    );
-    observer.observe(loaderRef.current);
-    return () => observer.disconnect();
-  }, [loading]);
-
-  useEffect(() => {
-    if (page === 0) return;
-    fetchPlaces(true);
-  }, [page, fetchPlaces]);
+    const ob = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !loading && cursor && !dirty && hasSearched) {
+        fetchPlaces(true);
+      }
+    }, { threshold: 1.0, rootMargin: '200px' });
+    ob.observe(loaderRef.current);
+    return () => ob.disconnect();
+  }, [loading, cursor, fetchPlaces]);
 
   const getTodayHours = (opening?: { weekdayDescriptions?: string[] }) => {
     if (!opening?.weekdayDescriptions) return null;
@@ -157,8 +195,12 @@ export default function HomePage() {
       <form onSubmit={onSubmit} className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-[1fr_auto]">
         <input
           type="text"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
+          value={qInput}
+          onChange={(e) => {
+            setQInput(e.target.value);
+            setError(null);
+            setCursor(null);      // ← 入力中は古いカーソルを無効化
+          }}
           placeholder="例: 24時間 カフェ 新宿 / ramen shinjuku"
           aria-label="検索ワード"
           className="w-full rounded-xl border border-gray-200 bg-white px-4 py-2.5 shadow-sm outline-none ring-0 transition focus:border-gray-300 focus:ring-2 focus:ring-black/10"
@@ -178,6 +220,7 @@ export default function HomePage() {
             onChange={(e) => {
               setError(null);
               setUseGeo(e.target.checked);
+              setCursor(null);     // ← 条件変更＝カーソル破棄
             }}
             className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
           />
@@ -193,6 +236,13 @@ export default function HomePage() {
           {error}
         </div>
       )}
+
+      {!hasSearched && results.length === 0 && !loading && !error && (
+        <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 text-gray-600">
+          キーワードを入力して「検索」を押してください。現在地を使うと5kmの位置バイアスがかかります。
+        </div>
+      )}
+
 
       <ul className="mt-4 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {results.map((p) => {
