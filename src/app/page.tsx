@@ -29,12 +29,26 @@ type ApiResponse = {
   nextPageToken?: string; // 将来的にページング対応したい場合
 };
 
+// ヘルパー: ハバースイン距離（メートル）
+function distanceMeters(lat1: number, lng1: number, lat2: number, lng2: number) {
+  const R = 6371_000; // 地球半径[m]
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+const fmtDistance = (m: number) => (m >= 1000 ? `${(m / 1000).toFixed(1)} km` : `${Math.round(m)} m`);
+
 export default function HomePage() {
   const [q, setQ] = useState('カフェ');     // ← 検索確定用（実際にAPIへ送る）
   const [qInput, setQInput] = useState('カフェ'); // ← 入力欄表示用
   const dirty = qInput !== q; // 入力が確定していない = true
   // 追加
   const [hasSearched, setHasSearched] = useState(false);
+  const [etaMap, setEtaMap] = useState<Record<string, { text: string; seconds: number; distanceMeters: number }>>({});
 
   const [useGeo, setUseGeo] = useState(true);
   const [lat, setLat] = useState<number | undefined>(undefined);
@@ -46,6 +60,7 @@ export default function HomePage() {
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const [cursor, setCursor] = useState<string | null>(null);
   const seenRef = useRef<Set<string>>(new Set());
+  const [sortByDistance, setSortByDistance] = useState(true); // 既定で距離順にするなら true
 
   const makeKey = (p: Place) =>
     p.id ?? `${p.displayName?.text ?? ''}|${p.formattedAddress ?? ''}`;
@@ -92,7 +107,8 @@ export default function HomePage() {
       const USE_GEO = overrides?.useGeo  ?? useGeo;
       const LAT     = overrides?.lat     ?? lat;
       const LNG     = overrides?.lng     ?? lng;
-      const CURSOR  = overrides?.cursor  ?? cursor;
+      // cursor は null を明示指定できるよう厳密に見る
+      const CURSOR  = (overrides && 'cursor' in overrides) ? overrides.cursor : cursor;
 
       const params = new URLSearchParams();
       if (Q) params.set('q', Q);
@@ -101,6 +117,7 @@ export default function HomePage() {
         params.set('lng', String(LNG));
       }
       if (CURSOR) params.set('cursor', CURSOR);
+      params.set('rank', sortByDistance ? 'distance' : 'relevance'); // ← 追加
 
       try {
         const res = await fetch(`/api/places?${params.toString()}`, {
@@ -139,7 +156,9 @@ export default function HomePage() {
           unique.push(p);
         }
 
+        // ↓ 置き換え
         setResults(prev => (append ? [...prev, ...unique] : unique));
+
         setCursor(data.nextPageToken ?? null);
       } catch (e: any) {
         if (e?.name !== 'AbortError') {
@@ -161,8 +180,32 @@ export default function HomePage() {
     setCursor(null);
     seenRef.current = new Set();
     setHasSearched(true);
+    setEtaMap({});
+    setError(null);
 
-    // 2) その場の値で検索（オーバーライドを渡す）
+    // 現在地バイアスを使いたいのに、まだ座標が未確定ならここで確保
+    if (useGeo && (lat == null || lng == null) && typeof navigator !== 'undefined' && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const newLat = pos.coords.latitude;
+          const newLng = pos.coords.longitude;
+          setLat(newLat);
+          setLng(newLng);
+          // 取得後に locationBias を付与して 1 ページ目から
+          fetchPlaces(false, { q: qInput, cursor: null, useGeo: true, lat: newLat, lng: newLng });
+        },
+        (err) => {
+          // 失敗したら現在地なしで検索に切り替え
+          setUseGeo(false);
+          setError(`位置情報の取得に失敗しました: ${err.message}（現在地なしで検索しました）`);
+          fetchPlaces(false, { q: qInput, cursor: null, useGeo: false });
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 60_000 }
+      );
+      return; // 座標待ちなのでここで抜ける
+    }
+
+    // 変更後（最新入力を使う）
     fetchPlaces(false, { q: qInput, cursor: null });
   };
 
@@ -178,12 +221,62 @@ export default function HomePage() {
     return () => ob.disconnect();
   }, [loading, cursor, fetchPlaces]);
 
+  // 結果が変わったら未取得分の ETA をまとめて取得（ファイル末尾の useEffect 群の後ろに追加）
+  useEffect(() => {
+    if (!hasSearched) return;
+    if (!useGeo || lat == null || lng == null) return;
+    if (!results.length) return;
+
+    const pending = results
+      .map((p) => {
+        const key = makeKey(p);
+        const plat = p.location?.latitude;
+        const plng = p.location?.longitude;
+        if (!key || plat == null || plng == null) return null;
+        if (etaMap[key]) return null;
+        return { key, lat: plat, lng: plng };
+      })
+      .filter(Boolean) as { key: string; lat: number; lng: number }[];
+
+    if (pending.length === 0) return;
+
+    const batches: { key: string; lat: number; lng: number }[][] = [];
+    for (let i = 0; i < pending.length; i += 25) {
+      batches.push(pending.slice(i, i + 25));
+    }
+
+    let aborted = false;
+    (async () => {
+      for (const items of batches) {
+        if (aborted) break;
+        const res = await fetch('/api/eta', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            origin: { lat, lng },
+            items,
+            mode: 'walking', // あとで UI で切替可能
+          }),
+        }).catch(() => null);
+        if (!res || !res.ok) continue;
+        const data = await res.json().catch(() => null) as { etas?: Record<string, { text: string; seconds: number; distanceMeters: number }> } | null;
+        if (!data?.etas) continue;
+        setEtaMap((prev) => ({ ...prev, ...data.etas }));
+      }
+    })();
+
+    return () => { aborted = true; };
+  }, [results, useGeo, lat, lng, hasSearched]); // 依存に注意
+
+
   const getTodayHours = (opening?: { weekdayDescriptions?: string[] }) => {
     if (!opening?.weekdayDescriptions) return null;
     const today = new Date().getDay();
     const index = today === 0 ? 6 : today - 1;
     return opening.weekdayDescriptions[index] ?? null;
   };
+
+  const waitingGeo = useGeo && (lat == null || lng == null);
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-6">
@@ -210,8 +303,23 @@ export default function HomePage() {
           disabled={loading}
           className="inline-flex items-center justify-center rounded-xl border border-gray-900 bg-gray-900 px-5 py-2.5 font-semibold text-white shadow-sm transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {loading ? '検索中…' : '検索'}
+          {loading ? '検索中…' : waitingGeo ? '現在地を取得して検索' : '検索'}
         </button>
+
+        {/* // 検索フォームにトグルを追加（ラベルの近くに） */}
+      <label className="flex items-center gap-2 text-sm sm:col-span-2">
+        <input
+          type="checkbox"
+          checked={sortByDistance}
+          onChange={(e) => {
+            setSortByDistance(e.target.checked);
+            setCursor(null);           // ← 条件が変わるのでカーソル破棄
+            setError(null);
+          }}
+          className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
+        />
+        <span>距離が近い順</span>
+      </label>
 
         <label className="flex items-center gap-2 text-sm sm:col-span-2">
           <input
@@ -298,6 +406,20 @@ export default function HomePage() {
                 {todayHours && (
                   <div className="mt-1 text-sm text-gray-700">{todayHours}</div>
                 )}
+
+                {/* カード内の表示（公式サイトリンクの少し上あたりに追加） */}
+                {(() => {
+                  const key = makeKey(p);
+                  const eta = key ? etaMap[key] : undefined;
+                  if (!eta) return null;
+                  const km = eta.distanceMeters >= 1000 ? `${(eta.distanceMeters / 1000).toFixed(1)} km` : `${eta.distanceMeters} m`;
+                  return (
+                    <div className="mt-1 text-sm text-gray-700">
+                      到着目安: {eta.text}（約 {km}）
+                    </div>
+                  );
+                })()}
+
 
                 {p.websiteUri && (
                   <a

@@ -35,9 +35,10 @@ export async function GET(req: Request) {
   const lat = url.searchParams.get('lat');
   const lng = url.searchParams.get('lng');
   const cursor = url.searchParams.get('cursor');
+  const rank = (url.searchParams.get('rank') ?? 'relevance').toLowerCase(); // ← 追加
 
   // Cloudflare 環境の取り回し（process.env が無い場合のフォールバックも残す）
-  const apiKey = process.env.PLACES_API_KEY; 
+  const apiKey = process.env.PLACES_API_KEY;
 
   if (!apiKey) return jsonError(500, 'PLACES_API_KEY is missing');
 
@@ -47,6 +48,8 @@ export async function GET(req: Request) {
     languageCode: 'ja',
     regionCode: 'JP',
     maxResultCount: 20,
+    // ← ここがポイント：取得時点から距離順
+    rankPreference: rank === 'distance' ? 'DISTANCE' : 'RELEVANCE',
   };
 
   if (lat && lng) {
