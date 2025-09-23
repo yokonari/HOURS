@@ -1,71 +1,162 @@
-// app/api/eta/route.ts
+// src/app/api/eta/route.ts
+// Next.js App Router の API Route（Node 実行前提：edge runtime を使わない）
+// 日本では Google API の transit ETA は返ってこない仕様のため、公共交通機関は即スキップします。
+
+type TravelMode = 'walking' | 'driving' | 'bicycling' | 'transit';
+
+type Eta = { text: string; seconds: number; distanceMeters: number };
+type EtaMap = Record<string, Eta | null>;
+
+type DebugElement = {
+  status: string;
+  durationText?: string;
+  durationSec?: number;
+  distanceMeters?: number;
+};
+
+type DebugMeta = {
+  requestUrlRedacted?: string[]; // Distance Matrix が複数バッチになる可能性
+};
+
 type EtaReq = {
   origin: { lat: number; lng: number };
-  items: { key: string; lat: number; lng: number }[]; // key はフロントの makeKey と一致させる
-  mode?: 'walking' | 'driving' | 'bicycling' | 'transit';
+  items: { key: string; lat: number; lng: number }[];
+  mode?: TravelMode;
 };
 
 type EtaRes = {
-  etas: Record<string, { text: string; seconds: number; distanceMeters: number }>;
+  etas: EtaMap;
+  debug?: Record<string, DebugElement>;
+  debugMeta?: DebugMeta;
 };
 
-function jsonError(status: number, message: string) {
-  return new Response(JSON.stringify({ code: status, message }), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
+// ---- utilities ----
+const DM_MAX_DEST = 25;
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
 }
 
-// 追加：型ガード
-function hasStatus(x: unknown): x is { status: string; error_message?: string } {
-  return typeof x === 'object' && x !== null && 'status' in x && typeof (x as any).status === 'string';
+function redactKey(u: string) {
+  return u.replace(/([?&]key=)[^&]+/g, '$1REDACTED');
 }
 
-export async function POST(req: Request) {
-  const body = (await req.json()) as EtaReq;
-  if (!body?.origin || !Array.isArray(body.items) || body.items.length === 0) {
-    return jsonError(400, 'invalid request');
-  }
-  const apiKey = process.env.PLACES_API_KEY;
-  if (!apiKey) return jsonError(500, 'PLACES_API_KEY is missing');
+function buildDMUrl(params: {
+  origin: { lat: number; lng: number };
+  items: { lat: number; lng: number }[];
+  mode: Exclude<TravelMode, 'transit'>; // transit は使わない方針
+  apiKey: string;
+}) {
+  const origin = `${params.origin.lat},${params.origin.lng}`;
+  const destinations = params.items.map(i => `${i.lat},${i.lng}`).join('|');
 
-  const origin = `${body.origin.lat},${body.origin.lng}`;
-  const destinations = body.items.map((i) => `${i.lat},${i.lng}`).join('|');
-  const mode = body.mode ?? 'walking';
-
-  // Distance Matrix v1（わかりやすいJSON、最大25件/回）
   const url =
     `https://maps.googleapis.com/maps/api/distancematrix/json` +
     `?origins=${encodeURIComponent(origin)}` +
     `&destinations=${encodeURIComponent(destinations)}` +
-    `&mode=${encodeURIComponent(mode)}` +
+    `&mode=${encodeURIComponent(params.mode)}` +
     `&language=ja&region=JP&units=metric` +
-    `&key=${encodeURIComponent(apiKey)}`;
+    `&key=${encodeURIComponent(params.apiKey)}`;
 
-  const resp = await fetch(url, { method: 'GET' });
-  const jsonUnknown = await resp.json().catch(() => null) as unknown;
-  if (!resp.ok || !jsonUnknown) {
-    return jsonError(resp.status || 502, 'Distance Matrix API error');
+  return url;
+}
+
+// ---- handler ----
+export async function POST(req: Request) {
+  // 入力
+  let body: EtaReq | null = null;
+  try {
+    body = (await req.json()) as EtaReq;
+  } catch {
+    return new Response(JSON.stringify({ code: 400, message: 'invalid json' }), { status: 400 });
   }
-  if (!hasStatus(jsonUnknown) || jsonUnknown.status !== 'OK') {
-    const msg = hasStatus(jsonUnknown) ? (jsonUnknown.error_message || jsonUnknown.status) : 'Distance Matrix error';
-    return jsonError(400, msg);
+  if (!body?.origin || !Array.isArray(body.items) || body.items.length === 0) {
+    return new Response(JSON.stringify({ code: 400, message: 'invalid request' }), { status: 400 });
   }
 
-  // destinations と items は同順で返る前提
-  const out: EtaRes['etas'] = {};
-  const rows = (jsonUnknown as any).rows?.[0]?.elements ?? [];
-  rows.forEach((el: any, idx: number) => {
-    const item = body.items[idx];
-    if (!item) return;
-    if (el.status !== 'OK') return;
-    const seconds = Number(el.duration?.value ?? 0);
-    const text = String(el.duration?.text ?? '');
-    const distanceMeters = Number(el.distance?.value ?? 0);
-    out[item.key] = { text, seconds, distanceMeters };
-  });
+  const urlQ = new URL(req.url);
+  const debugLevel = Number(urlQ.searchParams.get('debug') ?? '0'); // 0/1/2
 
-  return new Response(JSON.stringify({ etas: out } satisfies EtaRes), {
-    headers: { 'Content-Type': 'application/json' },
-  });
+  const apiKey = process.env.PLACES_API_KEY;
+  if (!apiKey) {
+    return new Response(JSON.stringify({ code: 500, message: 'PLACES_API_KEY is missing' }), {
+      status: 500,
+    });
+  }
+
+  const mode = (body.mode ?? 'walking') as TravelMode;
+
+  // --- 日本では transit が API 非対応：早期スキップ（クォータ節約） ---
+  if (mode === 'transit') {
+    const etas: EtaMap = {};
+    const dbg: Record<string, DebugElement> = {};
+    for (const it of body.items) {
+      etas[it.key] = null;
+      if (debugLevel >= 1) dbg[it.key] = { status: 'UNSUPPORTED_IN_JAPAN' };
+    }
+    const payload: EtaRes = { etas, ...(debugLevel >= 1 ? { debug: dbg } : {}) };
+    return new Response(JSON.stringify(payload), { headers: { 'Content-Type': 'application/json' } });
+  }
+
+  // --- walking / driving / bicycling は Distance Matrix でバッチ取得 ---
+  const outEtas: EtaMap = {};
+  const outDbg: Record<string, DebugElement> = {};
+  const meta: DebugMeta = { requestUrlRedacted: [] };
+
+  // mode は transit 以外が確定
+  const dmMode = mode as Exclude<TravelMode, 'transit'>;
+  const batches = chunk(body.items, DM_MAX_DEST);
+
+  for (const batch of batches) {
+    const dmUrl = buildDMUrl({
+      origin: body.origin,
+      items: batch,
+      mode: dmMode,
+      apiKey,
+    });
+
+    if (debugLevel >= 2) meta.requestUrlRedacted!.push(redactKey(dmUrl));
+
+    const r = await fetch(dmUrl);
+    const j: any = await r.json().catch(() => null);
+
+    if (!r.ok || !j || j.status !== 'OK') {
+      const msg = j?.error_message || j?.status || 'Distance Matrix API error';
+      return new Response(JSON.stringify({ code: r.status || 400, message: msg }), {
+        status: r.status || 400,
+      });
+    }
+
+    const elements: any[] = j.rows?.[0]?.elements ?? [];
+    elements.forEach((el, idx) => {
+      const it = batch[idx];
+      if (!it) return;
+      const st = String(el?.status ?? 'UNKNOWN');
+      if (st === 'OK') {
+        const seconds = Number(el.duration?.value ?? 0);
+        const text = String(el.duration?.text ?? '');
+        const distanceMeters = Number(el.distance?.value ?? 0);
+        outEtas[it.key] = { text, seconds, distanceMeters };
+        if (debugLevel >= 1)
+          outDbg[it.key] = { status: st, durationText: text, durationSec: seconds, distanceMeters };
+      } else {
+        outEtas[it.key] = null;
+        if (debugLevel >= 1) outDbg[it.key] = { status: st };
+      }
+    });
+  }
+
+  const payload: EtaRes = {
+    etas: outEtas,
+    ...(debugLevel >= 1 ? { debug: outDbg } : {}),
+    ...(debugLevel >= 2 ? { debugMeta: meta } : {}),
+  };
+
+  return new Response(JSON.stringify(payload), { headers: { 'Content-Type': 'application/json' } });
+}
+
+export async function GET() {
+  return new Response('Method Not Allowed', { status: 405 });
 }

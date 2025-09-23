@@ -15,6 +15,8 @@ const FIELDS = [
   'places.googleMapsUri',
   'places.websiteUri',
   'places.currentOpeningHours.weekdayDescriptions',
+  'places.regularOpeningHours.weekdayDescriptions',
+  'places.regularOpeningHours.periods',
   'places.photos.name',
   'places.photos.widthPx',
   'places.photos.heightPx',
