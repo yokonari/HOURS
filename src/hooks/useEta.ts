@@ -1,59 +1,118 @@
-// hooks/useEta.ts
-'use client';
-import { useEffect, useState } from 'react';
-import type { Eta, Place, TravelMode } from '@/types/place';
+// useEta.ts
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Eta } from '@/types/place';
 
-type InputWithKey = { key: string; lat: number; lng: number };
+// ===== Types =====
+export type TravelMode = 'walking' | 'driving' | 'bicycling' | 'transit';
+export type LatLng = { lat: number; lng: number };
+export type EtaMap = Record<string, Eta>; // 例: key は placeId / id
 
-export function useEta(
-  results: Place[],
-  origin?: { lat?: number; lng?: number },
-  mode: TravelMode = 'walking'
-) {
-  const [etaMap, setEtaMap] = useState<Record<string, Eta | null>>({});
+type Destination = { id: string; lat: number; lng: number };
 
-  // ★ 交通手段が変わったら表示を一旦クリア（古いETAを見せない）
+type UseEtaParams = {
+  origin?: LatLng | null;
+  destinations: Destination[];
+  mode: TravelMode;
+  /** APIエンドポイント（必要なら変更可能） */
+  endpoint?: string; // default '/api/eta'
+};
+
+// 小文字UIモード -> サーバー/Google向け大文字モード
+function toApiMode(mode: TravelMode): 'WALKING' | 'DRIVING' | 'BICYCLING' | 'TRANSIT' | undefined {
+  switch (mode) {
+    case 'walking':
+      return 'WALKING';
+    case 'driving':
+      return 'DRIVING';
+    case 'bicycling':
+      return 'BICYCLING';
+    case 'transit':
+      // サーバーが未対応なら undefined を返し、フェッチをスキップする運用にしてもOK
+      return 'TRANSIT';
+    default:
+      return undefined;
+  }
+}
+
+export function useEta({ origin, destinations, mode, endpoint = '/api/eta' }: UseEtaParams) {
+  const [etaMap, setEtaMap] = useState<EtaMap>({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  // destinations が再生成されても無限フェッチにならないよう、丸めてキー化
+  const destinationsKey = useMemo(() => {
+    return JSON.stringify(
+      destinations.map(d => [d.id, Math.round(d.lat * 1e6), Math.round(d.lng * 1e6)])
+    );
+  }, [destinations]);
+
+  // mode 変更時は見た目をリセット（古いETAを残さない）
   useEffect(() => {
     setEtaMap({});
   }, [mode]);
 
+  // URLは mode も必ず含める（これがキーになり、切替1回目でも確実にフェッチが走る）
+  const url = useMemo(() => {
+    if (!origin) return null;
+    const apiMode = toApiMode(mode);
+    if (!apiMode) return null; // 非対応モードはフェッチしない
+    const u = new URL(endpoint, location.origin);
+    u.searchParams.set('lat', String(origin.lat));
+    u.searchParams.set('lng', String(origin.lng));
+    u.searchParams.set('mode', apiMode);
+    return u.toString();
+  }, [origin?.lat, origin?.lng, mode, endpoint]);
+
+  // 前回のリクエストを中断するための AbortController
+  const abortRef = useRef<AbortController | null>(null);
+
   useEffect(() => {
-    const lat = origin?.lat, lng = origin?.lng;
-    if (lat == null || lng == null) return;
-    if (!results.length) return;
+    if (!url || !origin || destinations.length === 0) return;
 
-    // 未取得のものだけをまとめて問い合わせ
-    const pending: InputWithKey[] = [];
-    for (const p of results) {
-      const key = p.id ?? `${p.displayName?.text ?? ''}|${p.formattedAddress ?? ''}`;
-      const plat = p.location?.latitude, plng = p.location?.longitude;
-      if (!key || plat == null || plng == null) continue;
-      if (etaMap[key]) continue;
-      pending.push({ key, lat: plat, lng: plng });
-    }
-    if (!pending.length) return;
-
-    let aborted = false;
+    // ★重要: 直前のフェッチをキャンセル → 新しいフェッチを開始
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     (async () => {
-      // 適当にバッチ化
-      for (let i = 0; i < pending.length && !aborted; i += 25) {
-        const slice = pending.slice(i, i + 25);
-        const res = await fetch('/api/eta', {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ origin: { lat, lng }, items: slice, mode }),
-        }).catch(() => null);
-        if (!res?.ok) continue;
-        const data = (await res.json()) as { etas?: Record<string, Eta | null> } | null;
-        if (!data?.etas) continue;
-        if (aborted) break;
-        setEtaMap(prev => ({ ...prev, ...data.etas }));
+          body: JSON.stringify({
+            origin,
+            items: destinations.map(dest => ({
+              key: dest.id,
+              lat: dest.lat,
+              lng: dest.lng
+            }))
+          }),
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(`ETA HTTP ${res.status}`);
+        const response = await res.json() as { etas: EtaMap };
+        setEtaMap(response.etas ?? {});
+      } catch (e: any) {
+        if (e?.name === 'AbortError') return; // 切替直後の中断は正常
+        setEtaMap({});
+        setError(e instanceof Error ? e : new Error(String(e)));
+        console.error(e);
+      } finally {
+        setLoading(false);
       }
     })();
 
-    return () => { aborted = true; };
-  }, [results, origin?.lat, origin?.lng, mode, /* etaMap intentionally not included */]);
+    // この effect の controller だけをクリーンアップ
+    return () => controller.abort();
+    // 依存: url に lat/lng/mode/endpoint が含まれている + destinationsKey
+  }, [url, destinationsKey]);
 
-  return etaMap;
+  const refresh = () => {
+    // キャッシュだけクリア（必要なら外から再レンダで再フェッチ）
+    setEtaMap({});
+  };
+
+  return { etaMap, loading, error, refresh };
 }

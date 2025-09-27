@@ -1,5 +1,6 @@
 'use client';
 import { Eta, Place, TravelMode } from '@/types/place';
+import { EtaMap } from '@/hooks/useEta';
 import { jpWeek, getHoursForWeekdayText, getOpeningHoursFromPlace, getWeekdayStatusText } from '@/lib/openingHours';
 
 function makeKey(p: Place) {
@@ -15,7 +16,7 @@ export function PlaceCard({
 }: {
   place: Place;
   dateStr: string;
-  etaMap: Record<string, Eta | null>;
+  etaMap: EtaMap;
   origin?: { lat?: number; lng?: number };
   mode: TravelMode;
 }) {
@@ -26,8 +27,8 @@ export function PlaceCard({
   const mapsUrl = p.googleMapsUri
     ? p.googleMapsUri
     : latlng
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(latlng)}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(latlng)}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
 
   const transitDirUrl =
     mode === 'transit' && origin?.lat != null && origin?.lng != null && plat != null && plng != null

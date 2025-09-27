@@ -1,5 +1,6 @@
 'use client';
 import { Eta, Place, TravelMode } from '@/types/place';
+import { EtaMap } from '@/hooks/useEta';
 import { PlaceCard } from './PlaceCard';
 
 export function PlaceList({
@@ -11,7 +12,7 @@ export function PlaceList({
   loaderRef,
 }: {
   results: Place[];
-  etaMap: Record<string, Eta | null>;
+  etaMap: EtaMap;
   dateStr: string;
   origin?: { lat?: number; lng?: number };
   mode: TravelMode;

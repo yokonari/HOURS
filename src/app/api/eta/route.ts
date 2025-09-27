@@ -2,10 +2,9 @@
 // Next.js App Router の API Route（Node 実行前提：edge runtime を使わない）
 // 日本では Google API の transit ETA は返ってこない仕様のため、公共交通機関は即スキップします。
 
-type TravelMode = 'walking' | 'driving' | 'bicycling' | 'transit';
+import { Eta, TravelMode } from '@/types/place';
 
-type Eta = { text: string; seconds: number; distanceMeters: number };
-type EtaMap = Record<string, Eta | null>;
+type EtaMap = Record<string, Eta>;
 
 type DebugElement = {
   status: string;
