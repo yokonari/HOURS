@@ -2,6 +2,7 @@
 import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
 import { TransportModeSelector } from '@/components/TransportModeSelector';
+import { FinalReceptionSelector } from '@/components/FinalReceptionSelector';
 import { PlaceList } from '@/components/PlaceList';
 import { usePlaces } from '@/hooks/usePlaces';
 import { useEta } from '@/hooks/useEta';
@@ -16,9 +17,11 @@ export default function HomePage() {
     // 日付/時刻
     dateStr, setDateStr, timeStr, setTimeStr, useNow, setUseNow, dateLabel, timeLabel,
     // 位置/並び順
-    lat, lng, hasLatLng, sortByDistance, setSortByDistance,
+    lat, lng, hasLatLng,
     // 交通手段
     mode, setMode,
+    // 最終受付考慮
+    finalReception, setFinalReception,
     // 無限スクロール
     loaderRef,
   } = usePlaces();
@@ -37,15 +40,26 @@ export default function HomePage() {
   return (
     <>
       {/* 固定検索フォーム */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <div className="mx-auto max-w-5xl px-4 py-4">
-          {/* 1行目: 日時選択とテキスト検索 */}
-          <form
-            onSubmit={submitSearch}
-            className="flex items-center gap-3 mb-3"
-          >
-            {/* 日付・時間選択 */}
-            <div>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+        <div className="mx-auto max-w-[600px] px-4 py-4">
+          <form onSubmit={submitSearch} className="space-y-3">
+            {/* 1行目: 検索フォームと交通手段 */}
+            <div className="flex items-center gap-3">
+              <div className="flex-1">
+                <SearchForm
+                  qInput={qInput}
+                  setQInput={setQInput}
+                  loading={loading}
+                  waitingGeo={!hasLatLng}
+                />
+              </div>
+              {hasLatLng && (
+                <TransportModeSelector mode={mode} setMode={setMode} />
+              )}
+            </div>
+
+            {/* 2行目: 日時選択と最終受付 */}
+            <div className="flex items-center gap-3">
               <DateTimePicker
                 dateStr={dateStr}
                 setDateStr={setDateStr}
@@ -56,34 +70,9 @@ export default function HomePage() {
                 dateLabel={dateLabel}
                 timeLabel={timeLabel}
               />
-            </div>
-
-            {/* テキスト入力 */}
-            <div className="flex-1">
-              <SearchForm
-                qInput={qInput}
-                setQInput={setQInput}
-                loading={loading}
-                waitingGeo={!hasLatLng}
-              />
+              <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
             </div>
           </form>
-
-          {/* 2行目: 近い順と交通手段 */}
-          {hasLatLng && (
-            <div className="flex items-center gap-3">
-              <label className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={sortByDistance}
-                  onChange={(e) => setSortByDistance(e.target.checked)}
-                  className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
-                />
-                <span>近い順</span>
-              </label>
-              <TransportModeSelector mode={mode} setMode={setMode} />
-            </div>
-          )}
         </div>
       </div>
 
@@ -111,7 +100,7 @@ export default function HomePage() {
         {/* 絞り込み結果0件メッセージ */}
         {hasSearched && !loading && !error && results.length === 0 && (
           <div className="mt-4 text-center text-gray-500">
-            該当するお店が見つかりませんでした。
+            該当する場所が見つかりませんでした。
           </div>
         )}
 

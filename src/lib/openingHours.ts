@@ -280,3 +280,37 @@ export function isOpenOnWeekday(place: Place, jsDay: number): boolean {
   // 不明は落とさない方針
   return true;
 }
+
+/**
+ * 営業終了時間を取得する（分単位）
+ * @param place 店舗情報
+ * @param jsDay 曜日（0=日曜, 1=月曜, ...）
+ * @returns 営業終了時間（分単位）、不明の場合はnull
+ */
+export function getClosingTime(place: Place, jsDay: number): number | null {
+  const desc = place?.currentOpeningHours?.weekdayDescriptions ?? place?.regularOpeningHours?.weekdayDescriptions;
+  if (!desc || desc.length === 0) return null;
+
+  const dayText = getDescForJsDay(desc, jsDay);
+  if (!dayText) return null;
+
+  // 24時間営業の場合はnull（終了時間なし）
+  if (dayText.includes('24時間') || dayText.includes('24時間営業')) return null;
+
+  // 休業の場合はnull
+  if (dayText.includes('休業') || dayText.includes('定休日')) return null;
+
+  // 営業時間から終了時間を抽出
+  const timeMatches = dayText.match(/(\d{1,2})[時:](\d{2})[分]?/g);
+  if (!timeMatches || timeMatches.length < 2) return null;
+
+  // 最後の時間を終了時間とする
+  const lastTime = timeMatches[timeMatches.length - 1];
+  const timeMatch = lastTime.match(/(\d{1,2})[時:](\d{2})[分]?/);
+  if (!timeMatch) return null;
+
+  const hours = parseInt(timeMatch[1], 10);
+  const minutes = parseInt(timeMatch[2], 10);
+
+  return hours * 60 + minutes;
+}

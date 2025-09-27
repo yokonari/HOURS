@@ -13,6 +13,8 @@ export function SearchForm({
   loading: boolean;
   waitingGeo: boolean;
 }) {
+  const canClear = qInput.length > 0 && !loading;
+
   return (
     <div className="relative min-w-0">
       <input
@@ -21,23 +23,46 @@ export function SearchForm({
         onChange={(e) => setQInput(e.target.value)}
         placeholder="例: カフェ 新宿"
         aria-label="検索ワード"
-        className="h-10 w-full rounded-xl border border-gray-200 bg-white px-4 pr-12 shadow-sm outline-none ring-0 transition focus:border-gray-300 focus:ring-2 focus:ring-black/10"
+        className="h-10 w-full rounded-full bg-gray-100 px-4 pr-24 outline-none ring-0 transition hover:bg-gray-200 focus:bg-white focus:ring-2 focus:ring-gray-300"
+        style={{ color: 'var(--on-surface)' }}
       />
-      <button
-        type="submit"
-        disabled={loading}
-        aria-label="検索"
-        className="absolute inset-y-0 right-1 my-1 inline-flex h-8 w-9 items-center justify-center rounded-lg px-0
-                   disabled:cursor-not-allowed disabled:opacity-60 hover:bg-gray-50"
-        title={loading ? '検索中…' : (waitingGeo ? '現在地取得中…' : '検索')}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             fill="currentColor" className="h-5 w-5 text-gray-700">
-          <path fillRule="evenodd"
-            d="M10.5 3a7.5 7.5 0 0 1 5.916 12.17l3.707 3.707a1 1 0 0 1-1.414 1.414l-3.707-3.707A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"
-            clipRule="evenodd"/>
-        </svg>
-      </button>
+      <div className="absolute inset-y-0 right-1 my-1 flex items-center gap-1">
+        <button
+          type="submit"
+          disabled={loading}
+          aria-label="検索"
+          className="inline-flex h-8 w-9 items-center justify-center rounded-lg disabled:cursor-not-allowed disabled:opacity-60 hover:bg-gray-50 cursor-pointer"
+          title={loading ? '検索中…' : (waitingGeo ? '現在地取得中…' : '検索')}
+        >
+          <span
+            className="material-symbols-rounded text-[20px] text-on-surface"
+            style={{
+              fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24`,
+            }}
+            aria-hidden="true"
+          >
+            search
+          </span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setQInput('')}
+          disabled={!canClear}
+          aria-label="入力をクリア"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+          title="入力をクリア"
+        >
+          <span
+            className="material-symbols-rounded text-[18px] text-on-surface"
+            style={{
+              fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24`,
+            }}
+            aria-hidden="true"
+          >
+            close
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

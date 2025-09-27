@@ -3,6 +3,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --on-surface: #272343;
+}
+
+/* カスタムボタンスタイル */
+.btn-outline-pill {
+  @apply h-10 whitespace-nowrap rounded-full border px-4 py-2 bg-transparent hover:bg-gray-50;
+  color: var(--on-surface);
+  border-color: var(--on-surface);
+}
+
+.btn-outline-pill:hover {
+  border-color: var(--on-surface);
+}
+
+/* テキストカラークラス */
+.text-on-surface {
+  color: var(--on-surface);
+}
+
+.text-on-surface-light {
+  color: var(--on-surface);
+  opacity: 0.7;
+}
+
+.text-on-surface-muted {
+  color: var(--on-surface);
+  opacity: 0.5;
 }
 
 @theme inline {

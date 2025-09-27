@@ -51,7 +51,81 @@ export function PlaceCard({
   const eta = key ? etaMap[key] : undefined;
 
   const weekdayJS = new Date(`${dateStr}T00:00:00`).getDay();
-  const wdJp = jpWeek[weekdayJS];
+
+  // 日またぎ営業の場合、開店の曜日を表示する
+  const getDisplayWeekday = () => {
+    const info = getHoursForPlaceOnWeekday(p as any, weekdayJS);
+    if (info.is24h || info.isClosed) return weekdayJS;
+
+    // 営業時間テキストから日またぎを検出
+    const rawText = stripWeekdayPrefix(info.text, weekdayJS);
+    if (!rawText) return weekdayJS;
+
+    // より確実な日またぎパターンを検出
+    // パターン1: 「9時30分～5時00分」のような形式
+    const dayOverPattern1 = /(\d{1,2})[時:](\d{2})[分]?[～-](\d{1,2})[時:](\d{2})[分]?/;
+    const match1 = rawText.match(dayOverPattern1);
+
+    if (match1) {
+      const [, startHour, startMin, endHour, endMin] = match1;
+      const startMinutes = parseInt(startHour) * 60 + parseInt(startMin);
+      const endMinutes = parseInt(endHour) * 60 + parseInt(endMin);
+
+      // 終了時刻が開始時刻より早い場合は日またぎ
+      if (endMinutes < startMinutes) {
+        return (weekdayJS + 6) % 7;
+      }
+    }
+
+    // パターン2: 曜日名が含まれている場合（例：「土曜日: 9時30分～5時00分」）
+    const dayOverPattern2 = /(月|火|水|木|金|土|日)曜日[：:]\s*(\d{1,2})[時:](\d{2})[分]?[～-](\d{1,2})[時:](\d{2})[分]?/;
+    const match2 = rawText.match(dayOverPattern2);
+
+    if (match2) {
+      const [, dayName, startHour, startMin, endHour, endMin] = match2;
+      const startMinutes = parseInt(startHour) * 60 + parseInt(startMin);
+      const endMinutes = parseInt(endHour) * 60 + parseInt(endMin);
+
+      // 終了時刻が開始時刻より早い場合は日またぎ
+      if (endMinutes < startMinutes) {
+        return (weekdayJS + 6) % 7;
+      }
+    }
+
+    // パターン3: 直接的な日またぎ表現を検出
+    if (rawText.includes('～5時') || rawText.includes('～4時') || rawText.includes('～3時') ||
+      rawText.includes('～2時') || rawText.includes('～1時') || rawText.includes('～0時')) {
+      return (weekdayJS + 6) % 7;
+    }
+
+    // パターン4: 前日の曜日が日またぎ営業の場合、その曜日を表示
+    const prevWeekdayJS = (weekdayJS + 6) % 7;
+    const prevInfo = getHoursForPlaceOnWeekday(p as any, prevWeekdayJS);
+    if (!prevInfo.is24h && !prevInfo.isClosed) {
+      const prevRawText = stripWeekdayPrefix(prevInfo.text, prevWeekdayJS);
+      if (prevRawText) {
+        // 前日の営業時間が日またぎかチェック
+        const prevDayOverPattern = /(\d{1,2})[時:](\d{2})[分]?[～-](\d{1,2})[時:](\d{2})[分]?/;
+        const prevMatch = prevRawText.match(prevDayOverPattern);
+
+        if (prevMatch) {
+          const [, startHour, startMin, endHour, endMin] = prevMatch;
+          const startMinutes = parseInt(startHour) * 60 + parseInt(startMin);
+          const endMinutes = parseInt(endHour) * 60 + parseInt(endMin);
+
+          // 前日が日またぎ営業の場合、前日を表示
+          if (endMinutes < startMinutes) {
+            return prevWeekdayJS;
+          }
+        }
+      }
+    }
+
+    return weekdayJS;
+  };
+
+  const displayWeekdayJS = getDisplayWeekday();
+  const wdJp = jpWeek[displayWeekdayJS];
 
   const km = eta && typeof eta.distanceMeters === 'number'
     ? (eta.distanceMeters >= 1000 ? `${(eta.distanceMeters / 1000).toFixed(1)} km` : `${eta.distanceMeters} m`)
@@ -59,11 +133,11 @@ export function PlaceCard({
 
   // 表示テキスト（選択時刻に基づいて適切な時間帯のみ表示）
   const getFilteredHoursText = () => {
-    const info = getHoursForPlaceOnWeekday(p as any, weekdayJS);
+    const info = getHoursForPlaceOnWeekday(p as any, displayWeekdayJS);
     if (info.is24h) return "24時間営業";
     if (info.isClosed) return "休業";
 
-    const rawText = stripWeekdayPrefix(info.text, weekdayJS);
+    const rawText = stripWeekdayPrefix(info.text, displayWeekdayJS);
     if (!rawText) return "—";
 
     // 午前と午後に分かれている場合、選択時刻に応じて片方のみ表示
@@ -115,7 +189,7 @@ export function PlaceCard({
   const hoursText = getFilteredHoursText();
 
   return (
-    <li className="group flex h-24 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+    <li className="group flex h-26 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
       <div className="shrink-0 relative">
         <div className="h-full w-24 overflow-hidden bg-gray-100">
           {imgSrc ? (
@@ -125,7 +199,7 @@ export function PlaceCard({
           )}
         </div>
         {typeof p.rating === 'number' && (
-          <div className="absolute top-1 left-1 bg-white/50 backdrop-blur-sm rounded-full px-2 py-0">
+          <div className="absolute top-1 left-1 bg-black/10 backdrop-blur-sm rounded-full px-2 py-0">
             <span title={`${p.rating} / 5`} className="text-[10px] font-semibold text-white">★ {p.rating.toFixed(1)}</span>
           </div>
         )}
@@ -133,13 +207,13 @@ export function PlaceCard({
 
       <div className="min-w-0 flex-1 p-2 flex flex-col justify-start overflow-hidden">
         <div className="flex items-center justify-between gap-2">
-          <h2 className="truncate text-base font-semibold text-gray-900" title={name}>{name}</h2>
+          <h2 className="truncate text-base font-semibold text-on-surface" title={name}>{name}</h2>
         </div>
 
         <div className="mt-1 flex items-center gap-2 text-xs">
-          <div className="text-gray-700 truncate">{wdJp}: {hoursText}</div>
+          <div className="text-on-surface truncate">{wdJp}: {hoursText}</div>
           {origin?.lat != null && origin?.lng != null && (
-            <div className="flex items-center gap-1 text-gray-800 shrink-0">
+            <div className="flex items-center gap-1 text-on-surface-light shrink-0">
               <span
                 className="material-symbols-rounded leading-none"
                 style={{
@@ -168,9 +242,23 @@ export function PlaceCard({
         </div>
 
         <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-          <a href={mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-md border border-gray-200 px-2 py-1 text-gray-700 hover:bg-gray-50">マップで開く</a>
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center rounded-full border border-gray-400 px-2.5 py-1.5 text-xs text-on-surface transition-colors hover:bg-gray-100"
+          >
+            マップで開く
+          </a>
           {p.websiteUri && (
-            <a href={p.websiteUri} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-md border border-gray-200 px-2 py-1 text-gray-700 hover:bg-gray-50">公式サイト</a>
+            <a
+              href={p.websiteUri}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center rounded-full border border-gray-400 px-2.5 py-1.5 text-xs text-on-surface transition-colors hover:bg-gray-100"
+            >
+              公式サイト
+            </a>
           )}
         </div>
       </div>

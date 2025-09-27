@@ -7,6 +7,7 @@ import {
   todayStr,
   weekdayFromDateString,
   jpWeek,
+  getClosingTime,
 } from '@/lib/openingHours';
 
 function isObject(v: unknown): v is Record<string, unknown> {
@@ -24,8 +25,8 @@ export function usePlaces() {
   const [lng, setLng] = useState<number>();
   const hasLatLng = lat != null && lng != null;
 
-  // 並び替え / ページング
-  const [sortByDistance, setSortByDistance] = useState<boolean>(true);
+  // 並び替え / ページング（常に近い順で固定）
+  const sortByDistance = true;
   const [cursor, setCursor] = useState<string | null>(null);
   const seenRef = useRef<Set<string>>(new Set());
 
@@ -39,6 +40,9 @@ export function usePlaces() {
 
   // 交通手段
   const [mode, setMode] = useState<TravelMode>('walking');
+
+  // 最終受付考慮
+  const [finalReception, setFinalReception] = useState<'none' | '30min' | '60min'>('none');
 
   // 検索状態
   const [hasSearched, setHasSearched] = useState(false);
@@ -182,8 +186,20 @@ export function usePlaces() {
 
     return allResults
       .filter((p) => isOpenOnWeekday(p as any, wd))
-      .filter((p) => isOpenAt(p as any, wd, minutes));
-  }, [allResults, dateStr, isToday, useNow, timeStr]);
+      .filter((p) => isOpenAt(p as any, wd, minutes))
+      .filter((p) => {
+        // 最終受付考慮のフィルタリング
+        if (finalReception === 'none') return true;
+
+        const closingTime = getClosingTime(p as any, wd);
+        if (closingTime === null) return true; // 終了時間不明の場合は表示
+
+        const bufferMinutes = finalReception === '30min' ? 30 : 60;
+        const cutoffTime = closingTime - bufferMinutes;
+
+        return minutes <= cutoffTime;
+      });
+  }, [allResults, dateStr, isToday, useNow, timeStr, finalReception]);
 
   // 無限スクロール
   useEffect(() => {
@@ -249,9 +265,11 @@ export function usePlaces() {
     // 日付/時刻
     dateStr, setDateStr, timeStr, setTimeStr, useNow, setUseNow, dateLabel, timeLabel,
     // 位置/並び順
-    lat, lng, hasLatLng, sortByDistance, setSortByDistance,
+    lat, lng, hasLatLng,
     // 交通手段
     mode, setMode,
+    // 最終受付考慮
+    finalReception, setFinalReception,
     // 無限スクロール
     loaderRef,
   };
