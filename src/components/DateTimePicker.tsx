@@ -43,7 +43,7 @@ export function DateTimePicker({
       <button
         type="button"
         onClick={openDatePicker}
-        className="h-10 whitespace-nowrap rounded-lg border px-3 py-1.5"
+        className="relative h-10 whitespace-nowrap rounded-lg border px-3 py-1.5"
         aria-label="日付を選択"
       >
         {dateLabel}
@@ -54,15 +54,14 @@ export function DateTimePicker({
         type="date"
         value={dateStr}
         onChange={(e) => setDateStr(e.target.value)}
-        className="absolute h-0 w-0 -z-10 opacity-0"
-        aria-hidden="true"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         tabIndex={-1}
       />
 
       <button
         type="button"
         onClick={openTimePicker}
-        className="h-10 whitespace-nowrap rounded-lg border px-3 py-1.5"
+        className="relative h-10 whitespace-nowrap rounded-lg border px-3 py-1.5"
         aria-label="時刻を選択"
       >
         {timeLabel}
@@ -77,8 +76,7 @@ export function DateTimePicker({
           if (!v) { setUseNow(true); setTimeStr(''); }
           else { setUseNow(false); setTimeStr(v); }
         }}
-        className="absolute h-0 w-0 -z-10 opacity-0"
-        aria-hidden="true"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         tabIndex={-1}
       />
     </div>
