@@ -58,15 +58,17 @@ export default function HomePage() {
 
           <form
             onSubmit={submitSearch}
-            className="grid gap-3 sm:grid-cols-1 sm:items-center"
+            className="flex items-center gap-3"
           >
             {/* テキスト入力 */}
-            <SearchForm
-              qInput={qInput}
-              setQInput={setQInput}
-              loading={loading}
-              waitingGeo={!hasLatLng}
-            />
+            <div className="flex-1">
+              <SearchForm
+                qInput={qInput}
+                setQInput={setQInput}
+                loading={loading}
+                waitingGeo={!hasLatLng}
+              />
+            </div>
 
             {/* 並び順＋移動手段 */}
             {hasLatLng && (
@@ -78,7 +80,7 @@ export default function HomePage() {
                     onChange={(e) => setSortByDistance(e.target.checked)}
                     className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
                   />
-                  <span>距離が近い順</span>
+                  <span>近い順</span>
                 </label>
                 <TransportModeSelector mode={mode} setMode={setMode} />
               </div>
@@ -88,14 +90,14 @@ export default function HomePage() {
       </div>
 
       {/* メインコンテンツエリア */}
-      <main className="mx-auto max-w-5xl px-4 pt-40 pb-6">
+      <main className="mx-auto max-w-5xl px-4 pt-32 pb-6">
 
         {error && (
           <div role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
         )}
 
         {!hasSearched && results.length === 0 && !loading && !error && (
-          <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6 text-gray-600">キーワードを入力して「検索」を押してください。</div>
+          <div className="mt-2 rounded-xl border border-gray-200 bg-white p-6 text-gray-600">キーワードを入力して「検索」を押してください。</div>
         )}
 
         <PlaceList

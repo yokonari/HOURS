@@ -3,6 +3,13 @@ import { Eta, Place, TravelMode } from '@/types/place';
 import { EtaMap } from '@/hooks/useEta';
 import { jpWeek, getHoursForWeekdayText, getOpeningHoursFromPlace, getWeekdayStatusText } from '@/lib/openingHours';
 
+const modeIcons: Record<TravelMode, string> = {
+  walking: 'directions_walk',
+  driving: 'directions_car',
+  bicycling: 'directions_bike',
+  transit: 'directions_transit',
+};
+
 function makeKey(p: Place) {
   return p.id ?? `${p.displayName?.text ?? ''}|${p.formattedAddress ?? ''}`;
 }
@@ -52,29 +59,41 @@ export function PlaceCard({
   const hoursText = getWeekdayStatusText(p as any, weekdayJS);
 
   return (
-    <li className="group flex overflow-hidden rounded-2xl border border-gray-200 bg-white p-3 shadow-sm transition hover:shadow-md">
-      <div className="mr-3 shrink-0">
-        <div className="h-24 w-24 overflow-hidden rounded-lg bg-gray-100">
+    <li className="group flex min-h-20 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+      <div className="shrink-0 relative">
+        <div className="h-full w-24 overflow-hidden bg-gray-100">
           {imgSrc ? (
             <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">No image</div>
           )}
         </div>
+        {typeof p.rating === 'number' && (
+          <div className="absolute top-1 left-1 bg-white/50 backdrop-blur-sm rounded-full px-2 py-0">
+            <span title={`${p.rating} / 5`} className="text-[10px] font-semibold text-amber-700">★ {p.rating.toFixed(1)}</span>
+          </div>
+        )}
       </div>
 
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 p-2 flex flex-col justify-start">
         <div className="flex items-center justify-between gap-2">
           <h2 className="truncate text-base font-semibold text-gray-900" title={name}>{name}</h2>
-          {typeof p.rating === 'number' && (
-            <span title={`${p.rating} / 5`} className="shrink-0 text-[11px] font-semibold text-amber-700">★ {p.rating.toFixed(1)}</span>
-          )}
         </div>
 
-        <div className="mt-1 text-xs text-gray-700">営業時間({wdJp}): {hoursText}</div>
+        <div className="mt-1 text-xs text-gray-700">{wdJp}: {hoursText}</div>
 
         {origin?.lat != null && origin?.lng != null && (
-          <div className="mt-1 text-xs text-gray-800">
+          <div className="mt-1 flex items-center gap-1 text-xs text-gray-800">
+            <span
+              className="material-symbols-rounded leading-none"
+              style={{
+                fontSize: '16px',
+                fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 12`,
+              }}
+              aria-hidden="true"
+            >
+              {modeIcons[mode]}
+            </span>
             {mode === 'transit' ? (
               <>
                 {transitDirUrl && (
@@ -84,8 +103,8 @@ export function PlaceCard({
             ) : (
               eta && (
                 <>
-                  到着目安: {eta.text}
-                  {km && <span className="ml-1 text-gray-600">（約 {km}）</span>}
+                  <span>{eta.text}</span>
+                  {km && <span className="text-gray-600">（約 {km}）</span>}
                 </>
               )
             )}
@@ -93,10 +112,10 @@ export function PlaceCard({
         )}
 
         <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+          <a href={mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-md border border-gray-200 px-2 py-1 text-gray-700 hover:bg-gray-50">マップで開く</a>
           {p.websiteUri && (
             <a href={p.websiteUri} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-md border border-gray-200 px-2 py-1 text-gray-700 hover:bg-gray-50">公式サイト</a>
           )}
-          <a href={mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-md border border-gray-200 px-2 py-1 text-gray-700 hover:bg-gray-50">マップで開く</a>
         </div>
       </div>
     </li>
