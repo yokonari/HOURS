@@ -1,0 +1,282 @@
+// openingHours.ts — 指定時間フィルタ対応（24h店の取りこぼし無し）
+// - weekdayDescriptions（月→日）と periods を両対応
+// - 日またぎ(overnight)対応
+// - JSX用の表示テキストは曜日プレフィックスを除去
+
+// ========= Types =========
+export type DayTime = { day?: number; hour?: number; minute?: number };
+export type Period = { open?: DayTime; close?: DayTime | null };
+export type OpeningHours = { periods?: Period[]; weekdayDescriptions?: string[] };
+export type Place = { regularOpeningHours?: OpeningHours; currentOpeningHours?: OpeningHours };
+
+// ========= Exports you already import =========
+export const jpWeek = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
+const pad2 = (n: number) => String(n).padStart(2, "0");
+export const todayStr = (d: Date = new Date()): string =>
+  `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+export const weekdayFromDateString = (s: string): number =>
+  new Date(`${s}T00:00:00`).getDay();
+
+export const getOpeningHoursFromPlace = (place: Place): OpeningHours | undefined =>
+  place?.currentOpeningHours ?? place?.regularOpeningHours ?? undefined;
+
+// ========= Internals =========
+const jsDayToMonFirstIdx = (jsDay: number) => (jsDay + 6) % 7;
+const normalize = (s: string) => s.replace(/\u3000/g, " ").trim();
+
+const is24hText = (raw: string) => {
+  const t = normalize(raw).toLowerCase();
+  return /\b24\s*時間/.test(t) || /24\s*hours/.test(t) || /open\s*24\s*hours/.test(t);
+};
+const isClosedText = (raw: string) => /休業|定休日|closed/i.test(normalize(raw));
+
+const getDescForJsDay = (wd: string[] | undefined, jsDay: number): string =>
+  wd?.[jsDayToMonFirstIdx(jsDay)] ?? "";
+
+// 曜日接頭辞の除去
+const jpWeekFull = ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"] as const;
+const enWeekFull = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] as const;
+const enWeekAbbr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"] as const;
+function stripWeekdayPrefix(line: string, jsDay: number): string {
+  if (!line) return "";
+  const sp = "[\\s\\u3000]*";
+  const colon = "[:：]";
+  const dayJP = jpWeek[jsDay];
+  const dayJPFull = jpWeekFull[jsDay];
+  const dayEN = enWeekFull[jsDay];
+  const dayENAbbr = enWeekAbbr[jsDay];
+  const pattern = new RegExp(
+    `^(?:${dayJPFull}|${dayJP}曜?日?|${dayEN}|${dayENAbbr})${sp}${colon}${sp}`,
+    "i"
+  );
+  return line.replace(pattern, "");
+}
+
+// ========= 24h 判定 =========
+function is24hByWeekdayDescriptions(wd: string[] | undefined, jsDay: number): boolean | undefined {
+  if (!wd?.length) return undefined;
+  const desc = getDescForJsDay(wd, jsDay);
+  if (!desc) return undefined;
+  if (is24hText(desc)) return true;
+  if (isClosedText(desc)) return false;
+  return undefined;
+}
+function is24hByPeriods(periods?: Period[]): boolean {
+  const ps = periods ?? [];
+  return ps.some((p: Period) => {
+    const o = p.open;
+    const c = p.close;
+    return !!o && o.hour === 0 && o.minute === 0 && !c; // 00:00開始・close無し → 24h
+  });
+}
+export function isOpenAllDayThisWeekday(place: Place, jsDay: number): boolean {
+  const desc24h =
+    is24hByWeekdayDescriptions(place?.currentOpeningHours?.weekdayDescriptions, jsDay) ??
+    is24hByWeekdayDescriptions(place?.regularOpeningHours?.weekdayDescriptions, jsDay);
+  if (desc24h !== undefined) return desc24h;
+  return is24hByPeriods(place?.regularOpeningHours?.periods);
+}
+
+// ========= 表示・軽解析 =========
+export const getHoursForWeekdayText = (text: string) => {
+  const original = text ?? "";
+  return { is24h: is24hText(original), isClosed: isClosedText(original), text: original };
+};
+export function getHoursForPlaceOnWeekday(place: Place, jsDay: number) {
+  const wd =
+    place?.currentOpeningHours?.weekdayDescriptions ??
+    place?.regularOpeningHours?.weekdayDescriptions;
+  const text = getDescForJsDay(wd, jsDay);
+  return getHoursForWeekdayText(text);
+}
+export function getWeekdayStatusText(place: Place, jsDay: number): string {
+  const info = getHoursForPlaceOnWeekday(place, jsDay);
+  if (info.is24h) return "24時間営業";
+  if (info.isClosed) return "休業";
+  return stripWeekdayPrefix(info.text, jsDay) || "—";
+}
+
+// ========= 時間帯パース & 指定時間判定 =========
+type Interval = { start: number; end: number }; // minutes-from-week-start [start, end)
+
+// 週の分数
+const DAY_MIN = 24 * 60;
+const WEEK_MIN = 7 * DAY_MIN;
+
+// "6時40分" / "6:40" / "6時" / "06:40" 等 → 分（0..1440）
+function parseTimeToMinutes(s: string): number | null {
+  const t = normalize(s);
+  const re = /(\d{1,2})\s*(?:時\s*(\d{1,2})?\s*分?|[：:]\s*(\d{2}))/i;
+  const m = t.match(re);
+  if (!m) return null;
+  const h = Number(m[1]);
+  const mm = m[2] != null ? Number(m[2]) : (m[3] != null ? Number(m[3]) : 0);
+  if (Number.isNaN(h) || Number.isNaN(mm)) return null;
+  if (h === 24 && mm === 0) return DAY_MIN; // 24:00 を翌日の 0:00 として扱う
+  if (h < 0 || h > 24 || mm < 0 || mm > 59) return null;
+  return Math.min(h * 60 + mm, DAY_MIN); // 安全側で 24:00 上限
+}
+
+// 1行テキストから時刻をすべて抽出（登場順）
+function extractAllTimesInMinutes(line: string): number[] {
+  const res: number[] = [];
+  const reGlobal = /(\d{1,2})\s*(?:時\s*(\d{1,2})?\s*分?|[：:]\s*(\d{2}))/gi;
+  let m: RegExpExecArray | null;
+  while ((m = reGlobal.exec(line)) !== null) {
+    const h = Number(m[1]);
+    const mm = m[2] != null ? Number(m[2]) : (m[3] != null ? Number(m[3]) : 0);
+    if (Number.isNaN(h) || Number.isNaN(mm)) continue;
+    if (h === 24 && mm === 0) { res.push(DAY_MIN); continue; }
+    if (h < 0 || h > 24 || mm < 0 || mm > 59) continue;
+    res.push(Math.min(h * 60 + mm, DAY_MIN));
+  }
+  return res;
+}
+
+// 曜日テキスト（曜日プレフィックス除去済み）→ その日の week-min Interval 群
+function buildIntervalsFromDayText(jsDay: number, raw: string): Interval[] {
+  const line = normalize(stripWeekdayPrefix(raw, jsDay));
+  if (!line) return [];
+  if (isClosedText(line)) return [];
+  if (is24hText(line)) {
+    const s = jsDay * DAY_MIN;
+    return [{ start: s, end: s + DAY_MIN }];
+  }
+
+  // 例: "6時40分～20時50分" / "9:00-17:00" / 複数 "9:00-12:00, 13:00-17:00"
+  const times = extractAllTimesInMinutes(line);
+  const ivals: Interval[] = [];
+  for (let i = 0; i + 1 < times.length; i += 2) {
+    const a = times[i];
+    const b = times[i + 1];
+    if (a == null || b == null) continue;
+    const start = jsDay * DAY_MIN + a;
+    const end = (b > a ? jsDay * DAY_MIN + b : (jsDay + 1) * DAY_MIN + b); // 日またぎ
+    ivals.push({ start, end });
+  }
+  return ivals;
+}
+
+// periods → 週単位 Interval 群
+function buildIntervalsFromPeriods(periods?: Period[]): Interval[] {
+  const ps = periods ?? [];
+  const ivals: Interval[] = [];
+  for (const p of ps) {
+    const o = p.open;
+    const c = p.close;
+    if (!o) continue;
+    const oDay = (o.day ?? 0);
+    const oMin = (o.hour ?? 0) * 60 + (o.minute ?? 0);
+    const start = oDay * DAY_MIN + oMin;
+
+    if (!c) {
+      // close 無しは「常時開店」に近い扱い → 全週 True で良いが、
+      // インターバルとしては全域にしておく
+      ivals.push({ start: 0, end: WEEK_MIN });
+      continue;
+    }
+    const cDay = (c.day ?? oDay);
+    const cMin = (c.hour ?? 0) * 60 + (c.minute ?? 0);
+    let end = cDay * DAY_MIN + cMin;
+    if (end <= start) end += WEEK_MIN; // 念のため
+
+    ivals.push({ start, end });
+  }
+  return ivals;
+}
+
+// 週境界を跨ぐ Interval は [start, WEEK) と [0, end-WEEK) に分割
+function normalizeIntervalsToWeek(ivals: Interval[]): Interval[] {
+  const res: Interval[] = [];
+  for (const { start, end } of ivals) {
+    if (end <= WEEK_MIN) {
+      res.push({ start, end });
+    } else {
+      res.push({ start, end: WEEK_MIN });
+      res.push({ start: 0, end: end - WEEK_MIN });
+    }
+  }
+  return res;
+}
+
+// 指定 (jsDay, minutesFromMidnight) が ivals のどれかに含まれるか
+function hitIntervals(ivals: Interval[], jsDay: number, minutes: number): boolean {
+  const m = jsDay * DAY_MIN + minutes;
+  for (const { start, end } of ivals) {
+    if (start <= m && m < end) return true;
+  }
+  return false;
+}
+
+// ========= 公開API：指定時間で開店しているか =========
+
+/**
+ * isOpenAt(place, at: Date)
+ * isOpenAt(place, jsDay: number, minutesFromMidnight?: number)
+ */
+export function isOpenAt(place: Place, at: Date): boolean;
+export function isOpenAt(place: Place, jsDay: number, minutesFromMidnight?: number): boolean;
+export function isOpenAt(
+  place: Place,
+  arg2: Date | number,
+  minutesFromMidnight?: number
+): boolean {
+  const jsDay = arg2 instanceof Date ? arg2.getDay() : arg2;
+  const minutes =
+    arg2 instanceof Date ? arg2.getHours() * 60 + arg2.getMinutes() : (minutesFromMidnight ?? 0);
+
+  // 1) 24h は常に true
+  if (isOpenAllDayThisWeekday(place, jsDay)) return true;
+
+  const oh = getOpeningHoursFromPlace(place);
+
+  // 2) periods があれば最優先
+  const fromPeriods = buildIntervalsFromPeriods(oh?.periods);
+  if (fromPeriods.length > 0) {
+    const normalized = normalizeIntervalsToWeek(fromPeriods);
+    if (hitIntervals(normalized, jsDay, minutes)) return true;
+    // periods があっても、API品質の関係で weekdayDescriptions との食い違いがあり得るので、
+    // 最後に weekdayDescriptions も確認しておく
+  }
+
+  // 3) weekdayDescriptions から当日 & 前日を組み立て（日またぎ対応）
+  const wd = oh?.weekdayDescriptions ?? [];
+  const todayLine = getDescForJsDay(wd, jsDay);
+  const prevDay = (jsDay + 6) % 7;
+  const prevLine = getDescForJsDay(wd, prevDay);
+
+  let ivals = [
+    ...buildIntervalsFromDayText(jsDay, todayLine),
+    ...buildIntervalsFromDayText(prevDay, prevLine),
+  ];
+  ivals = normalizeIntervalsToWeek(ivals);
+
+  return hitIntervals(ivals, jsDay, minutes);
+}
+
+// ========= “曜日だけ”のゆるい判定 =========
+export function isOpenOnWeekday(place: Place, jsDay: number): boolean {
+  if (isOpenAllDayThisWeekday(place, jsDay)) return true;
+
+  // weekdayDescriptions の明示休業なら false
+  const wd =
+    place?.currentOpeningHours?.weekdayDescriptions ??
+    place?.regularOpeningHours?.weekdayDescriptions;
+  const desc = getDescForJsDay(wd, jsDay);
+  if (desc && isClosedText(desc)) return false;
+
+  // periods/weekdayDescriptions のどちらかでその日の区間があれば true
+  const fromPeriods = buildIntervalsFromPeriods(getOpeningHoursFromPlace(place)?.periods);
+  if (fromPeriods.some(({ start, end }) => {
+    const sDay = Math.floor(start / DAY_MIN) % 7;
+    const eDay = Math.floor((end - 1) / DAY_MIN) % 7; // endは開区間
+    return sDay === jsDay || eDay === jsDay;
+  })) return true;
+
+  const fromDesc = buildIntervalsFromDayText(jsDay, desc);
+  if (fromDesc.length > 0) return true;
+
+  // 不明は落とさない方針
+  return true;
+}

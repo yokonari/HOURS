@@ -24,3 +24,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Material Symbols (Rounded) を Maps 風に使う基本スタイル */
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;             /* Tailwind で上書きOK */
+  line-height: 1;
+  display: inline-block;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* 合字を有効にするのが超重要（これが無いと文字のまま） */
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+
+  /* 変数フォントの軸（FILL=0 でアウトライン、1で塗り） */
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+

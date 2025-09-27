@@ -1,0 +1,255 @@
+'use client';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Place, TravelMode } from '@/types/place';
+import {
+  isOpenOnWeekday,
+  isOpenAt,
+  todayStr,
+  weekdayFromDateString,
+  jpWeek,
+} from '@/lib/openingHours';
+
+function isObject(v: unknown): v is Record<string, unknown> {
+  return v !== null && typeof v === 'object';
+}
+
+export function usePlaces() {
+  // 検索ワード
+  const [q, setQ] = useState('カフェ');      // 確定値（API送信用）
+  const [qInput, setQInput] = useState('カフェ'); // 入力欄表示用
+  const dirty = qInput !== q;
+
+  // 位置情報
+  const [lat, setLat] = useState<number>();
+  const [lng, setLng] = useState<number>();
+  const hasLatLng = lat != null && lng != null;
+
+  // 並び替え / ページング
+  const [sortByDistance, setSortByDistance] = useState<boolean>(true);
+  const [cursor, setCursor] = useState<string | null>(null);
+  const seenRef = useRef<Set<string>>(new Set());
+
+  // 日付・時刻フィルタ
+  const [dateStr, setDateStr] = useState<string>(todayStr());
+  const [timeStr, setTimeStr] = useState<string>(''); // "HH:MM" or ''
+  const [useNow, setUseNow] = useState<boolean>(true);
+
+  // 交通手段
+  const [mode, setMode] = useState<TravelMode>('walking');
+
+  // 検索状態
+  const [hasSearched, setHasSearched] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // 結果
+  const [allResults, setAllResults] = useState<Place[]>([]);
+
+  // 無限スクロール監視ターゲット
+  const loaderRef = useRef<HTMLDivElement | null>(null);
+
+  // 現在地取得
+  useEffect(() => {
+    let cancelled = false;
+    if (!navigator.geolocation) {
+      setError('このブラウザでは位置情報が利用できません。');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        if (cancelled) return;
+        setLat(pos.coords.latitude);
+        setLng(pos.coords.longitude);
+      },
+      (err) => {
+        if (cancelled) return;
+        setError(`位置情報の取得に失敗しました: ${err.message}`);
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60_000 }
+    );
+    return () => { cancelled = true; };
+  }, []);
+
+  // 検索
+  const abortRef = useRef<AbortController | null>(null);
+  const fetchPlaces = useCallback(
+    async (
+      append = false,
+      overrides?: Partial<{ q: string; lat: number; lng: number; cursor: string | null }>
+    ) => {
+      setLoading(true);
+      setError(null);
+      abortRef.current?.abort();
+      const controller = new AbortController();
+      abortRef.current = controller;
+
+      const Q   = overrides?.q ?? q;
+      const LAT = overrides?.lat ?? lat;
+      const LNG = overrides?.lng ?? lng;
+      const CUR = (overrides && 'cursor' in overrides) ? overrides.cursor : cursor;
+      const USE_COORDS = LAT != null && LNG != null;
+
+      const params = new URLSearchParams();
+      if (Q) params.set('q', Q);
+      if (USE_COORDS) { params.set('lat', String(LAT)); params.set('lng', String(LNG)); }
+      if (CUR) params.set('cursor', CUR);
+      params.set('rank', USE_COORDS && sortByDistance ? 'distance' : 'relevance');
+
+      try {
+        const res = await fetch(`/api/places?${params.toString()}`, {
+          method: 'GET',
+          signal: controller.signal,
+          headers: { Accept: 'application/json' },
+        });
+        const dataUnknown: unknown = await res.json();
+        if (!res.ok) {
+          const msg = isObject(dataUnknown) && typeof dataUnknown.message === 'string'
+            ? dataUnknown.message : '検索に失敗しました';
+          throw new Error(msg);
+        }
+        const list: Place[] =
+          isObject(dataUnknown) && Array.isArray((dataUnknown as any).places)
+            ? ((dataUnknown as any).places as Place[])
+            : [];
+        const token: string | null =
+          isObject(dataUnknown) && typeof (dataUnknown as any).nextPageToken === 'string'
+            ? ((dataUnknown as any).nextPageToken as string)
+            : null;
+
+        const unique = list.filter((p) => {
+          const key = p.id;
+          if (!key) return true;
+          if (seenRef.current.has(key)) return false;
+          seenRef.current.add(key);
+          return true;
+        });
+
+        setAllResults((prev) => (append ? [...prev, ...unique] : unique));
+        setCursor(token);
+      } catch (e: any) {
+        if (e?.name !== 'AbortError') {
+          setError(e?.message ?? '不明なエラーが発生しました');
+          if (!append) setAllResults([]);
+        }
+      } finally {
+        setLoading(false);
+      }
+    },
+    [q, lat, lng, cursor, sortByDistance]
+  );
+
+  // フォーム submit（検索確定）
+  const submitSearch = useCallback((e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    setQ(qInput);
+    setCursor(null);
+    seenRef.current = new Set();
+    setHasSearched(true);
+    setError(null);
+    fetchPlaces(false, { q: qInput, cursor: null });
+  }, [qInput, fetchPlaces]);
+
+  const isToday = useMemo(() => {
+    const today = new Date();
+    const base = new Date(today.getFullYear(), today.getMonth(), today.getDate()); // 00:00
+    const sel = new Date(`${dateStr}T00:00:00`);
+    return (
+      sel.getFullYear() === base.getFullYear() &&
+      sel.getMonth() === base.getMonth() &&
+      sel.getDate() === base.getDate()
+    );
+  }, [dateStr]);
+
+  // 表示用: 日付/時刻に基づくフィルタ済み結果
+  const filteredResults = useMemo(() => {
+    const wd = weekdayFromDateString(dateStr); // 0..6
+
+    const parseHM = (s: string) => {
+      const [h, m] = (s || '00:00').split(':').map(Number);
+      return (h || 0) * 60 + (m || 0);
+    };
+
+    const now = new Date();
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const minutes =
+      isToday
+        ? ((useNow || !timeStr) ? nowMinutes : parseHM(timeStr))
+        : (timeStr ? parseHM(timeStr) : nowMinutes); // 今日以外は入力が空なら “現在時刻” を使う
+
+    return allResults
+      .filter((p) => isOpenOnWeekday(p as any, wd))
+      .filter((p) => isOpenAt(p as any, wd, minutes));
+  }, [allResults, dateStr, isToday, useNow, timeStr]);
+
+  // 無限スクロール
+  useEffect(() => {
+    if (!loaderRef.current) return;
+    const el = loaderRef.current;
+    const ob = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !loading && cursor && !dirty && hasSearched) {
+        fetchPlaces(true);
+      }
+    }, { threshold: 1.0, rootMargin: '200px' });
+    ob.observe(el);
+    return () => ob.disconnect();
+  }, [loading, cursor, dirty, hasSearched, fetchPlaces]);
+
+  const pad2 = (n: number) => String(n).padStart(2, '0');
+  const currentHHMM = useMemo(() => {
+    const d = new Date();
+    return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+  }, []);
+
+
+  // ラベル（UI側で利用）
+  const dateLabel = useMemo(() => {
+    // dateStr は "YYYY-MM-DD"
+    // ユーティリティ
+    const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const isSameDay = (a: Date, b: Date) => startOfDay(a).getTime() === startOfDay(b).getTime();
+
+    // 選択日
+    const sel = new Date(`${dateStr}T00:00:00`);
+    const wd = jpWeek[sel.getDay()];
+
+    // 今日/明日
+    const now = new Date();
+    const today = startOfDay(now);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (isSameDay(sel, today)) return `今日(${wd})`;
+    if (isSameDay(sel, tomorrow)) return `明日(${wd})`;
+
+    // それ以降 → M/D(曜)
+    return `${sel.getMonth() + 1}/${sel.getDate()}(${wd})`;
+  }, [dateStr]);
+
+  // 以前: (useNow || !timeStr) ? '今から' : timeStr
+  const timeLabel = useMemo(() => {
+    if (isToday) {
+      return (useNow || !timeStr) ? '今から' : timeStr;
+    }
+    // 今日以外の日付 → 入力がなければ “現在時刻” を表示
+    return timeStr || currentHHMM;
+  }, [isToday, useNow, timeStr, currentHHMM]);
+
+
+  return {
+    // 入力
+    qInput, setQInput, submitSearch,
+    // 検索状態
+    loading, error, hasSearched,
+    // 結果
+    results: filteredResults,
+    // 日付/時刻
+    dateStr, setDateStr, timeStr, setTimeStr, useNow, setUseNow, dateLabel, timeLabel,
+    // 位置/並び順
+    lat, lng, hasLatLng, sortByDistance, setSortByDistance,
+    // 交通手段
+    mode, setMode,
+    // 無限スクロール
+    loaderRef,
+  };
+}

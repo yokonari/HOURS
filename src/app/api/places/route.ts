@@ -18,9 +18,6 @@ const FIELDS = [
   'places.regularOpeningHours.weekdayDescriptions',
   'places.regularOpeningHours.periods',
   'places.photos.name',
-  'places.photos.widthPx',
-  'places.photos.heightPx',
-  'places.photos.authorAttributions',
   'nextPageToken',
 ].join(',');
 
