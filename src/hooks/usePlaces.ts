@@ -31,7 +31,10 @@ export function usePlaces() {
 
   // 日付・時刻フィルタ
   const [dateStr, setDateStr] = useState<string>(todayStr());
-  const [timeStr, setTimeStr] = useState<string>(''); // "HH:MM" or ''
+  const [timeStr, setTimeStr] = useState<string>(() => {
+    const now = new Date();
+    return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+  }); // "HH:MM" or ''
   const [useNow, setUseNow] = useState<boolean>(true);
 
   // 交通手段
@@ -83,7 +86,7 @@ export function usePlaces() {
       const controller = new AbortController();
       abortRef.current = controller;
 
-      const Q   = overrides?.q ?? q;
+      const Q = overrides?.q ?? q;
       const LAT = overrides?.lat ?? lat;
       const LNG = overrides?.lng ?? lng;
       const CUR = (overrides && 'cursor' in overrides) ? overrides.cursor : cursor;

@@ -39,10 +39,13 @@ export default function HomePage() {
       {/* 固定検索フォーム */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="mx-auto max-w-5xl px-4 py-4">
-          <div className="flex items-center mb-4">
-            <h1 className="text-2xl font-bold tracking-tight">HOURS</h1>
+          {/* 1行目: 日時選択とテキスト検索 */}
+          <form
+            onSubmit={submitSearch}
+            className="flex items-center gap-3 mb-3"
+          >
             {/* 日付・時間選択 */}
-            <div className="ml-2">
+            <div>
               <DateTimePicker
                 dateStr={dateStr}
                 setDateStr={setDateStr}
@@ -54,12 +57,7 @@ export default function HomePage() {
                 timeLabel={timeLabel}
               />
             </div>
-          </div>
 
-          <form
-            onSubmit={submitSearch}
-            className="flex items-center gap-3"
-          >
             {/* テキスト入力 */}
             <div className="flex-1">
               <SearchForm
@@ -69,23 +67,23 @@ export default function HomePage() {
                 waitingGeo={!hasLatLng}
               />
             </div>
-
-            {/* 並び順＋移動手段 */}
-            {hasLatLng && (
-              <div className="flex items-center gap-3">
-                <label className="flex items-center gap-2 text-sm">
-                  <input
-                    type="checkbox"
-                    checked={sortByDistance}
-                    onChange={(e) => setSortByDistance(e.target.checked)}
-                    className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
-                  />
-                  <span>近い順</span>
-                </label>
-                <TransportModeSelector mode={mode} setMode={setMode} />
-              </div>
-            )}
           </form>
+
+          {/* 2行目: 近い順と交通手段 */}
+          {hasLatLng && (
+            <div className="flex items-center gap-3">
+              <label className="flex items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={sortByDistance}
+                  onChange={(e) => setSortByDistance(e.target.checked)}
+                  className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
+                />
+                <span>近い順</span>
+              </label>
+              <TransportModeSelector mode={mode} setMode={setMode} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -104,6 +102,7 @@ export default function HomePage() {
           results={results}
           etaMap={etaMap}
           dateStr={dateStr}
+          timeStr={timeStr}
           origin={{ lat, lng }}
           mode={mode}
           loaderRef={loaderRef}

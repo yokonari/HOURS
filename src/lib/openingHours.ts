@@ -35,10 +35,10 @@ const getDescForJsDay = (wd: string[] | undefined, jsDay: number): string =>
   wd?.[jsDayToMonFirstIdx(jsDay)] ?? "";
 
 // 曜日接頭辞の除去
-const jpWeekFull = ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"] as const;
-const enWeekFull = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] as const;
-const enWeekAbbr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"] as const;
-function stripWeekdayPrefix(line: string, jsDay: number): string {
+const jpWeekFull = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"] as const;
+const enWeekFull = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as const;
+const enWeekAbbr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
+export function stripWeekdayPrefix(line: string, jsDay: number): string {
   if (!line) return "";
   const sp = "[\\s\\u3000]*";
   const colon = "[:：]";
