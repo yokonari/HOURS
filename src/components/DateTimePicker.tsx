@@ -37,11 +37,33 @@ export function DateTimePicker({
     const input = dateTimeInputRef.current;
     if (!input) return;
 
-    if (typeof input.showPicker === 'function') {
-      input.showPicker();
-    } else {
-      input.focus({ preventScroll: true });
-      input.click();
+    const withPicker = input as HTMLInputElement & {
+      showPicker?: () => void;
+    };
+
+    if (typeof withPicker.showPicker === 'function') {
+      try {
+        withPicker.showPicker();
+        return;
+      } catch (error) {
+        if ((error as DOMException).name !== 'NotAllowedError') {
+          throw error;
+        }
+      }
+    }
+
+    input.focus({ preventScroll: true });
+    input.click();
+  };
+
+  const handleInputClick = () => {
+    openDateTimePicker();
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openDateTimePicker();
     }
   };
 
@@ -69,25 +91,24 @@ export function DateTimePicker({
 
   return (
     <div className="h-full flex items-center">
-      <div className="relative">
-        <button
-          type="button"
-          onClick={openDateTimePicker}
-          className="h-10 whitespace-nowrap rounded-full bg-transparent border border-gray-300 px-4 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition relative z-20 flex items-center cursor-pointer"
-          style={{ color: 'var(--on-surface)' }}
-          aria-label="日時を選択"
-        >
-          {placeholder}
-        </button>
+      <div className="relative group h-10">
         <input
           ref={dateTimeInputRef}
           type="datetime-local"
           value={dateTimeValue}
           onChange={handleDateTimeChange}
-          className="absolute top-0 left-0 h-full w-full opacity-0 pointer-events-none z-10"
-          tabIndex={-1}
-          aria-hidden
+          className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
+          onClick={handleInputClick}
+          onKeyDown={handleInputKeyDown}
+          aria-label="日時を選択"
         />
+        <div
+          className="h-full whitespace-nowrap rounded-full bg-transparent border border-gray-300 px-4 text-sm transition pointer-events-none flex items-center group-hover:bg-white group-focus-within:bg-white group-focus-within:ring-2 group-focus-within:ring-gray-300 group-focus-within:border-transparent"
+          style={{ color: 'var(--on-surface)' }}
+          aria-hidden="true"
+        >
+          {placeholder}
+        </div>
       </div>
     </div>
   );

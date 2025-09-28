@@ -25,6 +25,11 @@ export function SearchForm({
         aria-label="検索ワード"
         className="h-10 w-full rounded-full bg-transparent border border-gray-300 pl-10 pr-24 outline-none ring-0 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 focus:border-transparent"
         enterKeyHint="search"
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            setQInput('');
+          }
+        }}
         style={{ color: 'var(--on-surface)' }}
       />
       <span
