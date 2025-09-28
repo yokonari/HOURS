@@ -34,7 +34,15 @@ export function DateTimePicker({
   };
 
   const openDateTimePicker = () => {
-    dateTimeInputRef.current?.showPicker();
+    const input = dateTimeInputRef.current;
+    if (!input) return;
+
+    if (typeof input.showPicker === 'function') {
+      input.showPicker();
+    } else {
+      input.focus({ preventScroll: true });
+      input.click();
+    }
   };
 
   // 日付と時刻を組み合わせてdatetime-local用の値を作成
@@ -76,7 +84,7 @@ export function DateTimePicker({
           type="datetime-local"
           value={dateTimeValue}
           onChange={handleDateTimeChange}
-          className="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer pointer-events-none z-10"
+          className="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer pointer-events-auto z-10"
           tabIndex={-1}
           aria-hidden
         />

@@ -18,12 +18,13 @@ export function SearchForm({
   return (
     <div className="relative min-w-0">
       <input
-        type="text"
+        type="search"
         value={qInput}
         onChange={(e) => setQInput(e.target.value)}
         placeholder="例: カフェ 新宿"
         aria-label="検索ワード"
         className="h-10 w-full rounded-full bg-transparent border border-gray-300 pl-10 pr-24 outline-none ring-0 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 focus:border-transparent"
+        enterKeyHint="search"
         style={{ color: 'var(--on-surface)' }}
       />
       <span
