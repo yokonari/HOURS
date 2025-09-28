@@ -42,19 +42,19 @@ export function FinalReceptionSelector({
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 h-10 px-3 rounded-full bg-gray-100 hover:bg-gray-200 focus:bg-white focus:ring-2 focus:ring-gray-300 transition cursor-pointer"
+                className="flex items-center gap-2 h-10 px-3 rounded-full bg-transparent border border-gray-300 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition cursor-pointer text-xs"
                 style={{ color: 'var(--on-surface)' }}
                 aria-label={`最終受付を考慮（現在: ${currentOption?.label}）`}
                 aria-expanded={isOpen}
                 title={`最終受付を考慮: ${currentOption?.label}`}
             >
-                <span className="text-sm">
+                <span className="text-xs">
                     {currentOption?.key === 'none' ? '最終受付を考慮しない' : `最終受付を考慮(${currentOption?.label})`}
                 </span>
                 <span
-                    className="material-symbols-rounded text-[16px] leading-none"
+                    className="material-symbols-rounded text-[14px] leading-none"
                     style={{
-                        fontVariationSettings: `'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20`,
+                        fontVariationSettings: `'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 18`,
                     }}
                     aria-hidden="true"
                 >
@@ -75,7 +75,7 @@ export function FinalReceptionSelector({
                                     setIsOpen(false);
                                 }}
                                 className={[
-                                    'w-full flex items-center justify-between px-3 py-2 text-left text-sm transition-colors cursor-pointer',
+                                    'w-full flex items-center justify-between px-3 py-2 text-left text-xs transition-colors cursor-pointer',
                                     active
                                         ? 'bg-gray-100 text-on-surface'
                                         : 'text-on-surface hover:bg-gray-50'
@@ -90,9 +90,9 @@ export function FinalReceptionSelector({
                                 </span>
                                 {active && (
                                     <span
-                                        className="material-symbols-rounded text-[16px] leading-none"
+                                        className="material-symbols-rounded text-[14px] leading-none"
                                         style={{
-                                            fontVariationSettings: `'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 20`,
+                                            fontVariationSettings: `'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 18`,
                                         }}
                                         aria-hidden="true"
                                     >

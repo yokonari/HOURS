@@ -36,7 +36,6 @@ export function usePlaces() {
     const now = new Date();
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }); // "HH:MM" or ''
-  const [useNow, setUseNow] = useState<boolean>(true);
 
   // 交通手段
   const [mode, setMode] = useState<TravelMode>('walking');
@@ -84,13 +83,22 @@ export function usePlaces() {
       append = false,
       overrides?: Partial<{ q: string; lat: number; lng: number; cursor: string | null }>
     ) => {
+      const Q = (overrides?.q ?? q).trim();
+      if (Q.length === 0) {
+        if (!append) {
+          setAllResults([]);
+          setCursor(null);
+          setHasSearched(false);
+        }
+        return;
+      }
+
       setLoading(true);
       setError(null);
       abortRef.current?.abort();
       const controller = new AbortController();
       abortRef.current = controller;
 
-      const Q = overrides?.q ?? q;
       const LAT = overrides?.lat ?? lat;
       const LNG = overrides?.lng ?? lng;
       const CUR = (overrides && 'cursor' in overrides) ? overrides.cursor : cursor;
@@ -148,12 +156,20 @@ export function usePlaces() {
   // フォーム submit（検索確定）
   const submitSearch = useCallback((e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    setQ(qInput);
+    const trimmed = qInput.trim();
+    setQ(trimmed);
     setCursor(null);
     seenRef.current = new Set();
-    setHasSearched(true);
     setError(null);
-    fetchPlaces(false, { q: qInput, cursor: null });
+
+    if (trimmed.length === 0) {
+      setHasSearched(false);
+      setAllResults([]);
+      return;
+    }
+
+    setHasSearched(true);
+    fetchPlaces(false, { q: trimmed, cursor: null });
   }, [qInput, fetchPlaces]);
 
   const isToday = useMemo(() => {
@@ -179,10 +195,7 @@ export function usePlaces() {
     const now = new Date();
     const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-    const minutes =
-      isToday
-        ? ((useNow || !timeStr) ? nowMinutes : parseHM(timeStr))
-        : (timeStr ? parseHM(timeStr) : nowMinutes); // 今日以外は入力が空なら “現在時刻” を使う
+    const minutes = timeStr ? parseHM(timeStr) : nowMinutes;
 
     return allResults
       .filter((p) => isOpenOnWeekday(p as any, wd))
@@ -199,7 +212,7 @@ export function usePlaces() {
 
         return minutes <= cutoffTime;
       });
-  }, [allResults, dateStr, isToday, useNow, timeStr, finalReception]);
+  }, [allResults, dateStr, isToday, timeStr, finalReception]);
 
   // 無限スクロール
   useEffect(() => {
@@ -245,14 +258,17 @@ export function usePlaces() {
     return `${sel.getMonth() + 1}/${sel.getDate()}(${wd})`;
   }, [dateStr]);
 
-  // 以前: (useNow || !timeStr) ? '今から' : timeStr
   const timeLabel = useMemo(() => {
     if (isToday) {
-      return (useNow || !timeStr) ? '今から' : timeStr;
+      // 今日の場合、時刻が現在時刻と同じなら「今から」を表示
+      if (timeStr === currentHHMM) {
+        return '今から';
+      }
+      return timeStr || '今から';
     }
-    // 今日以外の日付 → 入力がなければ “現在時刻” を表示
+    // 今日以外の日付 → 入力がなければ "現在時刻" を表示
     return timeStr || currentHHMM;
-  }, [isToday, useNow, timeStr, currentHHMM]);
+  }, [isToday, timeStr, currentHHMM]);
 
 
   return {
@@ -263,7 +279,7 @@ export function usePlaces() {
     // 結果
     results: filteredResults,
     // 日付/時刻
-    dateStr, setDateStr, timeStr, setTimeStr, useNow, setUseNow, dateLabel, timeLabel,
+    dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
     // 位置/並び順
     lat, lng, hasLatLng,
     // 交通手段

@@ -204,7 +204,7 @@ function normalizeIntervalsToWeek(ivals: Interval[]): Interval[] {
 function hitIntervals(ivals: Interval[], jsDay: number, minutes: number): boolean {
   const m = jsDay * DAY_MIN + minutes;
   for (const { start, end } of ivals) {
-    if (start <= m && m < end) return true;
+    if (start <= m && m <= end) return true; // 終了時刻も含む（閉区間）
   }
   return false;
 }
@@ -240,19 +240,38 @@ export function isOpenAt(
     // 最後に weekdayDescriptions も確認しておく
   }
 
-  // 3) weekdayDescriptions から当日 & 前日を組み立て（日またぎ対応）
+  // 3) weekdayDescriptions から当日の営業時間を確認
   const wd = oh?.weekdayDescriptions ?? [];
   const todayLine = getDescForJsDay(wd, jsDay);
+  const todayIntervals = buildIntervalsFromDayText(jsDay, todayLine);
+
+  // まず選択日時（曜日・時間）に合致しているか確認
+  if (hitIntervals(normalizeIntervalsToWeek(todayIntervals), jsDay, minutes)) {
+    return true;
+  }
+
+  // 合致していない場合、前日の営業時間を確認
   const prevDay = (jsDay + 6) % 7;
   const prevLine = getDescForJsDay(wd, prevDay);
+  const prevIntervals = buildIntervalsFromDayText(prevDay, prevLine);
 
-  let ivals = [
-    ...buildIntervalsFromDayText(jsDay, todayLine),
-    ...buildIntervalsFromDayText(prevDay, prevLine),
-  ];
-  ivals = normalizeIntervalsToWeek(ivals);
+  // 前日の営業時間が日またぎしているかチェック
+  const overnightIntervals = prevIntervals.filter(interval => {
+    const startDay = Math.floor(interval.start / DAY_MIN) % 7;
+    const endDay = Math.floor((interval.end - 1) / DAY_MIN) % 7;
+    return startDay !== endDay; // 日またぎしている
+  });
 
-  return hitIntervals(ivals, jsDay, minutes);
+  // 前日の営業時間が日またぎしていて、かつ選択時刻が含まれている場合のみ表示
+  if (overnightIntervals.length > 0) {
+    const normalizedOvernight = normalizeIntervalsToWeek(overnightIntervals);
+    if (hitIntervals(normalizedOvernight, jsDay, minutes)) {
+      return true;
+    }
+  }
+
+  // 上記に合致しない場合は結果から弾く
+  return false;
 }
 
 // ========= “曜日だけ”のゆるい判定 =========
@@ -279,6 +298,125 @@ export function isOpenOnWeekday(place: Place, jsDay: number): boolean {
 
   // 不明は落とさない方針
   return true;
+}
+
+/**
+ * 営業時間の表示情報を取得する
+ * @param place 店舗情報
+ * @param jsDay 曜日（0=日曜, 1=月曜, ...）
+ * @param minutes 時刻（分単位）
+ * @returns 営業時間の表示情報
+ */
+export function getOpeningHoursDisplayInfo(place: Place, jsDay: number, minutes: number): {
+  isOpen: boolean;
+  displayDay: number;
+  displayText: string;
+} {
+  const oh = getOpeningHoursFromPlace(place);
+
+  const filterHoursByMinutes = (hoursText: string, minutesValue: number): string => {
+    if (!hoursText) return '';
+    if (hoursText === '24時間営業' || hoursText === '休業') return hoursText;
+
+    const segments = hoursText.split(/[,、]/).map(seg => seg.trim()).filter(Boolean);
+    if (segments.length === 0) return hoursText;
+
+    const parseTime = (text: string): number | null => {
+      const match = text.match(/(\d{1,2})[時:](\d{2})/);
+      if (!match) return null;
+      const hour = Number(match[1]);
+      const minute = Number(match[2]);
+      return hour * 60 + minute;
+    };
+
+    const normalizeSegment = (segment: string): string => segment.replace(/(\d{1,2})時(\d{2})分?/, '$1:$2');
+
+    const selectedSegment = segments.find(segment => {
+      const times = segment.match(/(\d{1,2})[時:](\d{2})/g);
+      if (!times || times.length < 2) return false;
+
+      const start = parseTime(normalizeSegment(times[0]));
+      const end = parseTime(normalizeSegment(times[1]));
+      if (start == null || end == null) return false;
+
+      if (end < start) {
+        return minutesValue >= start || minutesValue <= end;
+      }
+      return minutesValue >= start && minutesValue <= end;
+    });
+
+    if (selectedSegment) return selectedSegment;
+    return segments[0] ?? hoursText;
+  };
+
+  // 1) 24h は常に true
+  if (isOpenAllDayThisWeekday(place, jsDay)) {
+    const filtered = filterHoursByMinutes(getWeekdayStatusText(place, jsDay), minutes);
+    return {
+      isOpen: true,
+      displayDay: jsDay,
+      displayText: filtered
+    };
+  }
+
+  // 3) weekdayDescriptions から当日の営業時間を確認
+  const wd = oh?.weekdayDescriptions ?? [];
+  const todayLine = getDescForJsDay(wd, jsDay);
+  const todayIntervals = buildIntervalsFromDayText(jsDay, todayLine);
+
+  // まず選択日時（曜日・時間）に合致しているか確認
+  const normalizedToday = normalizeIntervalsToWeek(todayIntervals);
+  if (hitIntervals(normalizedToday, jsDay, minutes)) {
+    const hoursText = getWeekdayStatusText(place, jsDay);
+    const filteredText = filterHoursByMinutes(hoursText, minutes);
+    return {
+      isOpen: true,
+      displayDay: jsDay,
+      displayText: filteredText
+    };
+  }
+
+  // 合致していない場合、前日の営業時間を確認
+  const prevDay = (jsDay + 6) % 7;
+  const prevLine = getDescForJsDay(wd, prevDay);
+  const prevIntervals = buildIntervalsFromDayText(prevDay, prevLine);
+
+  // 前日の営業時間が日またぎしているかチェック
+  const overnightIntervals = prevIntervals.filter(interval => {
+    const startDay = Math.floor(interval.start / DAY_MIN) % 7;
+    const endDay = Math.floor((interval.end - 1) / DAY_MIN) % 7;
+    return startDay !== endDay; // 日またぎしている
+  });
+
+  // 前日の営業時間が日またぎしていて、かつ選択時刻が含まれている場合のみ表示
+  if (overnightIntervals.length > 0) {
+    const normalizedOvernight = normalizeIntervalsToWeek(overnightIntervals);
+    if (hitIntervals(normalizedOvernight, jsDay, minutes)) {
+      // ただし、選択時刻が当日の営業時間の開始時刻以降の場合は、当日の営業時間を優先
+      const todayStartTime = todayIntervals.length > 0 ? todayIntervals[0].start % DAY_MIN : 0;
+      if (minutes >= todayStartTime) {
+        const filtered = filterHoursByMinutes(getWeekdayStatusText(place, jsDay), minutes);
+        return {
+          isOpen: true,
+          displayDay: jsDay,
+          displayText: filtered
+        };
+      }
+
+      return {
+        isOpen: true,
+        displayDay: prevDay, // 前日の曜日を表示（実際に営業している日）
+        displayText: getWeekdayStatusText(place, prevDay) // 前日の営業時間を表示
+      };
+    }
+  }
+
+  // 上記に合致しない場合は結果から弾く
+  return {
+    isOpen: false,
+    displayDay: jsDay,
+    displayText: ''
+  };
 }
 
 /**

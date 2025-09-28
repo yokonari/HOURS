@@ -38,7 +38,7 @@ export function TransportModeSelector({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:bg-white focus:ring-2 focus:ring-gray-300 transition cursor-pointer"
+        className="flex items-center justify-center w-10 h-10 rounded-full bg-transparent border border-gray-300 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition cursor-pointer"
         style={{ color: 'var(--on-surface)' }}
         aria-label={`交通手段を選択（現在: ${currentMode?.label}）`}
         aria-expanded={isOpen}

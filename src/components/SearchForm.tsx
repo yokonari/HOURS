@@ -23,33 +23,27 @@ export function SearchForm({
         onChange={(e) => setQInput(e.target.value)}
         placeholder="例: カフェ 新宿"
         aria-label="検索ワード"
-        className="h-10 w-full rounded-full bg-gray-100 px-4 pr-24 outline-none ring-0 transition hover:bg-gray-200 focus:bg-white focus:ring-2 focus:ring-gray-300"
+        className="h-10 w-full rounded-full bg-transparent border border-gray-300 pl-10 pr-24 outline-none ring-0 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 focus:border-transparent"
         style={{ color: 'var(--on-surface)' }}
       />
-      <div className="absolute inset-y-0 right-1 my-1 flex items-center gap-1">
-        <button
-          type="submit"
-          disabled={loading}
-          aria-label="検索"
-          className="inline-flex h-8 w-9 items-center justify-center rounded-lg disabled:cursor-not-allowed disabled:opacity-60 hover:bg-gray-50 cursor-pointer"
-          title={loading ? '検索中…' : (waitingGeo ? '現在地取得中…' : '検索')}
+      <span
+        className="absolute inset-y-0 left-3 my-0 flex items-center text-[#4688A2]"
+        aria-hidden="true"
+      >
+        <span
+          className="material-symbols-rounded text-[18px]"
+          style={{ fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24` }}
         >
-          <span
-            className="material-symbols-rounded text-[20px] text-on-surface"
-            style={{
-              fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24`,
-            }}
-            aria-hidden="true"
-          >
-            search
-          </span>
-        </button>
+          search
+        </span>
+      </span>
+      <div className="absolute inset-y-0 right-1 my-1 flex items-center gap-1">
         <button
           type="button"
           onClick={() => setQInput('')}
           disabled={!canClear}
           aria-label="入力をクリア"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
           title="入力をクリア"
         >
           <span

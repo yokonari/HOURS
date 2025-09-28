@@ -15,7 +15,7 @@ export default function HomePage() {
     // 結果
     results,
     // 日付/時刻
-    dateStr, setDateStr, timeStr, setTimeStr, useNow, setUseNow, dateLabel, timeLabel,
+    dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
     // 位置/並び順
     lat, lng, hasLatLng,
     // 交通手段
@@ -40,7 +40,7 @@ export default function HomePage() {
   return (
     <>
       {/* 固定検索フォーム */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm">
         <div className="mx-auto max-w-[600px] px-4 py-4">
           <form onSubmit={submitSearch} className="space-y-3">
             {/* 1行目: 検索フォームと交通手段 */}
@@ -59,32 +59,32 @@ export default function HomePage() {
             </div>
 
             {/* 2行目: 日時選択と最終受付 */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 h-10">
               <DateTimePicker
                 dateStr={dateStr}
                 setDateStr={setDateStr}
                 timeStr={timeStr}
                 setTimeStr={setTimeStr}
-                useNow={useNow}
-                setUseNow={setUseNow}
                 dateLabel={dateLabel}
                 timeLabel={timeLabel}
               />
-              <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
+              <div className="h-full flex items-center">
+                <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
+              </div>
             </div>
           </form>
         </div>
       </div>
 
       {/* メインコンテンツエリア */}
-      <main className="mx-auto max-w-5xl px-4 pt-32 pb-6">
+      <main className="mx-auto max-w-5xl px-4 pt-32 pb-2">
 
         {error && (
           <div role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
         )}
 
         {!hasSearched && results.length === 0 && !loading && !error && (
-          <div className="mt-2 rounded-xl border border-gray-200 bg-white p-6 text-gray-600">キーワードを入力して「検索」を押してください。</div>
+          <div className="mt-4 text-center text-gray-500">キーワードを入力して検索してください。</div>
         )}
 
         <PlaceList
