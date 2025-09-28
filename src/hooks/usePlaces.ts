@@ -16,8 +16,8 @@ function isObject(v: unknown): v is Record<string, unknown> {
 
 export function usePlaces() {
   // 検索ワード
-  const [q, setQ] = useState('カフェ');      // 確定値（API送信用）
-  const [qInput, setQInput] = useState('カフェ'); // 入力欄表示用
+  const [q, setQ] = useState('');      // 確定値（API送信用）
+  const [qInput, setQInput] = useState(''); // 入力欄表示用
   const dirty = qInput !== q;
 
   // 位置情報
@@ -161,6 +161,11 @@ export function usePlaces() {
     setCursor(null);
     seenRef.current = new Set();
     setError(null);
+
+    if (typeof window !== 'undefined') {
+      const active = document.activeElement as HTMLElement | null;
+      active?.blur();
+    }
 
     if (trimmed.length === 0) {
       setHasSearched(false);

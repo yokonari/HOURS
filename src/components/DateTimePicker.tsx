@@ -84,7 +84,7 @@ export function DateTimePicker({
           type="datetime-local"
           value={dateTimeValue}
           onChange={handleDateTimeChange}
-          className="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer pointer-events-auto z-10"
+          className="absolute top-0 left-0 h-full w-full opacity-0 pointer-events-none z-10"
           tabIndex={-1}
           aria-hidden
         />
