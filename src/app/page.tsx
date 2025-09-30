@@ -4,6 +4,7 @@ import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
 import { FinalReceptionSelector } from '@/components/FinalReceptionSelector';
 import { PlaceList } from '@/components/PlaceList';
+import { ScrollTopButton } from '@/components/ScrollTopButton';
 import { usePlaces } from '@/hooks/usePlaces';
 
 export default function HomePage() {
@@ -25,12 +26,15 @@ export default function HomePage() {
   const waitingGeo = !hasLatLng;
   const headerRef = useRef<HTMLDivElement | null>(null);
   const [headerOffset, setHeaderOffset] = useState(120);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [headerHidden, setHeaderHidden] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const GAP_PX = 8;
     const updateOffset = () => {
       const height = headerRef.current?.offsetHeight ?? 0;
+      setHeaderHeight(height);
       setHeaderOffset(height + GAP_PX);
     };
 
@@ -50,12 +54,53 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    let lastScrollY = 0;
+    const THRESHOLD = 10;
+
+    const handleScroll = () => {
+      const current = window.scrollY;
+      if (current <= 0) {
+        setHeaderHidden(false);
+        lastScrollY = 0;
+        return;
+      }
+
+      if (current > lastScrollY + THRESHOLD) {
+        setHeaderHidden(true);
+        lastScrollY = current;
+        return;
+      }
+
+      if (current < lastScrollY - THRESHOLD) {
+        setHeaderHidden(false);
+        lastScrollY = current;
+        return;
+      }
+
+      lastScrollY = current;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {/* 固定検索フォーム */}
-      <div ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm">
-        <div className="mx-auto max-w-[600px] px-4 py-2">
-          <form onSubmit={submitSearch} className="space-y-2">
+      <div
+        ref={headerRef}
+        className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm"
+        style={{
+          transform: `translateY(${headerHidden ? -(headerHeight || 0) : 0}px)`,
+          transition: 'transform 0.2s ease',
+        }}
+      >
+        <div className="mx-auto max-w-[600px] px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4">
+          <form onSubmit={submitSearch} className="space-y-2 sm:space-y-3">
             {/* 1行目: 検索フォーム */}
             <SearchForm
               qInput={qInput}
@@ -65,7 +110,7 @@ export default function HomePage() {
             />
 
             {/* 2行目: 日時選択と最終受付 */}
-            <div className="flex items-center gap-3 h-10">
+            <div className="flex items-center gap-3 h-10 sm:gap-4">
               <DateTimePicker
                 dateStr={dateStr}
                 setDateStr={setDateStr}
@@ -78,12 +123,21 @@ export default function HomePage() {
                 <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
               </div>
             </div>
+
+            <p className="text-xs text-on-surface sm:text-sm">
+              営業時間でスポットを探せます。
+              <br />
+              カードをタップするとGoogle マップで詳しく確認できます。
+            </p>
           </form>
         </div>
       </div>
 
       {/* メインコンテンツエリア */}
-      <main className="mx-auto max-w-5xl px-4 pb-2" style={{ paddingTop: headerOffset }}>
+      <main
+        className="mx-auto max-w-5xl px-4 pb-2 sm:px-6 sm:pb-3 lg:max-w-6xl lg:px-10 lg:pb-6"
+        style={{ paddingTop: headerHidden ? 8 : headerOffset }}
+      >
 
         {error && (
           <div role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
@@ -109,6 +163,8 @@ export default function HomePage() {
 
         {loading && (<div className="mt-4 text-center text-gray-500">読み込み中…</div>)}
       </main>
+
+      <ScrollTopButton />
     </>
   );
 }

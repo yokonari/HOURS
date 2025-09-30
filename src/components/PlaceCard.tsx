@@ -79,10 +79,10 @@ export function PlaceCard({
         href={mapsUrl}
         target="_blank"
         rel="noreferrer"
-        className="group flex h-18 overflow-hidden rounded-2xl bg-white border border-gray-200"
+        className="group flex h-20 overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
       >
         <div className="shrink-0 relative h-full">
-          <div className="h-full w-24 overflow-hidden bg-gray-100">
+          <div className="h-full w-20 overflow-hidden bg-gray-100 sm:w-28">
             {imgSrc ? (
               <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
             ) : (
@@ -91,34 +91,34 @@ export function PlaceCard({
           </div>
         </div>
 
-        <div className="min-w-0 flex-1 p-2 flex flex-col overflow-hidden">
+        <div className="min-w-0 flex-1 p-2 flex flex-col overflow-hidden sm:p-5">
           <div className="min-w-0">
-            <h2 className="truncate text-sm font-semibold text-on-surface leading-tight" title={name}>
+            <h2 className="truncate text-sm font-medium text-on-surface leading-tight sm:text-lg" title={name}>
               {name}
             </h2>
             {displayAddress && (
-              <div className="mt-0.5 text-xs text-on-surface-light truncate" title={displayAddress}>
+              <div className="mt-0.5 text-xs text-on-surface-light truncate sm:text-sm" title={displayAddress}>
                 {displayAddress}
               </div>
             )}
           </div>
 
-          <div className="mt-auto pt-1 flex items-center gap-2 text-xs leading-tight">
+          <div className="mt-auto pt-1 flex items-center gap-2 text-xs leading-tight sm:pt-3 sm:gap-4 sm:text-base">
             <div className="text-on-surface truncate flex items-center gap-1 leading-tight">
               <span>{wdJp}:</span>
               <span>{renderHoursText(hoursText)}</span>
             </div>
             {typeof p.rating === 'number' && (
               <div
-                className="ml-2 inline-flex items-center text-[12px] leading-tight"
+                className="ml-2 inline-flex items-center text-[12px] leading-tight text-on-surface sm:ml-3 sm:text-[14px]"
                 title={`${p.rating.toFixed(1)} / 5`}
               >
-                <span aria-hidden className="mr-1 text-[12px] text-[#4688A2]">★</span>
-                <span className="text-[#4688A2]">
+                <span aria-hidden className="mr-1 text-[12px] text-[#F5C518] sm:text-[14px]">★</span>
+                <span>
                   {p.rating.toFixed(1)}
                 </span>
                 {typeof p.userRatingCount === 'number' && p.userRatingCount > 0 && (
-                  <span className="ml-1 text-on-surface-light">
+                  <span className="ml-1 text-on-surface-light sm:text-sm">
                     ({p.userRatingCount})
                   </span>
                 )}

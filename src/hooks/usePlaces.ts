@@ -55,7 +55,6 @@ export function usePlaces() {
   useEffect(() => {
     let cancelled = false;
     if (!navigator.geolocation) {
-      setError('このブラウザでは位置情報が利用できません。');
       return;
     }
     navigator.geolocation.getCurrentPosition(
@@ -66,7 +65,6 @@ export function usePlaces() {
       },
       (err) => {
         if (cancelled) return;
-        setError(`位置情報の取得に失敗しました: ${err.message}`);
       },
       { enableHighAccuracy: false, timeout: 10000, maximumAge: 60_000 }
     );

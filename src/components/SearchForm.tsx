@@ -15,6 +15,20 @@ export function SearchForm({
 }) {
   const canClear = qInput.length > 0 && !loading;
 
+  const handleClearPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!canClear) return;
+    e.preventDefault();
+    setQInput('');
+  };
+
+  const handleClearKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (!canClear) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setQInput('');
+    }
+  };
+
   return (
     <div className="relative min-w-0">
       <input
@@ -46,7 +60,8 @@ export function SearchForm({
       <div className="absolute inset-y-0 right-1 my-1 flex items-center gap-1">
         <button
           type="button"
-          onClick={() => setQInput('')}
+          onPointerDown={handleClearPointerDown}
+          onKeyDown={handleClearKeyDown}
           disabled={!canClear}
           aria-label="入力をクリア"
           className="inline-flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
