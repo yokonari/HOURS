@@ -1,11 +1,10 @@
 'use client';
+import { useEffect, useRef, useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
-import { TransportModeSelector } from '@/components/TransportModeSelector';
 import { FinalReceptionSelector } from '@/components/FinalReceptionSelector';
 import { PlaceList } from '@/components/PlaceList';
 import { usePlaces } from '@/hooks/usePlaces';
-import { useEta } from '@/hooks/useEta';
 
 export default function HomePage() {
   const {
@@ -18,45 +17,52 @@ export default function HomePage() {
     dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
     // 位置/並び順
     lat, lng, hasLatLng,
-    // 交通手段
-    mode, setMode,
     // 最終受付考慮
     finalReception, setFinalReception,
-    // 無限スクロール
     loaderRef,
   } = usePlaces();
 
-  const { etaMap } = useEta({
-    origin: hasLatLng ? { lat: lat!, lng: lng! } : null,
-    destinations: results.map(place => ({
-      id: place.id || '',
-      lat: place.location?.latitude || 0,
-      lng: place.location?.longitude || 0
-    })),
-    mode
-  });
   const waitingGeo = !hasLatLng;
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const [headerOffset, setHeaderOffset] = useState(120);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const GAP_PX = 8;
+    const updateOffset = () => {
+      const height = headerRef.current?.offsetHeight ?? 0;
+      setHeaderOffset(height + GAP_PX);
+    };
+
+    updateOffset();
+
+    let observer: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && headerRef.current) {
+      observer = new ResizeObserver(updateOffset);
+      observer.observe(headerRef.current);
+    }
+
+    window.addEventListener('resize', updateOffset);
+
+    return () => {
+      window.removeEventListener('resize', updateOffset);
+      observer?.disconnect();
+    };
+  }, []);
 
   return (
     <>
       {/* 固定検索フォーム */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm">
-        <div className="mx-auto max-w-[600px] px-4 py-4">
-          <form onSubmit={submitSearch} className="space-y-3">
-            {/* 1行目: 検索フォームと交通手段 */}
-            <div className="flex items-center gap-3">
-              <div className="flex-1">
-                <SearchForm
-                  qInput={qInput}
-                  setQInput={setQInput}
-                  loading={loading}
-                  waitingGeo={!hasLatLng}
-                />
-              </div>
-              {hasLatLng && (
-                <TransportModeSelector mode={mode} setMode={setMode} />
-              )}
-            </div>
+      <div ref={headerRef} className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm">
+        <div className="mx-auto max-w-[600px] px-4 py-2">
+          <form onSubmit={submitSearch} className="space-y-2">
+            {/* 1行目: 検索フォーム */}
+            <SearchForm
+              qInput={qInput}
+              setQInput={setQInput}
+              loading={loading}
+              waitingGeo={!hasLatLng}
+            />
 
             {/* 2行目: 日時選択と最終受付 */}
             <div className="flex items-center gap-3 h-10">
@@ -77,7 +83,7 @@ export default function HomePage() {
       </div>
 
       {/* メインコンテンツエリア */}
-      <main className="mx-auto max-w-5xl px-4 pt-32 pb-2">
+      <main className="mx-auto max-w-5xl px-4 pb-2" style={{ paddingTop: headerOffset }}>
 
         {error && (
           <div role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
@@ -89,11 +95,8 @@ export default function HomePage() {
 
         <PlaceList
           results={results}
-          etaMap={etaMap}
           dateStr={dateStr}
           timeStr={timeStr}
-          origin={{ lat, lng }}
-          mode={mode}
           loaderRef={loaderRef}
         />
 
@@ -109,4 +112,3 @@ export default function HomePage() {
     </>
   );
 }
-

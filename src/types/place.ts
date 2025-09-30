@@ -7,6 +7,7 @@ export type Place = {
     primaryType?: string;
     primaryTypeDisplayName?: { text?: string };
     rating?: number;
+    userRatingCount?: number;
     googleMapsUri?: string;
     websiteUri?: string;
     currentOpeningHours?: {
@@ -22,7 +23,3 @@ export type Place = {
 };
 
 
-export type Eta = { text: string; seconds: number; distanceMeters: number } | null;
-
-
-export type TravelMode = 'walking' | 'driving' | 'bicycling' | 'transit';

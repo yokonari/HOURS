@@ -1,13 +1,13 @@
 'use client';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Place, TravelMode } from '@/types/place';
+import { Place } from '@/types/place';
 import {
   isOpenOnWeekday,
   isOpenAt,
   todayStr,
   weekdayFromDateString,
   jpWeek,
-  getClosingTime,
+  getClosingTimeForMinutes,
 } from '@/lib/openingHours';
 
 function isObject(v: unknown): v is Record<string, unknown> {
@@ -36,9 +36,6 @@ export function usePlaces() {
     const now = new Date();
     return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   }); // "HH:MM" or ''
-
-  // 交通手段
-  const [mode, setMode] = useState<TravelMode>('walking');
 
   // 最終受付考慮
   const [finalReception, setFinalReception] = useState<'none' | '30min' | '60min'>('none');
@@ -165,6 +162,7 @@ export function usePlaces() {
     if (typeof window !== 'undefined') {
       const active = document.activeElement as HTMLElement | null;
       active?.blur();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     if (trimmed.length === 0) {
@@ -209,27 +207,42 @@ export function usePlaces() {
         // 最終受付考慮のフィルタリング
         if (finalReception === 'none') return true;
 
-        const closingTime = getClosingTime(p as any, wd);
-        if (closingTime === null) return true; // 終了時間不明の場合は表示
+        const closingAbsolute = getClosingTimeForMinutes(p as any, wd, minutes);
+        if (closingAbsolute === null) return true; // 終了時間不明の場合は表示
 
         const bufferMinutes = finalReception === '30min' ? 30 : 60;
-        const cutoffTime = closingTime - bufferMinutes;
+        const dayStart = wd * 1440;
+        const targetAbsolute = dayStart + minutes;
+        const cutoffAbsolute = closingAbsolute - bufferMinutes;
 
-        return minutes <= cutoffTime;
+        // 自身の日の営業時間に属する場合はそのまま比較
+        if (closingAbsolute >= dayStart) {
+          return targetAbsolute <= cutoffAbsolute;
+        }
+
+        // 前日からの持ち越し営業の場合
+        if (closingAbsolute < dayStart) {
+          return targetAbsolute + 1440 <= cutoffAbsolute + 1440;
+        }
+
+        return true;
       });
-  }, [allResults, dateStr, isToday, timeStr, finalReception]);
+  }, [allResults, dateStr, timeStr, finalReception]);
 
   // 無限スクロール
   useEffect(() => {
-    if (!loaderRef.current) return;
     const el = loaderRef.current;
-    const ob = new IntersectionObserver(entries => {
+    if (!el) return;
+
+    const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !loading && cursor && !dirty && hasSearched) {
         fetchPlaces(true);
       }
     }, { threshold: 1.0, rootMargin: '200px' });
-    ob.observe(el);
-    return () => ob.disconnect();
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
   }, [loading, cursor, dirty, hasSearched, fetchPlaces]);
 
   const pad2 = (n: number) => String(n).padStart(2, '0');
@@ -287,8 +300,6 @@ export function usePlaces() {
     dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
     // 位置/並び順
     lat, lng, hasLatLng,
-    // 交通手段
-    mode, setMode,
     // 最終受付考慮
     finalReception, setFinalReception,
     // 無限スクロール

@@ -12,6 +12,7 @@ const FIELDS = [
   'places.primaryType',
   'places.primaryTypeDisplayName',
   'places.rating',
+  'places.userRatingCount',
   'places.googleMapsUri',
   'places.websiteUri',
   'places.currentOpeningHours.weekdayDescriptions',
@@ -46,7 +47,6 @@ export async function GET(req: Request) {
     textQuery: q,
     languageCode: 'ja',
     regionCode: 'JP',
-    maxResultCount: 20,
     // ← ここがポイント：取得時点から距離順
     rankPreference: rank === 'distance' ? 'DISTANCE' : 'RELEVANCE',
   };

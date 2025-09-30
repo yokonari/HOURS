@@ -204,7 +204,7 @@ function normalizeIntervalsToWeek(ivals: Interval[]): Interval[] {
 function hitIntervals(ivals: Interval[], jsDay: number, minutes: number): boolean {
   const m = jsDay * DAY_MIN + minutes;
   for (const { start, end } of ivals) {
-    if (start <= m && m <= end) return true; // 終了時刻も含む（閉区間）
+    if (start <= m && m < end) return true; // 終了時刻は含めない（半開区間）
   }
   return false;
 }
@@ -403,10 +403,12 @@ export function getOpeningHoursDisplayInfo(place: Place, jsDay: number, minutes:
         };
       }
 
+      const prevText = getWeekdayStatusText(place, prevDay);
+      const filteredPrev = filterHoursByMinutes(prevText, minutes);
       return {
         isOpen: true,
-        displayDay: prevDay, // 前日の曜日を表示（実際に営業している日）
-        displayText: getWeekdayStatusText(place, prevDay) // 前日の営業時間を表示
+        displayDay: prevDay,
+        displayText: filteredPrev
       };
     }
   }
@@ -451,4 +453,95 @@ export function getClosingTime(place: Place, jsDay: number): number | null {
   const minutes = parseInt(timeMatch[2], 10);
 
   return hours * 60 + minutes;
+}
+
+export function getClosingTimeForMinutes(place: Place, jsDay: number, minutes: number): number | null {
+  if (isOpenAllDayThisWeekday(place, jsDay)) return null;
+
+  const targetAbsolute = jsDay * DAY_MIN + minutes;
+  const oh = getOpeningHoursFromPlace(place);
+
+  const candidateEnds: { end: number; displayDay: number }[] = [];
+
+  const recordInterval = (interval: Interval, displayDay: number) => {
+    if (interval.start <= targetAbsolute && targetAbsolute < interval.end) {
+      const duration = interval.end - interval.start;
+      if (duration >= DAY_MIN) {
+        candidateEnds.push({ end: -1, displayDay });
+      } else {
+        candidateEnds.push({ end: interval.end, displayDay });
+      }
+    }
+  };
+
+  const fromPeriods = normalizeIntervalsToWeek(buildIntervalsFromPeriods(oh?.periods));
+  fromPeriods.forEach((interval) => recordInterval(interval, Math.floor(interval.end / DAY_MIN) % 7));
+
+  const wd = oh?.weekdayDescriptions ?? [];
+  const todayIntervalsRaw = buildIntervalsFromDayText(jsDay, getDescForJsDay(wd, jsDay));
+  const todayIntervals = normalizeIntervalsToWeek(todayIntervalsRaw);
+  todayIntervals.forEach((interval) => recordInterval(interval, jsDay));
+
+  const prevDay = (jsDay + 6) % 7;
+  const prevIntervalsRaw = buildIntervalsFromDayText(prevDay, getDescForJsDay(wd, prevDay));
+  const prevIntervals = normalizeIntervalsToWeek(prevIntervalsRaw);
+  prevIntervals.forEach((interval) => recordInterval(interval, prevDay));
+
+  if (candidateEnds.length === 0) {
+    return null;
+  }
+
+  if (candidateEnds.some((c) => c.end === -1)) {
+    return null;
+  }
+
+  candidateEnds.sort((a, b) => a.end - b.end);
+  const primary = candidateEnds[0];
+
+  const dayStart = jsDay * DAY_MIN;
+  const dayEnd = dayStart + DAY_MIN;
+
+  const normalizedEnd = ((primary.end % WEEK_MIN) + WEEK_MIN) % WEEK_MIN;
+  const isPrevDay = normalizedEnd < dayStart;
+
+  if (isPrevDay) {
+    const prevText = getWeekdayStatusText(place, prevDay);
+    const segments = prevText.split(/[,、]/).map((seg) => seg.trim()).filter(Boolean);
+    const parsedSegments = segments
+      .map((seg) => {
+        const times = seg.match(/(\d{1,2})[時:](\d{2})/g);
+        if (!times || times.length < 2) return null;
+        const parse = (raw: string): number | null => {
+          const m = raw.match(/(\d{1,2})[時:](\d{2})/);
+          if (!m) return null;
+          const h = Number(m[1]);
+          const mm = Number(m[2]);
+          return h * 60 + mm;
+        };
+        const start = parse(times[0]);
+        const end = parse(times[1]);
+        if (start == null || end == null) return null;
+        return { start, end, text: seg };
+      })
+      .filter((v): v is { start: number; end: number; text: string } => !!v);
+
+    const matched = parsedSegments.find((seg) => {
+      const startAbs = prevDay * DAY_MIN + seg.start;
+      let endAbs = prevDay * DAY_MIN + seg.end;
+      if (endAbs <= startAbs) {
+        endAbs += DAY_MIN;
+      }
+      return targetAbsolute < endAbs;
+    });
+
+    if (matched) {
+      let endAbs = prevDay * DAY_MIN + matched.end;
+      if (endAbs <= prevDay * DAY_MIN + matched.start) {
+        endAbs += DAY_MIN;
+      }
+      return endAbs;
+    }
+  }
+
+  return primary.end;
 }
