@@ -79,10 +79,10 @@ export function PlaceCard({
         href={mapsUrl}
         target="_blank"
         rel="noreferrer"
-        className="group flex h-20 overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
+        className="group flex h-24 overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
       >
         <div className="shrink-0 relative h-full">
-          <div className="h-full w-20 overflow-hidden bg-gray-100 sm:w-28">
+          <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">
             {imgSrc ? (
               <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
             ) : (
@@ -110,15 +110,15 @@ export function PlaceCard({
             </div>
             {typeof p.rating === 'number' && (
               <div
-                className="ml-2 inline-flex items-center text-[12px] leading-tight text-on-surface sm:ml-3 sm:text-[14px]"
+                className="ml-2 inline-flex items-center gap-1 text-[12px] leading-none text-on-surface sm:ml-3 sm:text-[14px]"
                 title={`${p.rating.toFixed(1)} / 5`}
               >
-                <span aria-hidden className="mr-1 text-[12px] text-[#F5C518] sm:text-[14px]">★</span>
-                <span>
+                <span aria-hidden className="text-[#F5C518] leading-none">★</span>
+                <span className="leading-none">
                   {p.rating.toFixed(1)}
                 </span>
                 {typeof p.userRatingCount === 'number' && p.userRatingCount > 0 && (
-                  <span className="ml-1 text-on-surface-light sm:text-sm">
+                  <span className="ml-1 text-on-surface-light leading-none text-[11px] sm:text-sm">
                     ({p.userRatingCount})
                   </span>
                 )}

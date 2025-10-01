@@ -89,7 +89,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       {/* 固定検索フォーム */}
       <div
         ref={headerRef}
@@ -125,9 +125,7 @@ export default function HomePage() {
             </div>
 
             <p className="text-xs text-on-surface sm:text-sm">
-              営業時間でスポットを探せます。
-              <br />
-              カードをタップするとGoogle マップで詳しく確認できます。
+              営業時間からお店や施設を検索できます。
             </p>
           </form>
         </div>
@@ -135,7 +133,7 @@ export default function HomePage() {
 
       {/* メインコンテンツエリア */}
       <main
-        className="mx-auto max-w-5xl px-4 pb-2 sm:px-6 sm:pb-3 lg:max-w-6xl lg:px-10 lg:pb-6"
+        className="flex-1 mx-auto max-w-5xl px-4 pb-2 sm:px-6 sm:pb-3 lg:max-w-6xl lg:px-10 lg:pb-6"
         style={{ paddingTop: headerHidden ? 8 : headerOffset }}
       >
 
@@ -164,7 +162,38 @@ export default function HomePage() {
         {loading && (<div className="mt-4 text-center text-gray-500">読み込み中…</div>)}
       </main>
 
+      <footer className="w-full mt-4 text-xs text-on-surface-light sm:mt-6 sm:text-sm">
+        <div className="border-t border-black/10">
+          <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3 px-4 py-3 text-on-surface sm:max-w-6xl sm:px-6">
+            <a
+              href="mailto:yokonari10@gmail.com"
+              className="flex items-center gap-1 transition hover:opacity-80"
+            >
+              <span
+                className="material-symbols-rounded text-base"
+                style={{ fontVariationSettings: `'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24` }}
+                aria-hidden="true"
+              >
+                mail
+              </span>
+              <span>お問い合わせ</span>
+            </a>
+            <span className="flex items-center gap-2">
+              制作:{' '}
+              <a
+                href="https://x.com/yoko_nari_"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 transition hover:opacity-80"
+              >
+                <span>@yoko_nari_</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+
       <ScrollTopButton />
-    </>
+    </div>
   );
 }
