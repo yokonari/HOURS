@@ -74,12 +74,13 @@ export function PlaceCard({
   };
 
   return (
-    <li>
+    <li className="w-full lg:w-[400px]">
+      {/* 2列表示時も同じ幅になるようにしています */}
       <a
         href={mapsUrl}
         target="_blank"
         rel="noreferrer"
-        className="group flex h-24 overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
+        className="group flex h-24 w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
       >
         <div className="shrink-0 relative h-full">
           <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">

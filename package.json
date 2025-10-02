@@ -1,5 +1,5 @@
 {
-  "name": "laffy",
+  "name": "hours",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,8 @@
   "dependencies": {
     "next": "15.5.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "resend": "^6.1.2"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250904.0",

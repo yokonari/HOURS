@@ -12,9 +12,15 @@ export type Place = { regularOpeningHours?: OpeningHours; currentOpeningHours?: 
 // ========= Exports you already import =========
 export const jpWeek = ["日", "月", "火", "水", "木", "金", "土"] as const;
 
-const pad2 = (n: number) => String(n).padStart(2, "0");
-export const todayStr = (d: Date = new Date()): string =>
-  `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+export const todayStr = (d: Date = new Date(), timeZone = "Asia/Tokyo"): string => {
+  // サーバー/クライアント間で日付がずれないように明示的にタイムゾーンを指定します
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+};
 export const weekdayFromDateString = (s: string): number =>
   new Date(`${s}T00:00:00`).getDay();
 

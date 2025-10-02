@@ -10,6 +10,8 @@ import {
   getClosingTimeForMinutes,
 } from '@/lib/openingHours';
 
+const pad2 = (n: number) => String(n).padStart(2, '0');
+
 function isObject(v: unknown): v is Record<string, unknown> {
   return v !== null && typeof v === 'object';
 }
@@ -32,10 +34,7 @@ export function usePlaces() {
 
   // 日付・時刻フィルタ
   const [dateStr, setDateStr] = useState<string>(todayStr());
-  const [timeStr, setTimeStr] = useState<string>(() => {
-    const now = new Date();
-    return `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-  }); // "HH:MM" or ''
+  const [timeStr, setTimeStr] = useState<string>(''); // "HH:MM" or ''
 
   // 最終受付考慮
   const [finalReception, setFinalReception] = useState<'none' | '30min' | '60min'>('none');
@@ -50,6 +49,20 @@ export function usePlaces() {
 
   // 無限スクロール監視ターゲット
   const loaderRef = useRef<HTMLDivElement | null>(null);
+
+  const [currentHHMM, setCurrentHHMM] = useState<string>('');
+  const [currentMinutes, setCurrentMinutes] = useState<number | null>(null);
+  const [todayDateStr, setTodayDateStr] = useState<string>(dateStr);
+
+  // サーバーとクライアントで同じ初期表示になるよう、マウント後に現在時刻と日付を設定します
+  useEffect(() => {
+    const now = new Date();
+    const hhmm = `${pad2(now.getHours())}:${pad2(now.getMinutes())}`;
+    setCurrentHHMM(hhmm);
+    setCurrentMinutes(now.getHours() * 60 + now.getMinutes());
+    setTimeStr((prev) => (prev && prev.trim().length > 0 ? prev : hhmm));
+    setTodayDateStr(todayStr(now));
+  }, []);
 
   // 現在地取得
   useEffect(() => {
@@ -173,16 +186,7 @@ export function usePlaces() {
     fetchPlaces(false, { q: trimmed, cursor: null });
   }, [qInput, fetchPlaces]);
 
-  const isToday = useMemo(() => {
-    const today = new Date();
-    const base = new Date(today.getFullYear(), today.getMonth(), today.getDate()); // 00:00
-    const sel = new Date(`${dateStr}T00:00:00`);
-    return (
-      sel.getFullYear() === base.getFullYear() &&
-      sel.getMonth() === base.getMonth() &&
-      sel.getDate() === base.getDate()
-    );
-  }, [dateStr]);
+  const isToday = useMemo(() => dateStr === todayDateStr, [dateStr, todayDateStr]);
 
   // 表示用: 日付/時刻に基づくフィルタ済み結果
   const filteredResults = useMemo(() => {
@@ -193,10 +197,8 @@ export function usePlaces() {
       return (h || 0) * 60 + (m || 0);
     };
 
-    const now = new Date();
-    const nowMinutes = now.getHours() * 60 + now.getMinutes();
-
-    const minutes = timeStr ? parseHM(timeStr) : nowMinutes;
+    const minutesFromInput = timeStr ? parseHM(timeStr) : null;
+    const minutes = minutesFromInput ?? (currentMinutes ?? 0);
 
     return allResults
       .filter((p) => isOpenOnWeekday(p as any, wd))
@@ -225,7 +227,7 @@ export function usePlaces() {
 
         return true;
       });
-  }, [allResults, dateStr, timeStr, finalReception]);
+  }, [allResults, dateStr, timeStr, finalReception, currentMinutes]);
 
   // 無限スクロール
   useEffect(() => {
@@ -243,47 +245,29 @@ export function usePlaces() {
     return () => observer.disconnect();
   }, [loading, cursor, dirty, hasSearched, fetchPlaces]);
 
-  const pad2 = (n: number) => String(n).padStart(2, '0');
-  const currentHHMM = useMemo(() => {
-    const d = new Date();
-    return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-  }, []);
-
-
   // ラベル（UI側で利用）
   const dateLabel = useMemo(() => {
-    // dateStr は "YYYY-MM-DD"
-    // ユーティリティ
-    const startOfDay = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
-    const isSameDay = (a: Date, b: Date) => startOfDay(a).getTime() === startOfDay(b).getTime();
-
-    // 選択日
     const sel = new Date(`${dateStr}T00:00:00`);
     const wd = jpWeek[sel.getDay()];
-
-    // 今日/明日
-    const now = new Date();
-    const today = startOfDay(now);
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    if (isSameDay(sel, today)) return `今日(${wd})`;
-    if (isSameDay(sel, tomorrow)) return `明日(${wd})`;
-
-    // それ以降 → M/D(曜)
+    if (todayDateStr) {
+      const today = new Date(`${todayDateStr}T00:00:00`);
+      if (sel.getTime() === today.getTime()) return `今日(${wd})`;
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      if (sel.getTime() === tomorrow.getTime()) return `明日(${wd})`;
+    }
     return `${sel.getMonth() + 1}/${sel.getDate()}(${wd})`;
-  }, [dateStr]);
+  }, [dateStr, todayDateStr]);
 
   const timeLabel = useMemo(() => {
     if (isToday) {
-      // 今日の場合、時刻が現在時刻と同じなら「今から」を表示
-      if (timeStr === currentHHMM) {
+      if (!timeStr) return '今から';
+      if (currentHHMM && timeStr === currentHHMM) {
         return '今から';
       }
-      return timeStr || '今から';
+      return timeStr;
     }
-    // 今日以外の日付 → 入力がなければ "現在時刻" を表示
-    return timeStr || currentHHMM;
+    return timeStr || currentHHMM || '今から';
   }, [isToday, timeStr, currentHHMM]);
 
 

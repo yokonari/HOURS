@@ -16,7 +16,8 @@ export function PlaceList({
 }) {
   return (
     <>
-      <ul className="mt-2 mb-2 grid list-none grid-cols-1 gap-y-2 gap-x-4 p-0 sm:mt-3 sm:mb-3 sm:grid-cols-1 sm:gap-y-3 sm:gap-x-6 md:grid-cols-1 lg:mt-6 lg:mb-6 lg:grid-cols-2 lg:gap-y-3 lg:gap-x-4">
+      {/* 大きい画面では幅400pxのカードを2列で中央揃えにします */}
+      <ul className="mt-2 mb-2 grid list-none grid-cols-1 gap-3 p-0 sm:mt-3 sm:mb-3 sm:gap-4 lg:mt-6 lg:mb-6 lg:[grid-template-columns:repeat(2,400px)] lg:justify-center lg:gap-5">
         {results.map((p) => (
           <PlaceCard
             key={p.id ?? `${p.displayName?.text ?? ''}-${p.formattedAddress ?? ''}`}

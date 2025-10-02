@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "laffy",
+	"name": "hours",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-09-01",
 	// ビルド後のJSを縮小化
@@ -16,31 +16,31 @@
 	"services": [
 		{
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "laffy"
+			"service": "hours"
 		}
 	],
 	"d1_databases": [
 		{
-			"binding": "laffy_db",
-			"database_name": "laffy-db",
+			"binding": "hours_db",
+			"database_name": "hours-db",
 			"database_id": "c0cfddb9-0342-4841-a0be-4ddd181c75b1",
 			"preview_database_id": "6fd41edb-1324-47ef-984e-b02e24ddd697" // ← dev で使うID
 		},
 		{
-			"binding": "laffy_db_dev",
-			"database_name": "laffy-db-dev",
+			"binding": "hours_db_dev",
+			"database_name": "hours-db-dev",
 			"database_id": "6fd41edb-1324-47ef-984e-b02e24ddd697"
 		}
 	],
 	"r2_buckets": [
 		{
 			"binding": "NEXT_INC_CACHE_R2_BUCKET",
-			"bucket_name": "laffy-inc-cache",
-			"preview_bucket_name": "laffy-inc-cache-dev"   // ← dev 用
+			"bucket_name": "hours-inc-cache",
+			"preview_bucket_name": "hours-inc-cache-dev" // ← dev 用
 		},
 		{
-			"bucket_name": "laffy-inc-cache-dev",
-			"binding": "laffy_inc_cache_dev"
+			"bucket_name": "hours-inc-cache-dev",
+			"binding": "hours_inc_cache_dev"
 		}
 	]
 }

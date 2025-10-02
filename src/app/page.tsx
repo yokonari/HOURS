@@ -4,6 +4,7 @@ import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
 import { FinalReceptionSelector } from '@/components/FinalReceptionSelector';
 import { PlaceList } from '@/components/PlaceList';
+import { ContactDialog } from '@/components/ContactDialog';
 import { ScrollTopButton } from '@/components/ScrollTopButton';
 import { usePlaces } from '@/hooks/usePlaces';
 
@@ -28,6 +29,7 @@ export default function HomePage() {
   const [headerOffset, setHeaderOffset] = useState(120);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [headerHidden, setHeaderHidden] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -128,13 +130,22 @@ export default function HomePage() {
               営業時間からお店や施設を検索できます。
             </p>
           </form>
+
         </div>
       </div>
+
+      {/* 固定ヘッダーの高さ分を確保するための余白です */}
+      <div
+        aria-hidden="true"
+        style={{
+          height: headerHidden ? 8 : headerOffset,
+          transition: 'height 0.2s ease',
+        }}
+      />
 
       {/* メインコンテンツエリア */}
       <main
         className="flex-1 mx-auto max-w-5xl px-4 pb-2 sm:px-6 sm:pb-3 lg:max-w-6xl lg:px-10 lg:pb-6"
-        style={{ paddingTop: headerHidden ? 8 : headerOffset }}
       >
 
         {error && (
@@ -165,8 +176,9 @@ export default function HomePage() {
       <footer className="w-full mt-4 text-xs text-on-surface-light sm:mt-6 sm:text-sm">
         <div className="border-t border-black/10">
           <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3 px-4 py-3 text-on-surface sm:max-w-6xl sm:px-6">
-            <a
-              href="mailto:yokonari10@gmail.com"
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
               className="flex items-center gap-1 transition hover:opacity-80"
             >
               <span
@@ -177,7 +189,7 @@ export default function HomePage() {
                 mail
               </span>
               <span>お問い合わせ</span>
-            </a>
+            </button>
             <span className="flex items-center gap-2">
               制作:{' '}
               <a
@@ -193,6 +205,7 @@ export default function HomePage() {
         </div>
       </footer>
 
+      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
       <ScrollTopButton />
     </div>
   );
