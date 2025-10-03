@@ -34,13 +34,9 @@
 	],
 	"r2_buckets": [
 		{
-			"binding": "NEXT_INC_CACHE_R2_BUCKET",
-			"bucket_name": "hours-inc-cache",
-			"preview_bucket_name": "hours-inc-cache-dev" // ← dev 用
-		},
-		{
-			"bucket_name": "hours-inc-cache-dev",
-			"binding": "hours_inc_cache_dev"
+			"binding": "NEXT_INC_CACHE_R2_BUCKET", // ここが env.NEXT_INC_CACHE_R2_BUCKET になる
+			"bucket_name": "hours-inc-cache", // 本番用バケット名（実体が必要）
+			"preview_bucket_name": "hours-inc-cache-dev" // プレビュー用バケット名（実体が必要）
 		}
 	]
 }
