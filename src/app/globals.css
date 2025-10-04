@@ -5,6 +5,8 @@
   --background: #f5f5f5;
   --foreground: #171717;
   --on-surface: #272343;
+  --primary: #4688a2;
+  --primary-dark: #3b6e85;
 }
 
 /* カスタムボタンスタイル */
@@ -31,6 +33,14 @@
 .text-on-surface-muted {
   color: var(--on-surface);
   opacity: 0.5;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.hover\:bg-primary-dark:hover {
+  background-color: var(--primary-dark);
 }
 
 @theme inline {
@@ -85,4 +95,3 @@ input[type="datetime-local"] {
   /* 変数フォントの軸（FILL=0 でアウトライン、1で塗り） */
   font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
 }
-

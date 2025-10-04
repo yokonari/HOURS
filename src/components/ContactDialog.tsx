@@ -201,7 +201,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             <button
               type="submit"
               disabled={sending}
-              className="rounded-lg bg-on-surface px-4 py-2 text-sm text-white hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="rounded-lg bg-primary px-4 py-2 text-sm text-white transition hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {sending ? '送信中…' : '送信する'}
             </button>
