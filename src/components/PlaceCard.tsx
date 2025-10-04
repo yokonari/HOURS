@@ -6,10 +6,12 @@ export function PlaceCard({
   place: p,
   dateStr,
   timeStr,
+  cardWidth,
 }: {
   place: Place;
   dateStr: string;
   timeStr: string;
+  cardWidth?: number | null;
 }) {
   const name = p.displayName?.text ?? '(名称不明)';
   const plat = p.location?.latitude ?? null;
@@ -73,14 +75,20 @@ export function PlaceCard({
     );
   };
 
+  const widthStyle = cardWidth != null ? { width: cardWidth, maxWidth: '100%' as const } : undefined;
+
   return (
-    <li className="w-full lg:w-[400px]">
+    <li
+      className="block w-full max-w-full lg:w-[400px] lg:max-w-[400px] lg:flex-none"
+      style={widthStyle}
+    >
       {/* 2列表示時も同じ幅になるようにしています */}
       <a
         href={mapsUrl}
         target="_blank"
         rel="noreferrer"
-        className="group flex h-24 w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
+        className="group flex h-24 w-full max-w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
+        style={widthStyle}
       >
         <div className="shrink-0 relative h-full">
           <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">

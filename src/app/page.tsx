@@ -27,8 +27,6 @@ export default function HomePage() {
   const waitingGeo = !hasLatLng;
   const headerRef = useRef<HTMLDivElement | null>(null);
   const [headerOffset, setHeaderOffset] = useState(120);
-  const [headerHeight, setHeaderHeight] = useState(0);
-  const [headerHidden, setHeaderHidden] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
@@ -36,7 +34,6 @@ export default function HomePage() {
     const GAP_PX = 8;
     const updateOffset = () => {
       const height = headerRef.current?.offsetHeight ?? 0;
-      setHeaderHeight(height);
       setHeaderOffset(height + GAP_PX);
     };
 
@@ -56,50 +53,12 @@ export default function HomePage() {
     };
   }, []);
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    let lastScrollY = 0;
-    const THRESHOLD = 10;
-
-    const handleScroll = () => {
-      const current = window.scrollY;
-      if (current <= 0) {
-        setHeaderHidden(false);
-        lastScrollY = 0;
-        return;
-      }
-
-      if (current > lastScrollY + THRESHOLD) {
-        setHeaderHidden(true);
-        lastScrollY = current;
-        return;
-      }
-
-      if (current < lastScrollY - THRESHOLD) {
-        setHeaderHidden(false);
-        lastScrollY = current;
-        return;
-      }
-
-      lastScrollY = current;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col">
       {/* 固定検索フォーム */}
       <div
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm"
-        style={{
-          transform: `translateY(${headerHidden ? -(headerHeight || 0) : 0}px)`,
-          transition: 'transform 0.2s ease',
-        }}
       >
         <div className="mx-auto max-w-[600px] px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4">
           <form onSubmit={submitSearch} className="space-y-2 sm:space-y-3">
@@ -138,7 +97,7 @@ export default function HomePage() {
       <div
         aria-hidden="true"
         style={{
-          height: headerHidden ? 8 : headerOffset,
+          height: headerOffset,
           transition: 'height 0.2s ease',
         }}
       />

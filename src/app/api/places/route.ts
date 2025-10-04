@@ -31,37 +31,41 @@ function jsonError(status: number, message: string) {
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const q = url.searchParams.get('q') ?? '';
+  const qRaw = url.searchParams.get('q') ?? '';
+  const q = qRaw.trim();
   const lat = url.searchParams.get('lat');
   const lng = url.searchParams.get('lng');
   const cursor = url.searchParams.get('cursor');
-  const rank = (url.searchParams.get('rank') ?? 'relevance').toLowerCase(); // ← 追加
-
+  const rank = (url.searchParams.get('rank') ?? 'relevance').toLowerCase();
   // Cloudflare 環境の取り回し（process.env が無い場合のフォールバックも残す）
   const apiKey = process.env.PLACES_API_KEY;
 
   if (!apiKey) return jsonError(500, 'PLACES_API_KEY is missing');
 
-  // ★ ページング時も含めて “毎回” 同じ検索条件を送る
+  const latNum = lat != null ? Number(lat) : null;
+  const lngNum = lng != null ? Number(lng) : null;
+
+  const textQueryValue = q.length > 0 ? q : 'popular places';
+
   const body: any = {
-    textQuery: q,
+    // テキスト入力が無い場合でも API 要件を満たすためにデフォルトクエリをセットします
+    textQuery: textQueryValue,
     languageCode: 'ja',
     regionCode: 'JP',
-    // ← ここがポイント：取得時点から距離順
     rankPreference: rank === 'distance' ? 'DISTANCE' : 'RELEVANCE',
   };
 
-  if (lat && lng) {
+  if (latNum != null && lngNum != null) {
     body.locationBias = {
       circle: {
-        center: { latitude: Number(lat), longitude: Number(lng) },
+        center: { latitude: latNum, longitude: lngNum },
         radius: 5000,
       },
     };
   }
 
   if (cursor) {
-    body.pageToken = cursor; // これを付けても、他パラメータは初回と同一である必要あり
+    body.pageToken = cursor;
   }
 
   const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {

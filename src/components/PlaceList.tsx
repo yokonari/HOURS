@@ -1,5 +1,5 @@
 'use client';
-import type { MutableRefObject } from 'react';
+import { useEffect, useMemo, useState, type MutableRefObject } from 'react';
 import { Place } from '@/types/place';
 import { PlaceCard } from './PlaceCard';
 
@@ -14,16 +14,44 @@ export function PlaceList({
   timeStr: string;
   loaderRef: MutableRefObject<HTMLDivElement | null>;
 }) {
+  const [viewportWidth, setViewportWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const updateViewport = () => setViewportWidth(window.innerWidth);
+
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+
+    return () => {
+      window.removeEventListener('resize', updateViewport);
+    };
+  }, []);
+
+  const cardWidth = useMemo(() => {
+    if (viewportWidth == null) return null;
+    if (viewportWidth >= 1024) {
+      // PC 表示は 400px 固定です
+      return 400;
+    }
+    // モバイル/タブレットは画面幅からコンテンツ余白ぶんを差し引いたサイズで固定します
+    const horizontalPadding = viewportWidth >= 640 ? 48 : 32; // sm: px-6 (=24px) / base: px-4 (=16px)
+    const width = viewportWidth - horizontalPadding;
+    return width > 0 ? width : viewportWidth;
+  }, [viewportWidth]);
+
   return (
     <>
-      {/* 大きい画面では幅400pxのカードを2列で中央揃えにします */}
-      <ul className="mt-2 mb-2 grid list-none grid-cols-1 gap-3 p-0 sm:mt-3 sm:mb-3 sm:gap-4 lg:mt-6 lg:mb-6 lg:[grid-template-columns:repeat(2,400px)] lg:justify-center lg:gap-5">
+      {/* モバイル/タブレットでは縦並び、PC では幅400pxカードを横並びにします */}
+      <ul className="mt-2 mb-2 flex w-full list-none flex-col gap-3 p-0 sm:mt-3 sm:mb-3 sm:gap-4 lg:mt-6 lg:mb-6 lg:grid lg:grid-cols-[repeat(2,minmax(0,400px))] lg:justify-center lg:gap-5">
         {results.map((p) => (
           <PlaceCard
             key={p.id ?? `${p.displayName?.text ?? ''}-${p.formattedAddress ?? ''}`}
             place={p}
             dateStr={dateStr}
             timeStr={timeStr}
+            cardWidth={cardWidth}
           />
         ))}
       </ul>

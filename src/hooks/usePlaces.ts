@@ -111,12 +111,13 @@ export function usePlaces() {
       const LNG = overrides?.lng ?? lng;
       const CUR = (overrides && 'cursor' in overrides) ? overrides.cursor : cursor;
       const USE_COORDS = LAT != null && LNG != null;
+      const MODE = USE_COORDS && sortByDistance ? 'distance' : 'relevance';
 
       const params = new URLSearchParams();
       if (Q) params.set('q', Q);
       if (USE_COORDS) { params.set('lat', String(LAT)); params.set('lng', String(LNG)); }
       if (CUR) params.set('cursor', CUR);
-      params.set('rank', USE_COORDS && sortByDistance ? 'distance' : 'relevance');
+      params.set('rank', MODE);
 
       try {
         const res = await fetch(`/api/places?${params.toString()}`, {
