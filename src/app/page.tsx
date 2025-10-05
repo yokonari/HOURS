@@ -12,7 +12,7 @@ import { usePlaces } from '@/hooks/usePlaces';
 export default function HomePage() {
   const {
     // 入力/検索
-    qInput, setQInput, submitSearch,
+    qInput, setQInput, submitSearch, resetSearch,
     loading, error, hasSearched,
     // 結果
     results,
@@ -94,6 +94,7 @@ export default function HomePage() {
               setQInput={setQInput}
               loading={loading}
               waitingGeo={waitingGeo}
+              onReset={resetSearch}
             />
 
             {/* 2行目: 日時選択と最終受付 */}
@@ -137,17 +138,25 @@ export default function HomePage() {
             className="flex items-center justify-center"
             style={{ height: emptyStateHeight }}
           >
-            <div className="flex flex-col items-center gap-4 text-center text-gray-500">
+            <div className="flex flex-col items-center gap-5 text-center" style={{ color: 'var(--foreground)' }}>
               <Image
                 src="/images/top.png"
-                width={120}
-                height={120}
+                width={144}
+                height={144}
                 priority
                 alt="検索開始を案内するイラスト"
+                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-30 lg:w-30"
+                sizes="(min-width: 1024px) 10rem, (min-width: 640px) 8rem, 6rem"
               />
-              <div className="space-y-1">
-                <p>営業時間からお店や施設を検索できます。</p>
-                <p>キーワードを入力して検索してください。</p>
+              <div className="space-y-3 text-sm sm:text-base lg:text-lg">
+                <p>指定した日時に営業している施設を検索できます。</p>
+                {/* 「最終受付を考慮」機能の概要を丁寧なヘルプ枠として補足します。 */}
+                <div
+                  className="mt-4 rounded-lg border border-gray-200 bg-white/80 p-4 text-xs leading-relaxed sm:text-sm"
+                >
+                  <p>「最終受付を考慮」を選ぶと、閉店間際の店を除外。</p>
+                  <p className="mt-1">※実際の受付時間は店舗公式情報をご確認ください。</p>
+                </div>
               </div>
             </div>
           </div>
@@ -169,8 +178,18 @@ export default function HomePage() {
           </div>
         )}
 
-        {loading && (
-          <div className="mt-4 text-center text-gray-500">読み込み中…</div>
+        {loading && results.length === 0 && (
+          <div className="mt-6 flex justify-center" aria-label="読み込み中" aria-live="polite">
+            {/* 読み込み中の状態を視覚的に丁寧に伝えるスピナーです。 */}
+            <div className="animate-spin h-8 w-8 rounded-xl bg-[var(--primary)]" />
+          </div>
+        )}
+
+        {loading && results.length > 0 && (
+          <div className="mt-4 flex justify-center" aria-label="読み込み中" aria-live="polite">
+            {/* 追加入力で読み込みが続く場合もスピナーで丁寧に表現します。 */}
+            <div className="animate-spin h-6 w-6 rounded-xl bg-[var(--primary)]" />
+          </div>
         )}
       </main>
 

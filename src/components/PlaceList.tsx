@@ -62,7 +62,7 @@ export function PlaceList({
       <div
         ref={loaderRef}
         className="transition-[height] duration-200"
-        style={{ height: hasMore ? '2.5rem' : 0 }}
+        style={{ height: hasMore ? '0.75rem' : 0 }}
         aria-hidden="true"
       />
     </>

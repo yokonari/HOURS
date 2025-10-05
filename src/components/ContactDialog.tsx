@@ -191,14 +191,14 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             <button
               type="button"
               onClick={handleClose}
-              className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-on-surface hover:bg-gray-50"
+              className="btn-secondary"
             >
               キャンセル
             </button>
             <button
               type="submit"
               disabled={sending || messageDraft.trim().length === 0}
-              className="rounded-lg bg-primary px-4 py-2 text-sm text-white transition hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
+              className="btn-primary"
             >
               {sending ? '送信中…' : '送信する'}
             </button>

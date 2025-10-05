@@ -35,12 +35,38 @@
   opacity: 0.5;
 }
 
-.bg-primary {
+.btn-primary {
+  border: none;
+  border-radius: 9999px;
   background-color: var(--primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
-.hover\:bg-primary-dark:hover {
+.btn-primary:hover {
   background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: var(--on-surface);
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #f3f4f6;
 }
 
 @theme inline {

@@ -34,10 +34,12 @@ export function usePlaces() {
 
   // 日付・時刻フィルタ
   const [dateStr, setDateStr] = useState<string>(todayStr());
-  const [timeStr, setTimeStr] = useState<string>(''); // "HH:MM" or ''
+  const [timeStr, setTimeStrState] = useState<string>(''); // "HH:MM" or ''
+  const [timeSource, setTimeSource] = useState<'auto' | 'manual'>('auto');
+  const timeSourceRef = useRef<'auto' | 'manual'>(timeSource);
 
   // 最終受付考慮
-  const [finalReception, setFinalReception] = useState<'none' | '30min' | '60min'>('none');
+  const [finalReception, setFinalReceptionState] = useState<'none' | '30min' | '60min'>('none');
 
   // 検索状態
   const [hasSearched, setHasSearched] = useState(false);
@@ -55,14 +57,44 @@ export function usePlaces() {
   const [todayDateStr, setTodayDateStr] = useState<string>(dateStr);
 
   // サーバーとクライアントで同じ初期表示になるよう、マウント後に現在時刻と日付を設定します
-  useEffect(() => {
+  const refreshNow = useCallback((source?: 'auto' | 'manual') => {
     const now = new Date();
     const hhmm = `${pad2(now.getHours())}:${pad2(now.getMinutes())}`;
     setCurrentHHMM(hhmm);
     setCurrentMinutes(now.getHours() * 60 + now.getMinutes());
-    setTimeStr((prev) => (prev && prev.trim().length > 0 ? prev : hhmm));
     setTodayDateStr(todayStr(now));
+    const effectiveSource = source ?? timeSourceRef.current;
+    if (effectiveSource === 'auto') {
+      timeSourceRef.current = 'auto';
+      setTimeSource('auto');
+      setTimeStrState(hhmm);
+    }
+    return hhmm;
   }, []);
+
+  useEffect(() => {
+    refreshNow('auto');
+  }, [refreshNow]);
+
+  useEffect(() => {
+    timeSourceRef.current = timeSource;
+  }, [timeSource]);
+
+  const handleFinalReceptionChange = useCallback((value: typeof finalReception) => {
+    setFinalReceptionState(value);
+    refreshNow();
+  }, [refreshNow]);
+
+  const setTimeStrExternal = useCallback((value: string) => {
+    const trimmed = value.trim();
+    if (trimmed.length === 0) {
+      refreshNow('auto');
+      return;
+    }
+    timeSourceRef.current = 'manual';
+    setTimeSource('manual');
+    setTimeStrState(value);
+  }, [refreshNow]);
 
   // 現在地取得
   useEffect(() => {
@@ -99,6 +131,10 @@ export function usePlaces() {
           setHasSearched(false);
         }
         return;
+      }
+
+      if (!append) {
+        setAllResults([]);
       }
 
       setLoading(true);
@@ -183,9 +219,23 @@ export function usePlaces() {
       return;
     }
 
+    refreshNow();
     setHasSearched(true);
     fetchPlaces(false, { q: trimmed, cursor: null });
-  }, [qInput, fetchPlaces]);
+  }, [qInput, fetchPlaces, refreshNow]);
+
+  const resetSearch = useCallback(() => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setQ('');
+    setQInput('');
+    setCursor(null);
+    seenRef.current = new Set();
+    setAllResults([]);
+    setHasSearched(false);
+    setError(null);
+    setLoading(false);
+  }, []);
 
   const isToday = useMemo(() => dateStr === todayDateStr, [dateStr, todayDateStr]);
 
@@ -261,30 +311,26 @@ export function usePlaces() {
   }, [dateStr, todayDateStr]);
 
   const timeLabel = useMemo(() => {
-    if (isToday) {
-      if (!timeStr) return '今から';
-      if (currentHHMM && timeStr === currentHHMM) {
-        return '今から';
-      }
-      return timeStr;
-    }
-    return timeStr || currentHHMM || '今から';
-  }, [isToday, timeStr, currentHHMM]);
+    if (timeSource === 'auto') return '今から';
+    if (!timeStr) return '今から';
+    return timeStr;
+  }, [timeSource, timeStr]);
 
 
   return {
     // 入力
-    qInput, setQInput, submitSearch,
+    qInput, setQInput, submitSearch, resetSearch,
     // 検索状態
     loading, error, hasSearched,
     // 結果
     results: filteredResults,
     // 日付/時刻
-    dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
+    dateStr, setDateStr, timeStr, setTimeStr: setTimeStrExternal, dateLabel, timeLabel,
     // 位置/並び順
     lat, lng, hasLatLng,
     // 最終受付考慮
-    finalReception, setFinalReception,
+    finalReception,
+    setFinalReception: handleFinalReceptionChange,
     // 無限スクロール
     loaderRef,
     hasMore: cursor != null,
