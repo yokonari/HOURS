@@ -95,31 +95,31 @@ export function PlaceCard({
             {imgSrc ? (
               <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">No image</div>
+              <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
             )}
           </div>
         </div>
 
         <div className="min-w-0 flex-1 p-2 flex flex-col overflow-hidden sm:p-5">
           <div className="min-w-0">
-            <h2 className="truncate text-sm font-medium text-on-surface leading-tight sm:text-lg" title={name}>
+            <h2 className="truncate text-base font-medium text-on-surface leading-tight sm:text-lg" title={name}>
               {name}
             </h2>
             {displayAddress && (
-              <div className="mt-0.5 text-xs text-on-surface-light truncate sm:text-sm" title={displayAddress}>
+              <div className="mt-0.5 text-sm text-on-surface-light truncate sm:text-base" title={displayAddress}>
                 {displayAddress}
               </div>
             )}
           </div>
 
-          <div className="mt-auto pt-1 flex items-center gap-2 text-xs leading-tight sm:pt-3 sm:gap-4 sm:text-base">
+          <div className="mt-auto pt-1 flex items-center gap-2 text-sm leading-tight sm:pt-3 sm:gap-4 sm:text-base">
             <div className="text-on-surface truncate flex items-center gap-1 leading-tight">
               <span>{wdJp}:</span>
               <span>{renderHoursText(hoursText)}</span>
             </div>
             {typeof p.rating === 'number' && (
               <div
-                className="ml-2 inline-flex items-center gap-1 text-[12px] leading-none text-on-surface sm:ml-3 sm:text-[14px]"
+                className="ml-2 inline-flex items-center gap-1 text-sm leading-none text-on-surface sm:ml-3 sm:text-base"
                 title={`${p.rating.toFixed(1)} / 5`}
               >
                 <span aria-hidden className="text-[#F5C518] leading-none">★</span>
@@ -127,7 +127,7 @@ export function PlaceCard({
                   {p.rating.toFixed(1)}
                 </span>
                 {typeof p.userRatingCount === 'number' && p.userRatingCount > 0 && (
-                  <span className="ml-1 text-on-surface-light leading-none text-[11px] sm:text-sm">
+                  <span className="ml-1 text-on-surface-light leading-none text-sm sm:text-base">
                     ({p.userRatingCount})
                   </span>
                 )}
