@@ -25,15 +25,23 @@ export async function POST(req: Request) {
   const to = process.env.CONTACT_TO_EMAIL;
 
   // 必須の環境変数が欠けている場合はここで弾いて利用者に分かりやすいメッセージを返します
-  if (!apiKey) {
-    return json(500, { message: 'RESEND_API_KEY が設定されていません。' });
+  const missingKeys = [
+    !apiKey && 'RESEND_API_KEY',
+    !from && 'RESEND_FROM_EMAIL',
+    !to && 'CONTACT_TO_EMAIL',
+  ].filter((v): v is string => typeof v === 'string');
+
+  if (missingKeys.length > 0) {
+    console.error('Contact API misconfiguration', { missingKeys });
+    return json(500, {
+      message: 'メール送信に失敗しました。時間を置いて再度お試しください。',
+      missingKeys,
+    });
   }
-  if (!from) {
-    return json(500, { message: 'RESEND_FROM_EMAIL が設定されていません。' });
-  }
-  if (!to) {
-    return json(500, { message: 'CONTACT_TO_EMAIL が設定されていません。' });
-  }
+
+  const ensuredApiKey = apiKey as string;
+  const ensuredFrom = from as string;
+  const ensuredTo = to as string;
 
   // フロントエンドから送られてきた JSON を安全にパースします
   let payload: ContactPayload;
@@ -48,20 +56,17 @@ export async function POST(req: Request) {
   const emailRaw = typeof payload.email === 'string' ? payload.email.trim() : '';
   const messageRaw = typeof payload.message === 'string' ? payload.message.trim() : '';
 
-  if (!emailRaw) {
-    return json(400, { message: 'メールアドレスを入力してください。' });
-  }
   if (!messageRaw) {
     return json(400, { message: 'お問い合わせ内容を入力してください。' });
   }
 
-  const resend = new Resend(apiKey);
+  const resend = new Resend(ensuredApiKey);
 
   // Resend に渡す件名と本文をここで組み立てます
-  const subject = name ? `お問い合わせ: ${name}` : 'お問い合わせ';
+  const subject = '【HOURS】お問い合わせ';
   const summary = [
     `お名前: ${name || '未入力'}`,
-    `メールアドレス: ${emailRaw}`,
+    `メールアドレス: ${emailRaw || '未入力'}`,
     '',
     'お問い合わせ内容:',
     messageRaw,
@@ -69,9 +74,9 @@ export async function POST(req: Request) {
 
   try {
     await resend.emails.send({
-      from,
-      to: to.split(',').map((address) => address.trim()).filter(Boolean),
-      replyTo: emailRaw,
+      from: `HOURS <${ensuredFrom}>`,
+      to: ensuredTo.split(',').map((address) => address.trim()).filter(Boolean),
+      replyTo: emailRaw || undefined,
       subject,
       text: summary,
     });

@@ -13,6 +13,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [messageDraft, setMessageDraft] = useState('');
   const titleId = useId();
   const descriptionId = useId();
 
@@ -31,6 +32,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
       setSubmitted(false);
       setSending(false);
       setErrorMessage(null);
+      setMessageDraft('');
     }
   }, [open]);
 
@@ -45,17 +47,12 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
     if (sending) return;
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const message = formData.get('message');
+    const message = messageDraft;
     const email = formData.get('email');
     const name = formData.get('name');
 
     if (typeof message !== 'string' || message.trim().length === 0) {
       form.querySelector<HTMLTextAreaElement>('textarea[name="message"]')?.focus();
-      return;
-    }
-
-    if (typeof email !== 'string' || email.trim().length === 0) {
-      form.querySelector<HTMLInputElement>('input[name="email"]')?.focus();
       return;
     }
 
@@ -87,6 +84,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
       setSubmitted(true);
       form.reset();
+      setMessageDraft('');
     } catch (error) {
       console.error('Failed to submit contact form', error);
       setErrorMessage('通信中にエラーが発生しました。ネットワーク環境をご確認のうえ再度お試しください。');
@@ -120,9 +118,6 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             <h2 id={titleId} className="text-lg font-semibold text-on-surface">
               お問い合わせ
             </h2>
-            <p id={descriptionId} className="mt-1 text-sm text-on-surface-light">
-              フォームに必要事項をご記入のうえ送信してください。
-            </p>
           </div>
           <button
             type="button"
@@ -145,23 +140,23 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
               type="text"
               autoComplete="name"
               className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
-              placeholder="例：田中 太郎"
             />
           </div>
 
           <div>
             <label htmlFor="contact-email" className="block text-sm font-medium text-on-surface">
-              メールアドレス
+              メールアドレス（任意）
             </label>
             <input
               id="contact-email"
               name="email"
               type="email"
               autoComplete="email"
-              required
               className="mt-1 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
-              placeholder="例：example@example.com"
             />
+            <p className="mt-1 text-xs text-on-surface-light">
+              ご返信を希望される場合はメールアドレスをご記入ください。
+            </p>
           </div>
 
           <div>
@@ -173,6 +168,8 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
               name="message"
               required
               rows={4}
+              value={messageDraft}
+              onChange={(event) => setMessageDraft(event.target.value)}
               className="mt-1 w-full resize-y rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm shadow-sm focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200"
               placeholder="ご質問やご要望をご入力ください"
             />
@@ -180,7 +177,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
           {submitted && (
             <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
-              送信が完了しました。折り返しのご連絡まで今しばらくお待ちください。
+              送信が完了しました。
             </p>
           )}
 
@@ -200,7 +197,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             </button>
             <button
               type="submit"
-              disabled={sending}
+              disabled={sending || messageDraft.trim().length === 0}
               className="rounded-lg bg-primary px-4 py-2 text-sm text-white transition hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {sending ? '送信中…' : '送信する'}

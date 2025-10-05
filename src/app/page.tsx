@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
@@ -25,36 +26,60 @@ export default function HomePage() {
   } = usePlaces();
 
   const waitingGeo = !hasLatLng;
+
+  // ── ヘッダー＆フッターの実測高さ ───────────────────────────
   const headerRef = useRef<HTMLDivElement | null>(null);
+  const footerRef = useRef<HTMLElement | null>(null);
   const [headerOffset, setHeaderOffset] = useState(120);
-  const [contactOpen, setContactOpen] = useState(false);
+  const [footerOffset, setFooterOffset] = useState(0);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const GAP_PX = 8;
-    const updateOffset = () => {
-      const height = headerRef.current?.offsetHeight ?? 0;
-      setHeaderOffset(height + GAP_PX);
+
+    const updateOffsets = () => {
+      const h = headerRef.current?.offsetHeight ?? 0;
+      const f = footerRef.current?.offsetHeight ?? 0; // border含む実測
+      setHeaderOffset(h + GAP_PX);
+      setFooterOffset(f);
     };
 
-    updateOffset();
+    updateOffsets();
 
-    let observer: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== 'undefined' && headerRef.current) {
-      observer = new ResizeObserver(updateOffset);
-      observer.observe(headerRef.current);
+    let roHeader: ResizeObserver | null = null;
+    let roFooter: ResizeObserver | null = null;
+
+    if (typeof ResizeObserver !== 'undefined') {
+      if (headerRef.current) {
+        roHeader = new ResizeObserver(updateOffsets);
+        roHeader.observe(headerRef.current);
+      }
+      if (footerRef.current) {
+        roFooter = new ResizeObserver(updateOffsets);
+        roFooter.observe(footerRef.current);
+      }
     }
 
-    window.addEventListener('resize', updateOffset);
-
+    window.addEventListener('resize', updateOffsets);
     return () => {
-      window.removeEventListener('resize', updateOffset);
-      observer?.disconnect();
+      window.removeEventListener('resize', updateOffsets);
+      roHeader?.disconnect();
+      roFooter?.disconnect();
     };
   }, []);
+  // ───────────────────────────────────────────────────────────────
+
+  // 空状態の高さ：100dvh からヘッダー＆フッターを厳密に差し引く
+  const emptyStateHeight = `calc(100dvh - ${headerOffset}px - ${footerOffset}px)`;
+  const isEmpty = !hasSearched && results.length === 0 && !loading && !error;
+  const footerClassName = [
+    'w-full bg-[var(--background)] text-xs text-on-surface-light sm:text-sm',
+    isEmpty ? 'fixed bottom-0 left-0 right-0 z-40 mt-0' : 'relative mt-8 sm:mt-10'
+  ].join(' ');
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-[100dvh] flex flex-col">
       {/* 固定検索フォーム */}
       <div
         ref={headerRef}
@@ -67,7 +92,7 @@ export default function HomePage() {
               qInput={qInput}
               setQInput={setQInput}
               loading={loading}
-              waitingGeo={!hasLatLng}
+              waitingGeo={waitingGeo}
             />
 
             {/* 2行目: 日時選択と最終受付 */}
@@ -84,37 +109,50 @@ export default function HomePage() {
                 <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
               </div>
             </div>
-
-            <p className="text-xs text-on-surface sm:text-sm">
-              営業時間からお店や施設を検索できます。
-            </p>
           </form>
-
         </div>
       </div>
 
-      {/* 固定ヘッダーの高さ分を確保するための余白です */}
+      {/* 固定ヘッダーの高さ分のダミー */}
       <div
         aria-hidden="true"
-        style={{
-          height: headerOffset,
-          transition: 'height 0.2s ease',
-        }}
+        style={{ height: headerOffset, transition: 'height 0.2s ease' }}
       />
 
       {/* メインコンテンツエリア */}
-      <main
-        className="flex-1 mx-auto max-w-5xl px-4 pb-2 sm:px-6 sm:pb-3 lg:max-w-6xl lg:px-10 lg:pb-6"
-      >
-
+      <main className="flex-1 mx-auto max-w-5xl px-4 sm:px-6 lg:max-w-6xl lg:px-10">
         {error && (
-          <div role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">{error}</div>
+          <div
+            role="alert"
+            className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700"
+          >
+            {error}
+          </div>
         )}
 
-        {!hasSearched && results.length === 0 && !loading && !error && (
-          <div className="mt-4 text-center text-gray-500">キーワードを入力して検索してください。</div>
+        {/* 初期（空）状態：上下中央に配置。高さはちょうど残り分 */}
+        {isEmpty && (
+          <div
+            className="flex items-center justify-center"
+            style={{ height: emptyStateHeight }}
+          >
+            <div className="flex flex-col items-center gap-4 text-center text-gray-500">
+              <Image
+                src="/images/top.png"
+                width={120}
+                height={120}
+                priority
+                alt="検索開始を案内するイラスト"
+              />
+              <div className="space-y-1">
+                <p>営業時間からお店や施設を検索できます。</p>
+                <p>キーワードを入力して検索してください。</p>
+              </div>
+            </div>
+          </div>
         )}
 
+        {/* 結果一覧 */}
         <PlaceList
           results={results}
           dateStr={dateStr}
@@ -122,17 +160,20 @@ export default function HomePage() {
           loaderRef={loaderRef}
         />
 
-        {/* 絞り込み結果0件メッセージ */}
+        {/* 絞り込み結果0件メッセージ（検索後） */}
         {hasSearched && !loading && !error && results.length === 0 && (
           <div className="mt-4 text-center text-gray-500">
             該当する場所が見つかりませんでした。
           </div>
         )}
 
-        {loading && (<div className="mt-4 text-center text-gray-500">読み込み中…</div>)}
+        {loading && (
+          <div className="mt-4 text-center text-gray-500">読み込み中…</div>
+        )}
       </main>
 
-      <footer className="w-full mt-4 text-xs text-on-surface-light sm:mt-6 sm:text-sm">
+      {/* フッター：未検索時は画面下に固定、検索後は通常フローに配置 */}
+      <footer ref={footerRef} className={footerClassName}>
         <div className="border-t border-black/10">
           <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3 px-4 py-3 text-on-surface sm:max-w-6xl sm:px-6">
             <button
@@ -140,17 +181,10 @@ export default function HomePage() {
               onClick={() => setContactOpen(true)}
               className="flex items-center gap-1 transition hover:opacity-80"
             >
-              <span
-                className="material-symbols-rounded text-base"
-                style={{ fontVariationSettings: `'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24` }}
-                aria-hidden="true"
-              >
-                mail
-              </span>
               <span>お問い合わせ</span>
             </button>
+            /
             <span className="flex items-center gap-2">
-              制作:{' '}
               <a
                 href="https://x.com/yoko_nari_"
                 target="_blank"

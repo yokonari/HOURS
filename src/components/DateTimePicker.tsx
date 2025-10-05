@@ -97,7 +97,7 @@ export function DateTimePicker({
           type="datetime-local"
           value={dateTimeValue}
           onChange={handleDateTimeChange}
-          className="absolute inset-0 z-20 h-full w-full cursor-pointer opacity-0"
+          className="absolute inset-0 z-20 h-full w-full opacity-0"
           onClick={handleInputClick}
           onKeyDown={handleInputKeyDown}
           aria-label="日時を選択"

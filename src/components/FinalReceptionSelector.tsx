@@ -42,7 +42,7 @@ export function FinalReceptionSelector({
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 h-10 px-3 rounded-full bg-transparent border border-gray-300 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition cursor-pointer text-xs"
+                className="flex items-center gap-2 h-10 px-3 rounded-full bg-transparent border border-gray-300 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition text-xs"
                 style={{ color: 'var(--on-surface)' }}
                 aria-label={`最終受付を考慮（現在: ${currentOption?.label}）`}
                 aria-expanded={isOpen}
@@ -75,7 +75,7 @@ export function FinalReceptionSelector({
                                     setIsOpen(false);
                                 }}
                                 className={[
-                                    'w-full flex items-center justify-between px-3 py-2 text-left text-xs transition-colors cursor-pointer',
+                                    'w-full flex items-center justify-between px-3 py-2 text-left text-xs transition-colors',
                                     active
                                         ? 'bg-gray-100 text-on-surface'
                                         : 'text-on-surface hover:bg-gray-50'
