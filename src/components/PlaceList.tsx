@@ -47,7 +47,13 @@ export function PlaceList({
   return (
     <>
       {/* モバイル/タブレットでは縦並び、PC では幅400pxカードを横並びにします */}
-      <ul className="mt-2 mb-2 flex w-full list-none flex-col gap-3 p-0 sm:mt-3 sm:mb-3 sm:gap-4 lg:mt-6 lg:mb-6 lg:grid lg:grid-cols-[repeat(2,minmax(0,400px))] lg:justify-center lg:gap-5">
+      <ul
+        className={[
+          'flex w-full list-none flex-col gap-3 p-0',
+          results.length > 0 ? 'mt-2 mb-2 sm:mt-3 sm:mb-3 sm:gap-4 lg:mt-6 lg:mb-6 lg:grid lg:grid-cols-[repeat(2,minmax(0,400px))] lg:justify-center lg:gap-5'
+            : 'mt-0 mb-0 sm:mt-0 sm:mb-0'
+        ].join(' ')}
+      >
         {results.map((p) => (
           <PlaceCard
             key={p.id ?? `${p.displayName?.text ?? ''}-${p.formattedAddress ?? ''}`}

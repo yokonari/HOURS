@@ -150,13 +150,9 @@ export default function HomePage() {
               />
               <div className="space-y-3 text-sm sm:text-base lg:text-lg">
                 <p>指定した日時に営業している施設を検索できます。</p>
-                {/* 「最終受付を考慮」機能の概要を丁寧なヘルプ枠として補足します。 */}
-                <div
-                  className="mt-4 rounded-lg border border-gray-200 bg-white/80 p-4 text-xs leading-relaxed sm:text-sm"
-                >
-                  <p>「最終受付を考慮」を選ぶと、閉店間際の店を除外。</p>
-                  <p className="mt-1">※実際の受付時間は店舗公式情報をご確認ください。</p>
-                </div>
+                <p className="mt-1 text-xs text-gray-500 sm:text-sm">
+                  ※実際の受付時間は施設の公式情報をご確認ください。
+                </p>
               </div>
             </div>
           </div>

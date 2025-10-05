@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from 'react';
 type FinalReceptionOption = 'none' | '30min' | '60min';
 
 const options: { key: FinalReceptionOption; label: string }[] = [
-    { key: 'none', label: 'しない' },
-    { key: '30min', label: '30分' },
-    { key: '60min', label: '60分' },
+    { key: 'none', label: '閉店時間を考慮しない' },
+    { key: '30min', label: '閉店30分前を除く' },
+    { key: '60min', label: '閉店60分前を除く' },
 ];
 
 export function FinalReceptionSelector({
@@ -44,12 +44,12 @@ export function FinalReceptionSelector({
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-2 h-10 px-3 rounded-full bg-transparent border border-gray-300 hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 transition text-xs"
                 style={{ color: 'var(--on-surface)' }}
-                aria-label={`最終受付を考慮（現在: ${currentOption?.label}）`}
+                aria-label={`閉店時間のフィルタ（現在: ${currentOption?.label ?? '未設定'}）`}
                 aria-expanded={isOpen}
-                title={`最終受付を考慮: ${currentOption?.label}`}
+                title={`閉店時間のフィルタ: ${currentOption?.label ?? '未設定'}`}
             >
                 <span className="text-xs">
-                    {currentOption?.key === 'none' ? '最終受付を考慮しない' : `最終受付を考慮(${currentOption?.label})`}
+                    {currentOption?.label ?? '閉店時間を考慮しない'}
                 </span>
                 <span
                     className="material-symbols-rounded text-[14px] leading-none"
@@ -83,11 +83,7 @@ export function FinalReceptionSelector({
                                 title={label}
                                 aria-label={label}
                             >
-                                <span>
-                                    {key === 'none'
-                                        ? '最終受付を考慮しない'
-                                        : `最終受付を考慮(${label})`}
-                                </span>
+                                <span>{label}</span>
                                 {active && (
                                     <span
                                         className="material-symbols-rounded text-[14px] leading-none"

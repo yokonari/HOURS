@@ -43,12 +43,12 @@ export function SearchForm({
         type="button"
         onClick={handleResetClick}
         aria-label="初期状態に戻る"
-        className="flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
+        className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
         disabled={loading}
       >
         <span
-          className="material-symbols-rounded text-[22px] text-on-surface"
-          style={{ fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24` }}
+          className="material-symbols-rounded text-[22px]"
+          style={{ fontVariationSettings: `'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24`, color: 'var(--primary)' }}
           aria-hidden="true"
         >
           home
