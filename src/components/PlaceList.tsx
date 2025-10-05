@@ -8,11 +8,13 @@ export function PlaceList({
   dateStr,
   timeStr,
   loaderRef,
+  hasMore,
 }: {
   results: Place[];
   dateStr: string;
   timeStr: string;
   loaderRef: MutableRefObject<HTMLDivElement | null>;
+  hasMore: boolean;
 }) {
   const [viewportWidth, setViewportWidth] = useState<number | null>(null);
 
@@ -37,7 +39,8 @@ export function PlaceList({
     }
     // モバイル/タブレットは画面幅からコンテンツ余白ぶんを差し引いたサイズで固定します
     const horizontalPadding = viewportWidth >= 640 ? 48 : 32; // sm: px-6 (=24px) / base: px-4 (=16px)
-    const width = viewportWidth - horizontalPadding;
+    const safetyMargin = viewportWidth >= 640 ? 20 : 12; // 境界で横スクロールを避けるための余白
+    const width = viewportWidth - horizontalPadding - safetyMargin;
     return width > 0 ? width : viewportWidth;
   }, [viewportWidth]);
 
@@ -56,7 +59,12 @@ export function PlaceList({
         ))}
       </ul>
       {/* 無限スクロール監視ターゲット */}
-      <div ref={loaderRef} className="h-10" />
+      <div
+        ref={loaderRef}
+        className="transition-[height] duration-200"
+        style={{ height: hasMore ? '2.5rem' : 0 }}
+        aria-hidden="true"
+      />
     </>
   );
 }

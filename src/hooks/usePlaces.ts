@@ -287,5 +287,6 @@ export function usePlaces() {
     finalReception, setFinalReception,
     // 無限スクロール
     loaderRef,
+    hasMore: cursor != null,
   };
 }

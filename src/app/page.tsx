@@ -23,6 +23,7 @@ export default function HomePage() {
     // 最終受付考慮
     finalReception, setFinalReception,
     loaderRef,
+    hasMore,
   } = usePlaces();
 
   const waitingGeo = !hasLatLng;
@@ -74,7 +75,7 @@ export default function HomePage() {
   const isEmpty = !hasSearched && results.length === 0 && !loading && !error;
   const footerClassName = [
     'w-full bg-[var(--background)] text-xs text-on-surface-light sm:text-sm',
-    isEmpty ? 'fixed bottom-0 left-0 right-0 z-40 mt-0' : 'relative mt-8 sm:mt-10'
+    isEmpty ? 'fixed bottom-0 left-0 right-0 z-40 mt-0' : 'relative mt-4 sm:mt-6'
   ].join(' ');
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -158,6 +159,7 @@ export default function HomePage() {
           dateStr={dateStr}
           timeStr={timeStr}
           loaderRef={loaderRef}
+          hasMore={hasMore}
         />
 
         {/* 絞り込み結果0件メッセージ（検索後） */}
