@@ -13,6 +13,7 @@ export default function HomePage() {
   const {
     // 入力/検索
     qInput, setQInput, submitSearch, resetSearch,
+    searchHistory, searchFromHistory, clearSearchHistory,
     loading, error, hasSearched,
     // 結果
     results,
@@ -95,6 +96,9 @@ export default function HomePage() {
               loading={loading}
               waitingGeo={waitingGeo}
               onReset={resetSearch}
+              searchHistory={searchHistory}
+              onHistorySelect={searchFromHistory}
+              onClearHistory={clearSearchHistory}
             />
 
             {/* 2行目: 日時選択と最終受付 */}
@@ -145,7 +149,7 @@ export default function HomePage() {
                 height={144}
                 priority
                 alt="検索開始を案内するイラスト"
-                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-30 lg:w-30"
+                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40"
                 sizes="(min-width: 1024px) 10rem, (min-width: 640px) 8rem, 6rem"
               />
               <div className="space-y-3 text-sm sm:text-base lg:text-lg">

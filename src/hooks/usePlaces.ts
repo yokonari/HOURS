@@ -9,6 +9,7 @@ import {
   jpWeek,
   getClosingTimeForMinutes,
 } from '@/lib/openingHours';
+import { useSearchHistory } from '@/hooks/useSearchHistory';
 
 const pad2 = (n: number) => String(n).padStart(2, '0');
 
@@ -37,6 +38,11 @@ export function usePlaces() {
   const [timeStr, setTimeStrState] = useState<string>(''); // "HH:MM" or ''
   const [timeSource, setTimeSource] = useState<'auto' | 'manual'>('auto');
   const timeSourceRef = useRef<'auto' | 'manual'>(timeSource);
+  const {
+    history: searchHistory,
+    addHistory,
+    clearHistory,
+  } = useSearchHistory();
 
   // 最終受付考慮
   const [finalReception, setFinalReceptionState] = useState<'none' | '30min' | '60min'>('none');
@@ -199,9 +205,9 @@ export function usePlaces() {
   );
 
   // フォーム submit（検索確定）
-  const submitSearch = useCallback((e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    const trimmed = qInput.trim();
+  const executeSearch = useCallback((rawTerm: string) => {
+    const trimmed = rawTerm.trim();
+    setQInput(trimmed);
     setQ(trimmed);
     setCursor(null);
     seenRef.current = new Set();
@@ -221,8 +227,18 @@ export function usePlaces() {
 
     refreshNow();
     setHasSearched(true);
+    addHistory(trimmed);
     fetchPlaces(false, { q: trimmed, cursor: null });
-  }, [qInput, fetchPlaces, refreshNow]);
+  }, [addHistory, fetchPlaces, refreshNow]);
+
+  const submitSearch = useCallback((e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    executeSearch(qInput);
+  }, [executeSearch, qInput]);
+
+  const searchFromHistory = useCallback((term: string) => {
+    executeSearch(term);
+  }, [executeSearch]);
 
   const resetSearch = useCallback(() => {
     abortRef.current?.abort();
@@ -320,6 +336,9 @@ export function usePlaces() {
   return {
     // 入力
     qInput, setQInput, submitSearch, resetSearch,
+    searchHistory,
+    searchFromHistory,
+    clearSearchHistory: clearHistory,
     // 検索状態
     loading, error, hasSearched,
     // 結果
