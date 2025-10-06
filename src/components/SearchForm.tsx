@@ -99,7 +99,7 @@ export function SearchForm({
             onChange={(e) => setQInput(e.target.value)}
             placeholder="施設を検索"
             aria-label="検索ワード"
-            className="h-10 w-full rounded-full bg-transparent border border-gray-500 pl-10 pr-4 outline-none ring-0 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 focus:border-transparent"
+            className="h-10 w-full rounded-full bg-transparent border border-gray-300 pl-10 pr-4 outline-none ring-0 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300 focus:border-transparent"
             enterKeyHint="search"
             onKeyDown={(e) => {
               if (e.key === 'Escape') {
@@ -111,7 +111,7 @@ export function SearchForm({
             style={{ color: 'var(--on-surface)' }}
           />
           <span
-            className="absolute inset-y-0 left-3 my-0 flex items-center text-gray-400"
+            className="absolute inset-y-0 left-3 my-0 flex items-center text-gray-500"
             aria-hidden="true"
           >
             <span
@@ -155,7 +155,7 @@ export function SearchForm({
               type="button"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => handleHistoryClick(term)}
-              className="rounded-full border border-gray-300 bg-white px-3 py-1 text-xs text-on-surface transition hover:bg-gray-50"
+              className="rounded-full border border-gray-300 px-3 py-1 text-xs text-on-surface transition hover:bg-gray-50"
             >
               {term}
             </button>
