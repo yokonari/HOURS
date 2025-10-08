@@ -43,7 +43,8 @@ export async function GET(req: Request) {
 
   // 画像をストリームで返す
   const headers = new Headers(upstream.headers);
-  headers.set('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=604800');
+  // 画像取得コストを抑えるため、CDN 等で長期間キャッシュできるようにします。
+  headers.set('Cache-Control', 'public, s-maxage=2592000, stale-while-revalidate=7776000');
   // Content-Type は upstream のものを維持（image/jpeg など）
   return new Response(upstream.body, { status: 200, headers });
 }

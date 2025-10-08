@@ -1,5 +1,6 @@
 // components/SearchForm.tsx
 'use client';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
 export function SearchForm({
@@ -80,7 +81,7 @@ export function SearchForm({
   return (
     <div className="flex min-w-0 flex-col gap-2">
       <div className="flex min-w-0 items-center gap-2">
-        {/* 「HOURS」のリンク風ボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
+        {/* 「HOURS」ロゴ画像のボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
         <button
           type="button"
           onClick={handleResetClick}
@@ -89,7 +90,16 @@ export function SearchForm({
           style={{ color: 'var(--primary)' }}
           disabled={loading}
         >
-          HOURS
+          {/* ロゴ画像でブランドを視覚的に示しつつボタン機能を維持します。 */}
+          <Image
+            src="/images/title.png"
+            width={95}
+            height={19}
+            alt="HOURS のロゴ"
+            priority={false}
+          />
+          {/* スクリーンリーダー向けにテキストも提供します。 */}
+          <span className="sr-only">HOURS</span>
         </button>
         <div className="relative min-w-0 flex-1">
           <input
