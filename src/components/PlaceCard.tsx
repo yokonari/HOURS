@@ -14,17 +14,17 @@ export function PlaceCard({
   cardWidth?: number | null;
 }) {
   const name = p.displayName?.text ?? '(名称不明)';
-  const plat = p.location?.latitude ?? null;
-  const plng = p.location?.longitude ?? null;
-  const latlng = plat != null && plng != null ? `${plat},${plng}` : undefined;
-  const mapsUrl = p.googleMapsUri
-    ? p.googleMapsUri
-    : latlng
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(latlng)}`
-      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`;
 
   const photoName = p.photos?.[0]?.name as string | undefined;
-  const imgSrc = photoName ? `/api/photo?name=${encodeURIComponent(photoName)}&w=200&h=200` : undefined;
+  const imgSrc = (() => {
+    if (!photoName) return undefined;
+    if (/^https?:/.test(photoName)) return photoName;
+    if (photoName.includes('/')) {
+      return `/api/photo?name=${encodeURIComponent(photoName)}&w=200&h=200`;
+    }
+    // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
+    return `/images/places/${photoName}`;
+  })();
 
   const weekdayJS = new Date(`${dateStr}T00:00:00`).getDay();
 
@@ -83,10 +83,8 @@ export function PlaceCard({
       style={widthStyle}
     >
       {/* 2列表示時も同じ幅になるようにしています */}
-      <a
-        href={mapsUrl}
-        target="_blank"
-        rel="noreferrer"
+      {/* Googleマップへの外部リンクは廃止し、カード自体は情報表示専用にしています。 */}
+      <article
         className="group flex h-24 w-full max-w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
         style={widthStyle}
       >
@@ -135,7 +133,7 @@ export function PlaceCard({
             )}
           </div>
         </div>
-      </a>
+      </article>
     </li>
   );
 }

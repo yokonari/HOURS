@@ -1,0 +1,748 @@
+{
+  "places": [
+    {
+      "id": "mock_10101_sobayuru",
+      "formattedAddress": "東京都麺香区香雨町3-2-5 夕露ビル 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 173,
+      "displayName": {
+        "text": "蕎麦ゆる里 Sobayuru",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba01.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_10102_kawasoba",
+      "formattedAddress": "東京都麺香区川辺5-6-8 水辺テラス 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 148,
+      "displayName": {
+        "text": "川辺そば Kawasoba",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba02.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_10103_misorasoba",
+      "formattedAddress": "東京都麺香区空見1-8-10 青空アーク 2F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 196,
+      "displayName": {
+        "text": "みそら蕎麦 Misora",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba03.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_10104_midori",
+      "formattedAddress": "東京都麺香区緑丘5-7-1 グリーンヒルズ 1F",
+      "rating": 4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 132,
+      "displayName": {
+        "text": "緑丘そば Midori",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba04.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_10105_teshiosoba",
+      "formattedAddress": "東京都麺香区手潮1-3-4 手潮横丁 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 205,
+      "displayName": {
+        "text": "手潮そば Teshio",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba05.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_10106_hoshikiri",
+      "formattedAddress": "東京都麺香区星霧2-9-6 星霧タワー 5F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 167,
+      "displayName": {
+        "text": "星霧そば Hoshikiri",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "soba06.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    }
+  ]
+}

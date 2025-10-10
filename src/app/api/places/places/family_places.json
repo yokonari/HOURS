@@ -1,0 +1,204 @@
+{
+  "places": [
+    {
+      "id": "mock_9301_familygarden",
+      "formattedAddress": "東京都食彩区青葉通4-6-12 ファミリーガーデン 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 23, "minute": 0 } },
+          { "open": { "day": 1, "hour": 7, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 7, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 7, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 7, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 7, "minute": 0 }, "close": { "day": 6, "hour": 1, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～23時00分",
+          "火曜日: 7時00分～23時00分",
+          "水曜日: 7時00分～23時00分",
+          "木曜日: 7時00分～23時00分",
+          "金曜日: 7時00分～1時00分",
+          "土曜日: 7時00分～1時00分",
+          "日曜日: 7時00分～23時00分"
+        ]
+      },
+      "userRatingCount": 248,
+      "displayName": { "text": "ファミリーガーデン Family Garden", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～23時00分",
+          "火曜日: 7時00分～23時00分",
+          "水曜日: 7時00分～23時00分",
+          "木曜日: 7時00分～23時00分",
+          "金曜日: 7時00分～1時00分",
+          "土曜日: 7時00分～1時00分",
+          "日曜日: 7時00分～23時00分"
+        ]
+      },
+      "photos": [{ "name": "fami01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9302_morningtable",
+      "formattedAddress": "東京都食彩区朝光町2-9-3 サンライズモール 2F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 6, "minute": 30 }, "close": { "day": 0, "hour": 22, "minute": 0 } },
+          { "open": { "day": 1, "hour": 6, "minute": 30 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 6, "minute": 30 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 6, "minute": 30 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 6, "minute": 30 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 6, "minute": 30 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 6, "minute": 30 }, "close": { "day": 6, "hour": 23, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～22時00分",
+          "火曜日: 6時30分～22時00分",
+          "水曜日: 6時30分～22時00分",
+          "木曜日: 6時30分～22時00分",
+          "金曜日: 6時30分～23時00分",
+          "土曜日: 6時30分～23時00分",
+          "日曜日: 6時30分～22時00分"
+        ]
+      },
+      "userRatingCount": 189,
+      "displayName": { "text": "モーニングテーブル Morning Table", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～22時00分",
+          "火曜日: 6時30分～22時00分",
+          "水曜日: 6時30分～22時00分",
+          "木曜日: 6時30分～22時00分",
+          "金曜日: 6時30分～23時00分",
+          "土曜日: 6時30分～23時00分",
+          "日曜日: 6時30分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "fami02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9303_cityfamilydiner",
+      "formattedAddress": "東京都食彩区駅前1-12-5 シティスクエア 3F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 0, "minute": 0 } },
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 0, "minute": 0 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 0, "minute": 0 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 24, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 312,
+      "displayName": { "text": "シティファミリーダイナー City Family Diner", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "fami03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9304_lakeviewfamily",
+      "formattedAddress": "東京都食彩区湖畔3-4-9 レイクビュータウン 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 8, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } },
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～22時00分",
+          "火曜日: 8時00分～22時00分",
+          "水曜日: 8時00分～22時00分",
+          "木曜日: 8時00分～22時00分",
+          "金曜日: 8時00分～23時00分",
+          "土曜日: 8時00分～23時00分",
+          "日曜日: 8時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 166,
+      "displayName": { "text": "レイクビューファミリー Lakeview Family", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～22時00分",
+          "火曜日: 8時00分～22時00分",
+          "水曜日: 8時00分～22時00分",
+          "木曜日: 8時00分～22時00分",
+          "金曜日: 8時00分～23時00分",
+          "土曜日: 8時00分～23時00分",
+          "日曜日: 8時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "fami04.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9305_neonfamily",
+      "formattedAddress": "東京都食彩区光彩1-7-2 ネオンプレイス 2F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 0, "minute": 0 } },
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 0, "minute": 0 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～0時00分",
+          "火曜日: 10時00分～0時00分",
+          "水曜日: 10時00分～0時00分",
+          "木曜日: 10時00分～0時00分",
+          "金曜日: 10時00分～1時00分",
+          "土曜日: 8時00分～2時00分",
+          "日曜日: 8時00分～2時00分"
+        ]
+      },
+      "userRatingCount": 138,
+      "displayName": { "text": "ネオンファミリー Neon Family", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～0時00分",
+          "火曜日: 10時00分～0時00分",
+          "水曜日: 10時00分～0時00分",
+          "木曜日: 10時00分～0時00分",
+          "金曜日: 10時00分～1時00分",
+          "土曜日: 8時00分～2時00分",
+          "日曜日: 8時00分～2時00分"
+        ]
+      },
+      "photos": [{ "name": "fami05.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

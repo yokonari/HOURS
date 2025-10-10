@@ -1,0 +1,564 @@
+{
+  "places": [
+    {
+      "id": "mock_9037_shangri",
+      "formattedAddress": "東京都香凛区蓮華通3-8-6 香凛タワー 2F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～21時30分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 10時30分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 178,
+      "displayName": {
+        "text": "香凛楼 Shangri Lotus",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～21時30分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 10時30分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "china01.png"
+        }
+      ],
+      "primaryType": "chinese_restaurant"
+    },
+    {
+      "id": "mock_9038_jadegarden",
+      "formattedAddress": "東京都翠玉区緑台5-1-2 翠玉ガーデン 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時00分",
+          "火曜日: 11時30分～21時00分",
+          "水曜日: 11時30分～21時00分",
+          "木曜日: 11時30分～21時00分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 124,
+      "displayName": {
+        "text": "翠玉庭 Jade Garden",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時00分",
+          "火曜日: 11時30分～21時00分",
+          "水曜日: 11時30分～21時00分",
+          "木曜日: 11時30分～21時00分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "china02.png"
+        }
+      ],
+      "primaryType": "chinese_restaurant"
+    },
+    {
+      "id": "mock_9039_redphoenix",
+      "formattedAddress": "東京都紅鳳区朱雀1-9-4 紅鳳テラス 3F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～22時00分",
+          "火曜日: 11時00分～22時00分",
+          "水曜日: 11時00分～22時00分",
+          "木曜日: 11時00分～22時00分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 210,
+      "displayName": {
+        "text": "紅鳳楼 Red Phoenix",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～22時00分",
+          "火曜日: 11時00分～22時00分",
+          "水曜日: 11時00分～22時00分",
+          "木曜日: 11時00分～22時00分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "china03.png"
+        }
+      ],
+      "primaryType": "chinese_restaurant"
+    },
+    {
+      "id": "mock_9040_lotuscorner",
+      "formattedAddress": "東京都蓮香区角町6-5-8 蓮香スクエア B1",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～21時30分",
+          "金曜日: 11時30分～22時30分",
+          "土曜日: 11時00分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 97,
+      "displayName": {
+        "text": "蓮香角 Lotus Corner",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～21時30分",
+          "金曜日: 11時30分～22時30分",
+          "土曜日: 11時00分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "china04.png"
+        }
+      ],
+      "primaryType": "chinese_restaurant"
+    },
+    {
+      "id": "mock_9041_goldenbridge",
+      "formattedAddress": "東京都金橋区華街2-12-10 ゴールデンブリッジ 5F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 11時00分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 165,
+      "displayName": {
+        "text": "金橋酒家 Golden Bridge",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 11時00分～22時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "china05.png"
+        }
+      ],
+      "primaryType": "chinese_restaurant"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import "./globals.css";
 import { notoSansJp } from './ui/fonts'
 
 export const metadata: Metadata = {
-  title: "HOURS"
+  title: "HOURS | 営業時間で見つける（デモ）"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

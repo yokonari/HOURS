@@ -1,0 +1,452 @@
+{
+  "places": [
+    {
+      "id": "mock_9027_bookhaven",
+      "formattedAddress": "東京都文葉区静読3-12-5 ブックハーベスト 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 152,
+      "displayName": {
+        "text": "本の庭 Book Haven",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "book01.png"
+        }
+      ],
+      "primaryType": "book_store"
+    },
+    {
+      "id": "mock_9028_pageturner",
+      "formattedAddress": "東京都栞町区詠坂6-4-2 ページターナービル 2F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～20時30分",
+          "火曜日: 9時30分～20時30分",
+          "水曜日: 9時30分～20時30分",
+          "木曜日: 9時30分～20時30分",
+          "金曜日: 9時30分～21時30分",
+          "土曜日: 9時30分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 98,
+      "displayName": {
+        "text": "ページターナー書店 Page Turner",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～20時30分",
+          "火曜日: 9時30分～20時30分",
+          "水曜日: 9時30分～20時30分",
+          "木曜日: 9時30分～20時30分",
+          "金曜日: 9時30分～21時30分",
+          "土曜日: 9時30分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "book02.png"
+        }
+      ],
+      "primaryType": "book_store"
+    },
+    {
+      "id": "mock_9029_midnightbooks",
+      "formattedAddress": "東京都灯影区夜読1-7-8 ミッドナイトモール 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 0,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～0時00分",
+          "火曜日: 11時00分～0時00分",
+          "水曜日: 11時00分～0時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 11時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 205,
+      "displayName": {
+        "text": "ミッドナイトブックス Midnight Books",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～0時00分",
+          "火曜日: 11時00分～0時00分",
+          "水曜日: 11時00分～0時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 11時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "book03.png"
+        }
+      ],
+      "primaryType": "book_store"
+    },
+    {
+      "id": "mock_9030_storygrove",
+      "formattedAddress": "東京都物語区森語4-2-1 ストーリーグローブ 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 124,
+      "displayName": {
+        "text": "ストーリーグローブ書店 Story Grove",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "book04.png"
+        }
+      ],
+      "primaryType": "book_store"
+    }
+  ]
+}

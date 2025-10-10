@@ -1,0 +1,160 @@
+{
+  "places": [
+    {
+      "id": "mock_10001_shishacloud",
+      "formattedAddress": "東京都煙香区星影1-7-4 クラウドタワー 12F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 182,
+      "displayName": { "text": "シーシャクラウド Shisha Cloud", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "shisha01.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_10002_moonlitshisha",
+      "formattedAddress": "東京都煙香区月影2-5-9 ムーンリットスクエア B1",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 16, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 16, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 16, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 16, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 16, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 15, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～2時00分",
+          "火曜日: 16時00分～2時00分",
+          "水曜日: 16時00分～3時00分",
+          "木曜日: 16時00分～3時00分",
+          "金曜日: 16時00分～4時00分",
+          "土曜日: 15時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 164,
+      "displayName": { "text": "ムーンリットシーシャ Moonlit Shisha", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～2時00分",
+          "火曜日: 16時00分～2時00分",
+          "水曜日: 16時00分～3時00分",
+          "木曜日: 16時00分～3時00分",
+          "金曜日: 16時00分～4時00分",
+          "土曜日: 15時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "shisha02.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_10003_aquashisha",
+      "formattedAddress": "東京都煙香区水辺3-4-6 アクアリウムタワー 6F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 30 }, "close": { "day": 2, "hour": 1, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 30 }, "close": { "day": 3, "hour": 1, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 30 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 30 }, "close": { "day": 5, "hour": 2, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 30 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時30分～1時00分",
+          "火曜日: 17時30分～1時00分",
+          "水曜日: 17時30分～2時00分",
+          "木曜日: 17時30分～2時00分",
+          "金曜日: 17時30分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 151,
+      "displayName": { "text": "アクアシーシャ Aqua Shisha", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時30分～1時00分",
+          "火曜日: 17時30分～1時00分",
+          "水曜日: 17時30分～2時00分",
+          "木曜日: 17時30分～2時00分",
+          "金曜日: 17時30分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "shisha03.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_10004_gardenshisha",
+      "formattedAddress": "東京都煙香区緑園5-9-2 ガーデンヒルズ 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 16, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 16, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 16, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 16, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 16, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 15, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～0時00分",
+          "火曜日: 16時00分～0時00分",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 138,
+      "displayName": { "text": "ガーデンシーシャ Garden Shisha", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～0時00分",
+          "火曜日: 16時00分～0時00分",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "shisha04.png" }],
+      "primaryType": "bar"
+    }
+  ]
+}

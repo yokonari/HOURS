@@ -1,0 +1,280 @@
+{
+  "places": [
+    {
+      "id": "mock_9201_skyglazeddonut",
+      "formattedAddress": "東京都甘香区空彩町4-8-10 グレーズタワー 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 20, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 20, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 20, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 20, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～20時00分",
+          "火曜日: 8時00分～20時00分",
+          "水曜日: 8時00分～20時00分",
+          "木曜日: 8時00分～20時00分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 142,
+      "displayName": { "text": "スカイグレーズドーナツ Sky Glazed Donut", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～20時00分",
+          "火曜日: 8時00分～20時00分",
+          "水曜日: 8時00分～20時00分",
+          "木曜日: 8時00分～20時00分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "do01.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9202_midtownring",
+      "formattedAddress": "東京都甘香区中央環1-5-3 リングスクエア 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 7, "minute": 30 }, "close": { "day": 1, "hour": 19, "minute": 30 } },
+          { "open": { "day": 2, "hour": 7, "minute": 30 }, "close": { "day": 2, "hour": 19, "minute": 30 } },
+          { "open": { "day": 3, "hour": 7, "minute": 30 }, "close": { "day": 3, "hour": 19, "minute": 30 } },
+          { "open": { "day": 4, "hour": 7, "minute": 30 }, "close": { "day": 4, "hour": 19, "minute": 30 } },
+          { "open": { "day": 5, "hour": 7, "minute": 30 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 21, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～19時30分",
+          "火曜日: 7時30分～19時30分",
+          "水曜日: 7時30分～19時30分",
+          "木曜日: 7時30分～19時30分",
+          "金曜日: 7時30分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 9時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 118,
+      "displayName": { "text": "ミッドタウンドーナツリング Midtown Donut Ring", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～19時30分",
+          "火曜日: 7時30分～19時30分",
+          "水曜日: 7時30分～19時30分",
+          "木曜日: 7時30分～19時30分",
+          "金曜日: 7時30分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 9時00分～18時00分"
+        ]
+      },
+      "photos": [{ "name": "do02.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9203_nightcruller",
+      "formattedAddress": "東京都甘香区宵月2-11-4 ルミナスタワー 2F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 3, "hour": 16, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 16, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 16, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 15, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } },
+          { "open": { "day": 0, "hour": 15, "minute": 0 }, "close": { "day": 1, "hour": 0, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 定休日",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 15時00分～0時00分"
+        ]
+      },
+      "userRatingCount": 201,
+      "displayName": { "text": "ナイトクルーラードーナツ Night Cruller Donuts", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 定休日",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 15時00分～0時00分"
+        ]
+      },
+      "photos": [{ "name": "do03.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9204_maplespiral",
+      "formattedAddress": "東京都甘香区樹市3-9-6 メイプルコート 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 9, "minute": 0 }, "close": { "day": 1, "hour": 19, "minute": 0 } },
+          { "open": { "day": 2, "hour": 9, "minute": 0 }, "close": { "day": 2, "hour": 19, "minute": 0 } },
+          { "open": { "day": 3, "hour": 9, "minute": 0 }, "close": { "day": 3, "hour": 19, "minute": 0 } },
+          { "open": { "day": 4, "hour": 9, "minute": 0 }, "close": { "day": 4, "hour": 19, "minute": 0 } },
+          { "open": { "day": 5, "hour": 9, "minute": 0 }, "close": { "day": 5, "hour": 20, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 0 }, "close": { "day": 6, "hour": 20, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～19時00分",
+          "火曜日: 9時00分～19時00分",
+          "水曜日: 9時00分～19時00分",
+          "木曜日: 9時00分～19時00分",
+          "金曜日: 9時00分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 10時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 97,
+      "displayName": { "text": "メイプルスパイラルドーナツ Maple Spiral Donuts", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～19時00分",
+          "火曜日: 9時00分～19時00分",
+          "水曜日: 9時00分～19時00分",
+          "木曜日: 9時00分～19時00分",
+          "金曜日: 9時00分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 10時00分～18時00分"
+        ]
+      },
+      "photos": [{ "name": "do04.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9205_riverdonutworks",
+      "formattedAddress": "東京都甘香区川辺1-3-12 リバーフロント 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 7, "minute": 0 }, "close": { "day": 1, "hour": 18, "minute": 0 } },
+          { "open": { "day": 2, "hour": 7, "minute": 0 }, "close": { "day": 2, "hour": 18, "minute": 0 } },
+          { "open": { "day": 3, "hour": 7, "minute": 0 }, "close": { "day": 3, "hour": 18, "minute": 0 } },
+          { "open": { "day": 4, "hour": 7, "minute": 0 }, "close": { "day": 4, "hour": 18, "minute": 0 } },
+          { "open": { "day": 5, "hour": 7, "minute": 0 }, "close": { "day": 5, "hour": 18, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～18時00分",
+          "火曜日: 7時00分～18時00分",
+          "水曜日: 7時00分～18時00分",
+          "木曜日: 7時00分～18時00分",
+          "金曜日: 7時00分～18時00分",
+          "土曜日: 8時00分～18時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 84,
+      "displayName": { "text": "リバードーナツワークス River Donut Works", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～18時00分",
+          "火曜日: 7時00分～18時00分",
+          "水曜日: 7時00分～18時00分",
+          "木曜日: 7時00分～18時00分",
+          "金曜日: 7時00分～18時00分",
+          "土曜日: 8時00分～18時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "do05.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9206_sunrisehole",
+      "formattedAddress": "東京都甘香区朝日台6-2-7 ブライトサークル 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 6, "minute": 30 }, "close": { "day": 1, "hour": 17, "minute": 0 } },
+          { "open": { "day": 2, "hour": 6, "minute": 30 }, "close": { "day": 2, "hour": 17, "minute": 0 } },
+          { "open": { "day": 3, "hour": 6, "minute": 30 }, "close": { "day": 3, "hour": 17, "minute": 0 } },
+          { "open": { "day": 4, "hour": 6, "minute": 30 }, "close": { "day": 4, "hour": 17, "minute": 0 } },
+          { "open": { "day": 5, "hour": 6, "minute": 30 }, "close": { "day": 5, "hour": 18, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 6, "hour": 18, "minute": 0 } },
+          { "open": { "day": 0, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～17時00分",
+          "火曜日: 6時30分～17時00分",
+          "水曜日: 6時30分～17時00分",
+          "木曜日: 6時30分～17時00分",
+          "金曜日: 6時30分～18時00分",
+          "土曜日: 7時00分～18時00分",
+          "日曜日: 7時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 173,
+      "displayName": { "text": "サンライズホールドーナツ Sunrise Hole Donuts", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～17時00分",
+          "火曜日: 6時30分～17時00分",
+          "水曜日: 6時30分～17時00分",
+          "木曜日: 6時30分～17時00分",
+          "金曜日: 6時30分～18時00分",
+          "土曜日: 7時00分～18時00分",
+          "日曜日: 7時00分～18時00分"
+        ]
+      },
+      "photos": [{ "name": "do06.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9207_cocoaorbit",
+      "formattedAddress": "東京都甘香区星影7-14-2 オービットモール 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 0, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時00分",
+          "火曜日: 10時00分～22時00分",
+          "水曜日: 10時00分～22時00分",
+          "木曜日: 10時00分～22時00分",
+          "金曜日: 10時00分～0時00分",
+          "土曜日: 9時00分～0時00分",
+          "日曜日: 9時00分～21時00分"
+        ]
+      },
+      "userRatingCount": 156,
+      "displayName": { "text": "ココアオービットドーナツ Cocoa Orbit Donuts", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時00分",
+          "火曜日: 10時00分～22時00分",
+          "水曜日: 10時00分～22時00分",
+          "木曜日: 10時00分～22時00分",
+          "金曜日: 10時00分～0時00分",
+          "土曜日: 9時00分～0時00分",
+          "日曜日: 9時00分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "do07.png" }],
+      "primaryType": "bakery"
+    }
+  ]
+}

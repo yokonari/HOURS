@@ -1,0 +1,202 @@
+{
+  "places": [
+    {
+      "id": "mock_9401_stellarburger",
+      "formattedAddress": "東京都星街区流星通3-7-14 ステラビル 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 30 }, "close": { "day": 0, "hour": 0, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～22時00分",
+          "火曜日: 11時00分～22時00分",
+          "水曜日: 11時00分～22時00分",
+          "木曜日: 11時00分～23時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 10時30分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 221,
+      "displayName": { "text": "ステラバーガー Stellar Burger", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～22時00分",
+          "火曜日: 11時00分～22時00分",
+          "水曜日: 11時00分～22時00分",
+          "木曜日: 11時00分～23時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 10時30分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "hun01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9402_rivermeltburger",
+      "formattedAddress": "東京都水景区川辺2-5-8 リバーフロントモール 2F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 21, "minute": 0 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 30 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 30 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 9時30分～22時00分",
+          "日曜日: 9時30分～21時00分"
+        ]
+      },
+      "userRatingCount": 154,
+      "displayName": { "text": "リバーメルトバーガー River Melt Burger", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 9時30分～22時00分",
+          "日曜日: 9時30分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "hun02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9403_midnightstack",
+      "formattedAddress": "東京都宵影区夜市1-3-5 ミッドナイトタワー B1",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 198,
+      "displayName": { "text": "ミッドナイトスタック Midnight Stack", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "hun03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9404_greenpastureburger",
+      "formattedAddress": "東京都緑彩区牧丘4-2-18 グリーンパーク 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 20, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 20, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 20, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 20, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 21, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 19, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～20時00分",
+          "火曜日: 8時00分～20時00分",
+          "水曜日: 8時00分～20時00分",
+          "木曜日: 8時00分～20時00分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 9時00分～19時00分"
+        ]
+      },
+      "userRatingCount": 133,
+      "displayName": { "text": "グリーンパスチャーバーガー Green Pasture Burger", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～20時00分",
+          "火曜日: 8時00分～20時00分",
+          "水曜日: 8時00分～20時00分",
+          "木曜日: 8時00分～20時00分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 8時00分～21時00分",
+          "日曜日: 9時00分～19時00分"
+        ]
+      },
+      "photos": [{ "name": "hun04.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9405_cosmosburger",
+      "formattedAddress": "東京都彩星区オービット1-9-7 コスモスタワー 2F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 0, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 1, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 175,
+      "displayName": { "text": "コスモスバーガー Cosmos Burger", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "hun05.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

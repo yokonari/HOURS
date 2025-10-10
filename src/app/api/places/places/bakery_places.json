@@ -1,0 +1,203 @@
+{
+  "places": [
+    {
+      "id": "mock_9701_sunrisebakery",
+      "formattedAddress": "東京都小麦区朝日台2-7-12 サンライズビル 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 7, "minute": 0 }, "close": { "day": 1, "hour": 19, "minute": 0 } },
+          { "open": { "day": 2, "hour": 7, "minute": 0 }, "close": { "day": 2, "hour": 19, "minute": 0 } },
+          { "open": { "day": 3, "hour": 7, "minute": 0 }, "close": { "day": 3, "hour": 19, "minute": 0 } },
+          { "open": { "day": 4, "hour": 7, "minute": 0 }, "close": { "day": 4, "hour": 19, "minute": 0 } },
+          { "open": { "day": 5, "hour": 7, "minute": 0 }, "close": { "day": 5, "hour": 20, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 6, "hour": 20, "minute": 0 } },
+          { "open": { "day": 0, "hour": 8, "minute": 0 }, "close": { "day": 0, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～19時00分",
+          "火曜日: 7時00分～19時00分",
+          "水曜日: 7時00分～19時00分",
+          "木曜日: 7時00分～19時00分",
+          "金曜日: 7時00分～20時00分",
+          "土曜日: 7時00分～20時00分",
+          "日曜日: 8時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 167,
+      "displayName": { "text": "サンライズベーカリー Sunrise Bakery", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～19時00分",
+          "火曜日: 7時00分～19時00分",
+          "水曜日: 7時00分～19時00分",
+          "木曜日: 7時00分～19時00分",
+          "金曜日: 7時00分～20時00分",
+          "土曜日: 7時00分～20時00分",
+          "日曜日: 8時00分～18時00分"
+        ]
+      },
+      "photos": [{ "name": "pan01.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9702_riverbread",
+      "formattedAddress": "東京都小麦区川辺3-5-9 リバービューアーケード 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 6, "minute": 30 }, "close": { "day": 1, "hour": 18, "minute": 0 } },
+          { "open": { "day": 2, "hour": 6, "minute": 30 }, "close": { "day": 2, "hour": 18, "minute": 0 } },
+          { "open": { "day": 3, "hour": 6, "minute": 30 }, "close": { "day": 3, "hour": 18, "minute": 0 } },
+          { "open": { "day": 4, "hour": 6, "minute": 30 }, "close": { "day": 4, "hour": 18, "minute": 0 } },
+          { "open": { "day": 5, "hour": 6, "minute": 30 }, "close": { "day": 5, "hour": 19, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 6, "hour": 19, "minute": 0 } },
+          { "open": { "day": 0, "hour": 7, "minute": 30 }, "close": { "day": 0, "hour": 17, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～18時00分",
+          "火曜日: 6時30分～18時00分",
+          "水曜日: 6時30分～18時00分",
+          "木曜日: 6時30分～18時00分",
+          "金曜日: 6時30分～19時00分",
+          "土曜日: 7時00分～19時00分",
+          "日曜日: 7時30分～17時00分"
+        ]
+      },
+      "userRatingCount": 139,
+      "displayName": { "text": "リバーブレッド River Bread", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 6時30分～18時00分",
+          "火曜日: 6時30分～18時00分",
+          "水曜日: 6時30分～18時00分",
+          "木曜日: 6時30分～18時00分",
+          "金曜日: 6時30分～19時00分",
+          "土曜日: 7時00分～19時00分",
+          "日曜日: 7時30分～17時00分"
+        ]
+      },
+      "photos": [{ "name": "pan02.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9703_midnightbakery",
+      "formattedAddress": "東京都小麦区宵町1-2-8 ミッドナイトウォーク 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～3時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 193,
+      "displayName": { "text": "ミッドナイトベーカリー Midnight Bakery", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～3時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "pan03.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9704_greenfieldbakery",
+      "formattedAddress": "東京都小麦区緑丘5-4-6 グリーンフィールド 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 19, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 19, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 19, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 19, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 20, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 20, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 18, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～19時00分",
+          "火曜日: 8時00分～19時00分",
+          "水曜日: 8時00分～19時00分",
+          "木曜日: 8時00分～19時00分",
+          "金曜日: 8時00分～20時00分",
+          "土曜日: 8時00分～20時00分",
+          "日曜日: 9時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 125,
+      "displayName": { "text": "グリーンフィールドベーカリー Green Field Bakery", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～19時00分",
+          "火曜日: 8時00分～19時00分",
+          "水曜日: 8時00分～19時00分",
+          "木曜日: 8時00分～19時00分",
+          "金曜日: 8時00分～20時00分",
+          "土曜日: 8時00分～20時00分",
+          "日曜日: 9時00分～18時00分"
+        ]
+      },
+      "photos": [{ "name": "pan04.png" }],
+      "primaryType": "bakery"
+    },
+    {
+      "id": "mock_9705_cosmicbread",
+      "formattedAddress": "東京都小麦区星影7-10-3 コズミックモール 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 9, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 9, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 9, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 9, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 9, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 30 }, "close": { "day": 0, "hour": 0, "minute": 0 } },
+          { "open": { "day": 0, "hour": 8, "minute": 30 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～22時00分",
+          "火曜日: 9時00分～22時00分",
+          "水曜日: 9時00分～22時00分",
+          "木曜日: 9時00分～23時00分",
+          "金曜日: 9時00分～0時00分",
+          "土曜日: 8時30分～0時00分",
+          "日曜日: 8時30分～21時00分"
+        ]
+      },
+      "userRatingCount": 148,
+      "displayName": { "text": "コズミックブレッド Cosmic Bread", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～22時00分",
+          "火曜日: 9時00分～22時00分",
+          "水曜日: 9時00分～22時00分",
+          "木曜日: 9時00分～23時00分",
+          "金曜日: 9時00分～0時00分",
+          "土曜日: 8時30分～0時00分",
+          "日曜日: 8時30分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "pan05.png" }],
+      "primaryType": "bakery"
+    }
+  ]
+}

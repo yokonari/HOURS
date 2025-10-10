@@ -1,0 +1,163 @@
+{
+  "places": [
+    {
+      "id": "mock_9801_starryramen",
+      "formattedAddress": "東京都麺星区夜空3-5-8 スタースタンド 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 0, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 1, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 243,
+      "displayName": { "text": "スタリーラーメン Starry Ramen", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "ramen01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9802_rivernoodle",
+      "formattedAddress": "東京都麺星区水辺2-6-10 リバービュータワー B1",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 30 }, "close": { "day": 1, "hour": 21, "minute": 30 } },
+          { "open": { "day": 2, "hour": 11, "minute": 30 }, "close": { "day": 2, "hour": 21, "minute": 30 } },
+          { "open": { "day": 3, "hour": 11, "minute": 30 }, "close": { "day": 3, "hour": 21, "minute": 30 } },
+          { "open": { "day": 4, "hour": 11, "minute": 30 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 30 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 11, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～22時00分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 187,
+      "displayName": { "text": "リバーヌードル River Noodle", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～22時00分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "ramen02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9803_midnightramen",
+      "formattedAddress": "東京都麺星区宵町1-9-3 ミッドナイトテラス 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 3, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 3, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 4, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 4, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～3時00分",
+          "火曜日: 18時00分～3時00分",
+          "水曜日: 18時00分～4時00分",
+          "木曜日: 18時00分～4時00分",
+          "金曜日: 18時00分～4時00分",
+          "土曜日: 17時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 212,
+      "displayName": { "text": "ミッドナイトラーメン Midnight Ramen", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～3時00分",
+          "火曜日: 18時00分～3時00分",
+          "水曜日: 18時00分～4時00分",
+          "木曜日: 18時00分～4時00分",
+          "金曜日: 18時00分～4時00分",
+          "土曜日: 17時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "ramen03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9804_greengardenramen",
+      "formattedAddress": "東京都麺星区緑園4-3-7 グリーンガーデン 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 21, "minute": 0 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 11, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 158,
+      "displayName": { "text": "グリーンガーデンラーメン Green Garden Ramen", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～21時00分",
+          "火曜日: 10時00分～21時00分",
+          "水曜日: 10時00分～21時00分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "ramen04.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

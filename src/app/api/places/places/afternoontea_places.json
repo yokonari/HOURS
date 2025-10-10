@@ -1,0 +1,748 @@
+{
+  "places": [
+    {
+      "id": "mock_10401_teagarden",
+      "formattedAddress": "東京都紅香区薔薇通1-5-3 ティーガーデン 2F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 198,
+      "displayName": {
+        "text": "ティーガーデン Tea Garden",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea01.png"
+        }
+      ],
+      "primaryType": "cafe"
+    },
+    {
+      "id": "mock_10402_rivertea",
+      "formattedAddress": "東京都紅香区川景2-7-6 リバーティーハウス 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 172,
+      "displayName": {
+        "text": "リバーティーハウス River Tea House",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea02.png"
+        }
+      ],
+      "primaryType": "cafe"
+    },
+    {
+      "id": "mock_10403_midnighttea",
+      "formattedAddress": "東京都紅香区宵町3-4-8 ミッドナイトパーラー 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 185,
+      "displayName": {
+        "text": "ミッドナイトティーラウンジ Midnight Tea Lounge",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea03.png"
+        }
+      ],
+      "primaryType": "cafe"
+    },
+    {
+      "id": "mock_10404_greenafternoon",
+      "formattedAddress": "東京都紅香区緑丘5-3-9 グリーンアフタヌーン 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 163,
+      "displayName": {
+        "text": "グリーンアフタヌーン Green Afternoon",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea04.png"
+        }
+      ],
+      "primaryType": "cafe"
+    },
+    {
+      "id": "mock_10405_sunlighttea",
+      "formattedAddress": "東京都紅香区陽光1-8-2 サンライトテラス 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 214,
+      "displayName": {
+        "text": "サンライトティーセット Sunlight Tea Set",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea05.png"
+        }
+      ],
+      "primaryType": "cafe"
+    },
+    {
+      "id": "mock_10406_starrytea",
+      "formattedAddress": "東京都紅香区星見4-6-11 スターティールーム 15F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 206,
+      "displayName": {
+        "text": "スターティールーム Starry Tea Room",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～19時00分",
+          "火曜日: 12時00分～19時00分",
+          "水曜日: 12時00分～19時00分",
+          "木曜日: 12時00分～19時00分",
+          "金曜日: 12時00分～20時00分",
+          "土曜日: 11時00分～20時00分",
+          "日曜日: 11時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tea06.png"
+        }
+      ],
+      "primaryType": "cafe"
+    }
+  ]
+}

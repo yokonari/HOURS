@@ -1,0 +1,243 @@
+{
+  "places": [
+    {
+      "id": "mock_9501_hikaridrug",
+      "formattedAddress": "東京都薬彩区光町2-8-5 ヒカリセンター 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 9, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 9, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 9, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 9, "minute": 0 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 9, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～22時00分",
+          "火曜日: 9時00分～22時00分",
+          "水曜日: 9時00分～22時00分",
+          "木曜日: 9時00分～22時00分",
+          "金曜日: 9時00分～23時00分",
+          "土曜日: 9時00分～23時00分",
+          "日曜日: 10時00分～21時00分"
+        ]
+      },
+      "userRatingCount": 162,
+      "displayName": { "text": "ひかりドラッグ Hikari Drug", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～22時00分",
+          "火曜日: 9時00分～22時00分",
+          "水曜日: 9時00分～22時00分",
+          "木曜日: 9時00分～22時00分",
+          "金曜日: 9時00分～23時00分",
+          "土曜日: 9時00分～23時00分",
+          "日曜日: 10時00分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "kusuri01.png" }],
+      "primaryType": "pharmacy"
+    },
+    {
+      "id": "mock_9502_aoidrugmart",
+      "formattedAddress": "東京都薬彩区青坂3-11-2 グリーンモール 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 21, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～21時00分",
+          "火曜日: 8時00分～21時00分",
+          "水曜日: 8時00分～21時00分",
+          "木曜日: 8時00分～21時00分",
+          "金曜日: 8時00分～22時00分",
+          "土曜日: 8時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 138,
+      "displayName": { "text": "あおいドラッグマート Aoi Drug Mart", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～21時00分",
+          "火曜日: 8時00分～21時00分",
+          "水曜日: 8時00分～21時00分",
+          "木曜日: 8時00分～21時00分",
+          "金曜日: 8時00分～22時00分",
+          "土曜日: 8時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "kusuri02.png" }],
+      "primaryType": "pharmacy"
+    },
+    {
+      "id": "mock_9503_midnightpharma",
+      "formattedAddress": "東京都夜薬区宵通1-4-7 ミッドナイトビル 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～2時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 189,
+      "displayName": { "text": "ミッドナイトファーマ Midnight Pharma", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～2時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "kusuri03.png" }],
+      "primaryType": "pharmacy"
+    },
+    {
+      "id": "mock_9504_sakurahealth",
+      "formattedAddress": "東京都薬彩区桜町5-6-3 さくらテラス 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 9, "minute": 30 }, "close": { "day": 1, "hour": 21, "minute": 0 } },
+          { "open": { "day": 2, "hour": 9, "minute": 30 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 9, "minute": 30 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 9, "minute": 30 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 9, "minute": 30 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～21時00分",
+          "火曜日: 9時30分～21時00分",
+          "水曜日: 9時30分～21時00分",
+          "木曜日: 9時30分～21時00分",
+          "金曜日: 9時30分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 127,
+      "displayName": { "text": "さくらヘルスストア Sakura Health Store", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～21時00分",
+          "火曜日: 9時30分～21時00分",
+          "水曜日: 9時30分～21時00分",
+          "木曜日: 9時30分～21時00分",
+          "金曜日: 9時30分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "kusuri04.png" }],
+      "primaryType": "pharmacy"
+    },
+    {
+      "id": "mock_9505_sunpharmacy",
+      "formattedAddress": "東京都薬彩区陽光1-2-9 サンライトビル 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 7, "minute": 30 }, "close": { "day": 1, "hour": 21, "minute": 0 } },
+          { "open": { "day": 2, "hour": 7, "minute": 30 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 7, "minute": 30 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 7, "minute": 30 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 7, "minute": 30 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 0 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～21時00分",
+          "火曜日: 7時30分～21時00分",
+          "水曜日: 7時30分～21時00分",
+          "木曜日: 7時30分～21時00分",
+          "金曜日: 7時30分～22時00分",
+          "土曜日: 8時00分～22時00分",
+          "日曜日: 9時00分～21時00分"
+        ]
+      },
+      "userRatingCount": 151,
+      "displayName": { "text": "サンファーマシー Sun Pharmacy", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～21時00分",
+          "火曜日: 7時30分～21時00分",
+          "水曜日: 7時30分～21時00分",
+          "木曜日: 7時30分～21時00分",
+          "金曜日: 7時30分～22時00分",
+          "土曜日: 8時00分～22時00分",
+          "日曜日: 9時00分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "kusuri05.png" }],
+      "primaryType": "pharmacy"
+    },
+    {
+      "id": "mock_9506_kamiyaku",
+      "formattedAddress": "東京都薬彩区神田3-5-12 カミヤクビル 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 0, "minute": 0 } },
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 0, "minute": 0 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 0, "minute": 0 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 24, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 205,
+      "displayName": { "text": "カミヤクドラッグ Kami-Yaku Drug", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "kusuri06.png" }],
+      "primaryType": "pharmacy"
+    }
+  ]
+}

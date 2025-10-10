@@ -7,7 +7,6 @@ export function SearchForm({
   qInput,
   setQInput,
   loading,
-  waitingGeo,
   onReset,
   searchHistory,
   onHistorySelect,
@@ -16,7 +15,6 @@ export function SearchForm({
   qInput: string;
   setQInput: (v: string) => void;
   loading: boolean;
-  waitingGeo: boolean;
   onReset?: () => void;
   searchHistory?: string[];
   onHistorySelect?: (value: string) => void;
@@ -37,6 +35,8 @@ export function SearchForm({
     if (!canClear) return;
     e.preventDefault();
     setQInput('');
+    // クリア後もすぐ再入力できるようフォーカスを戻します。
+    inputRef.current?.focus();
   };
 
   const handleClearKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
@@ -44,6 +44,8 @@ export function SearchForm({
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       setQInput('');
+      // キーボード操作でも同様にフォーカスを戻します。
+      inputRef.current?.focus();
     }
   };
 

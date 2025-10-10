@@ -1,0 +1,355 @@
+{
+  "places": [
+    {
+      "id": "mock_9901_lanternrow",
+      "formattedAddress": "東京都宵灯区酒場通1-6-3 灯籠ビル 2F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 1, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 1, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 2, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～1時00分",
+          "火曜日: 17時00分～1時00分",
+          "水曜日: 17時00分～2時00分",
+          "木曜日: 17時00分～2時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 214,
+      "displayName": { "text": "灯籠横丁 Lantern Row", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～1時00分",
+          "火曜日: 17時00分～1時00分",
+          "水曜日: 17時00分～2時00分",
+          "木曜日: 17時00分～2時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake01.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9902_kuretake",
+      "formattedAddress": "東京都宵灯区藤見2-3-10 呉竹テラス 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 16, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 16, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 16, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 16, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 16, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 15, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～0時00分",
+          "火曜日: 16時00分～0時00分",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 176,
+      "displayName": { "text": "呉竹酒房 Kuretake", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 16時00分～0時00分",
+          "火曜日: 16時00分～0時00分",
+          "水曜日: 16時00分～1時00分",
+          "木曜日: 16時00分～1時00分",
+          "金曜日: 16時00分～2時00分",
+          "土曜日: 15時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake02.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9903_shigure",
+      "formattedAddress": "東京都宵灯区雨香1-4-9 霧雨コート B1",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 198,
+      "displayName": { "text": "しぐれ酒場 Shigure", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～4時00分",
+          "土曜日: 16時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake03.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9904_mizuhonami",
+      "formattedAddress": "東京都宵灯区瑞穂町5-2-11 瑞穂小路 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～0時00分",
+          "火曜日: 18時00分～0時00分",
+          "水曜日: 18時00分～1時00分",
+          "木曜日: 18時00分～1時00分",
+          "金曜日: 18時00分～2時00分",
+          "土曜日: 17時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 152,
+      "displayName": { "text": "瑞穂波 Mizuhonami", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～0時00分",
+          "火曜日: 18時00分～0時00分",
+          "水曜日: 18時00分～1時00分",
+          "木曜日: 18時00分～1時00分",
+          "金曜日: 18時00分～2時00分",
+          "土曜日: 17時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake04.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9905_sakegarden",
+      "formattedAddress": "東京都宵灯区蔵花4-9-7 酒蔵ガーデン 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～0時00分",
+          "火曜日: 17時00分～0時00分",
+          "水曜日: 17時00分～1時00分",
+          "木曜日: 17時00分～1時00分",
+          "金曜日: 17時00分～2時00分",
+          "土曜日: 16時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 188,
+      "displayName": { "text": "酒蔵ガーデン Sake Garden", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～0時00分",
+          "火曜日: 17時00分～0時00分",
+          "水曜日: 17時00分～1時00分",
+          "木曜日: 17時00分～1時00分",
+          "金曜日: 17時00分～2時00分",
+          "土曜日: 16時00分～2時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake05.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9906_akabane",
+      "formattedAddress": "東京都宵灯区赤羽1-8-2 赤羽横丁 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 15, "minute": 30 }, "close": { "day": 2, "hour": 0, "minute": 0 } },
+          { "open": { "day": 2, "hour": 15, "minute": 30 }, "close": { "day": 3, "hour": 0, "minute": 0 } },
+          { "open": { "day": 3, "hour": 15, "minute": 30 }, "close": { "day": 4, "hour": 0, "minute": 0 } },
+          { "open": { "day": 4, "hour": 15, "minute": 30 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 15, "minute": 30 }, "close": { "day": 6, "hour": 1, "minute": 0 } },
+          { "open": { "day": 6, "hour": 15, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 15時30分～0時00分",
+          "火曜日: 15時30分～0時00分",
+          "水曜日: 15時30分～0時00分",
+          "木曜日: 15時30分～1時00分",
+          "金曜日: 15時30分～1時00分",
+          "土曜日: 15時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 134,
+      "displayName": { "text": "赤羽酒処 Akabane", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 15時30分～0時00分",
+          "火曜日: 15時30分～0時00分",
+          "水曜日: 15時30分～0時00分",
+          "木曜日: 15時30分～1時00分",
+          "金曜日: 15時30分～1時00分",
+          "土曜日: 15時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake06.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9907_kagura",
+      "formattedAddress": "東京都宵灯区神楽坂7-3-5 神楽坂テラス 3F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 1, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 1, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 2, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～1時00分",
+          "火曜日: 18時00分～1時00分",
+          "水曜日: 18時00分～2時00分",
+          "木曜日: 18時00分～2時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 209,
+      "displayName": { "text": "神楽酒房 Kagura", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～1時00分",
+          "火曜日: 18時00分～1時00分",
+          "水曜日: 18時00分～2時00分",
+          "木曜日: 18時00分～2時00分",
+          "金曜日: 18時00分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake07.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9908_suishin",
+      "formattedAddress": "東京都宵灯区泉町2-8-6 水心横丁 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 30 }, "close": { "day": 2, "hour": 1, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 30 }, "close": { "day": 3, "hour": 1, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 30 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 30 }, "close": { "day": 5, "hour": 2, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 30 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時30分～1時00分",
+          "火曜日: 17時30分～1時00分",
+          "水曜日: 17時30分～2時00分",
+          "木曜日: 17時30分～2時00分",
+          "金曜日: 17時30分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 174,
+      "displayName": { "text": "水心 Suishin", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時30分～1時00分",
+          "火曜日: 17時30分～1時00分",
+          "水曜日: 17時30分～2時00分",
+          "木曜日: 17時30分～2時00分",
+          "金曜日: 17時30分～3時00分",
+          "土曜日: 17時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake08.png" }],
+      "primaryType": "bar"
+    },
+    {
+      "id": "mock_9909_sakecloud",
+      "formattedAddress": "東京都宵灯区星雲1-10-4 雲海タワー 19F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 18, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 18, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 18, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 18, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 18, "minute": 0 }, "close": { "day": 6, "hour": 4, "minute": 0 } },
+          { "open": { "day": 6, "hour": 17, "minute": 0 }, "close": { "day": 0, "hour": 4, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～3時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～4時00分",
+          "土曜日: 17時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 236,
+      "displayName": { "text": "酒雲 Sake Cloud", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 18時00分～2時00分",
+          "火曜日: 18時00分～2時00分",
+          "水曜日: 18時00分～3時00分",
+          "木曜日: 18時00分～3時00分",
+          "金曜日: 18時00分～4時00分",
+          "土曜日: 17時00分～4時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "sake09.png" }],
+      "primaryType": "bar"
+    }
+  ]
+}

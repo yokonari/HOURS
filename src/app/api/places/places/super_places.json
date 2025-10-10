@@ -1,0 +1,748 @@
+{
+  "places": [
+    {
+      "id": "mock_10201_skyplaza",
+      "formattedAddress": "東京都食材区空町1-4-8 スカイプラザ 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 312,
+      "displayName": {
+        "text": "スカイプラザマーケット Sky Plaza Market",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super01.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    },
+    {
+      "id": "mock_10202_riverfresh",
+      "formattedAddress": "東京都食材区川辺3-9-2 リバーサイドモール B1",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 284,
+      "displayName": {
+        "text": "リバーフレッシュストア River Fresh Store",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super02.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    },
+    {
+      "id": "mock_10203_midnightmart",
+      "formattedAddress": "東京都食材区宵町2-5-6 ミッドナイトスクエア 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 265,
+      "displayName": {
+        "text": "ミッドナイトマート Midnight Mart",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super03.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    },
+    {
+      "id": "mock_10204_greenbasket",
+      "formattedAddress": "東京都食材区緑丘6-3-4 グリーンバスケット 1F",
+      "rating": 4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 198,
+      "displayName": {
+        "text": "グリーンバスケット Green Basket",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super04.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    },
+    {
+      "id": "mock_10205_sunrisefoods",
+      "formattedAddress": "東京都食材区朝陽1-2-7 サンライズタウン 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 341,
+      "displayName": {
+        "text": "サンライズフーズ Sunrise Foods",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super05.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    },
+    {
+      "id": "mock_10206_starrymart",
+      "formattedAddress": "東京都食材区星見4-8-10 スタリーモール 2F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 289,
+      "displayName": {
+        "text": "スタリーマート Starry Mart",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～21時00分",
+          "火曜日: 9時00分～21時00分",
+          "水曜日: 9時00分～21時00分",
+          "木曜日: 9時00分～21時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 9時00分～20時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "super06.png"
+        }
+      ],
+      "primaryType": "grocery_or_supermarket"
+    }
+  ]
+}

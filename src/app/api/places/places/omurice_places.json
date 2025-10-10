@@ -1,0 +1,203 @@
+{
+  "places": [
+    {
+      "id": "mock_9601_skyomelette",
+      "formattedAddress": "東京都卵彩区空町4-7-11 スカイテーブル 2F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 21, "minute": 30 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 21, "minute": 30 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 21, "minute": 30 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 22, "minute": 30 } },
+          { "open": { "day": 6, "hour": 10, "minute": 30 }, "close": { "day": 6, "hour": 22, "minute": 30 } },
+          { "open": { "day": 0, "hour": 10, "minute": 30 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～22時00分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 10時30分～22時30分",
+          "日曜日: 10時30分～21時00分"
+        ]
+      },
+      "userRatingCount": 178,
+      "displayName": { "text": "スカイオムレッティ Sky Omelette", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～22時00分",
+          "金曜日: 11時00分～22時30分",
+          "土曜日: 10時30分～22時30分",
+          "日曜日: 10時30分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "omu01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9602_riversideomelette",
+      "formattedAddress": "東京都卵彩区水辺3-2-18 リバーサイドパーク 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 20, "minute": 30 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 20, "minute": 30 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 20, "minute": 30 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 30 }, "close": { "day": 6, "hour": 21, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 30 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時30分",
+          "火曜日: 10時00分～20時30分",
+          "水曜日: 10時00分～20時30分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 9時30分～20時00分"
+        ]
+      },
+      "userRatingCount": 132,
+      "displayName": { "text": "リバーサイドオムライス Riverside Omurice", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時30分",
+          "火曜日: 10時00分～20時30分",
+          "水曜日: 10時00分～20時30分",
+          "木曜日: 10時00分～21時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 9時30分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "omu02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9603_midnightomelettebar",
+      "formattedAddress": "東京都卵彩区宵町1-9-4 ミッドナイトスクエア B1",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 3, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 201,
+      "displayName": { "text": "ミッドナイトオムレツバー Midnight Omelette Bar", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～3時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "omu03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9604_greenomelette",
+      "formattedAddress": "東京都卵彩区緑丘5-3-6 グリーンヒルズ 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 9, "minute": 30 }, "close": { "day": 1, "hour": 20, "minute": 0 } },
+          { "open": { "day": 2, "hour": 9, "minute": 30 }, "close": { "day": 2, "hour": 20, "minute": 0 } },
+          { "open": { "day": 3, "hour": 9, "minute": 30 }, "close": { "day": 3, "hour": 20, "minute": 0 } },
+          { "open": { "day": 4, "hour": 9, "minute": 30 }, "close": { "day": 4, "hour": 20, "minute": 0 } },
+          { "open": { "day": 5, "hour": 9, "minute": 30 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 30 }, "close": { "day": 6, "hour": 21, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～20時00分",
+          "火曜日: 9時30分～20時00分",
+          "水曜日: 9時30分～20時00分",
+          "木曜日: 9時30分～20時00分",
+          "金曜日: 9時30分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 115,
+      "displayName": { "text": "グリーンオムレツ Green Omelette", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～20時00分",
+          "火曜日: 9時30分～20時00分",
+          "水曜日: 9時30分～20時00分",
+          "木曜日: 9時30分～20時00分",
+          "金曜日: 9時30分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "omu04.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9605_cosmicomurice",
+      "formattedAddress": "東京都卵彩区星影7-8-15 コズミックパレス 3F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 0, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 1, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 163,
+      "displayName": { "text": "コズミックオムライス Cosmic Omurice", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～0時00分",
+          "金曜日: 11時00分～1時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 10時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "omu05.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

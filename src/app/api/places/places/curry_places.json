@@ -1,0 +1,310 @@
+{
+  "places": [
+    {
+      "id": "mock_9101_curryzen",
+      "formattedAddress": "東京都香辛区南小路3-12-6 サフランビル 2F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": { "day": 1, "hour": 11, "minute": 0 },
+            "close": { "day": 1, "hour": 15, "minute": 0 }
+          },
+          {
+            "open": { "day": 1, "hour": 17, "minute": 0 },
+            "close": { "day": 1, "hour": 22, "minute": 0 }
+          },
+          {
+            "open": { "day": 2, "hour": 11, "minute": 0 },
+            "close": { "day": 2, "hour": 15, "minute": 0 }
+          },
+          {
+            "open": { "day": 2, "hour": 17, "minute": 0 },
+            "close": { "day": 2, "hour": 22, "minute": 0 }
+          },
+          {
+            "open": { "day": 3, "hour": 11, "minute": 0 },
+            "close": { "day": 3, "hour": 15, "minute": 0 }
+          },
+          {
+            "open": { "day": 3, "hour": 17, "minute": 0 },
+            "close": { "day": 3, "hour": 22, "minute": 0 }
+          },
+          {
+            "open": { "day": 4, "hour": 11, "minute": 0 },
+            "close": { "day": 4, "hour": 22, "minute": 30 }
+          },
+          {
+            "open": { "day": 5, "hour": 11, "minute": 0 },
+            "close": { "day": 5, "hour": 23, "minute": 0 }
+          },
+          {
+            "open": { "day": 6, "hour": 10, "minute": 30 },
+            "close": { "day": 6, "hour": 23, "minute": 0 }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "火曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "水曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "木曜日: 11時00分～22時30分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 10時30分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 198,
+      "displayName": { "text": "カレー禅 Curry Zen", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "火曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "水曜日: 11時00分～15時00分, 17時00分～22時00分",
+          "木曜日: 11時00分～22時30分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 10時30分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "curry01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9102_spicealley",
+      "formattedAddress": "東京都香辛区北橋町8-2-11 ターメリックコート 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 30 }, "close": { "day": 1, "hour": 21, "minute": 30 } },
+          { "open": { "day": 2, "hour": 11, "minute": 30 }, "close": { "day": 2, "hour": 21, "minute": 30 } },
+          { "open": { "day": 3, "hour": 11, "minute": 30 }, "close": { "day": 3, "hour": 21, "minute": 30 } },
+          { "open": { "day": 4, "hour": 11, "minute": 30 }, "close": { "day": 4, "hour": 21, "minute": 30 } },
+          { "open": { "day": 5, "hour": 11, "minute": 30 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 11, "minute": 0 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 11, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～21時30分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 154,
+      "displayName": { "text": "スパイス横丁 Spice Alley", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時30分～21時30分",
+          "火曜日: 11時30分～21時30分",
+          "水曜日: 11時30分～21時30分",
+          "木曜日: 11時30分～21時30分",
+          "金曜日: 11時30分～22時00分",
+          "土曜日: 11時00分～22時00分",
+          "日曜日: 11時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "curry02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9103_midoricurry",
+      "formattedAddress": "東京都緑香区蓮池1-7-5 グリーンテラス B1",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 20, "minute": 0 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 20, "minute": 0 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 20, "minute": 0 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 20, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 21, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 30 }, "close": { "day": 6, "hour": 21, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 30 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 9時30分～20時00分"
+        ]
+      },
+      "userRatingCount": 112,
+      "displayName": { "text": "みどり香カレー Midori Spice", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 9時30分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "curry03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9104_tokyocurryclub",
+      "formattedAddress": "東京都湾辛区潮見4-9-12 カレードック 1F",
+      "rating": 4.7,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 24, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 1, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～23時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 325,
+      "displayName": { "text": "東京カレークラブ Tokyo Curry Club", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～23時00分",
+          "火曜日: 11時00分～23時00分",
+          "水曜日: 11時00分～23時00分",
+          "木曜日: 11時00分～23時00分",
+          "金曜日: 11時00分～0時00分",
+          "土曜日: 10時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "curry04.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9105_sundaycurry",
+      "formattedAddress": "東京都日香区灯丘2-6-18 サンシャインアーク 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 11, "minute": 0 }, "close": { "day": 1, "hour": 18, "minute": 0 } },
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 18, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 18, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 4, "hour": 18, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 20, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 0 }, "close": { "day": 6, "hour": 20, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 0 }, "close": { "day": 0, "hour": 20, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～18時00分",
+          "火曜日: 11時00分～18時00分",
+          "水曜日: 11時00分～18時00分",
+          "木曜日: 11時00分～18時00分",
+          "金曜日: 11時00分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "userRatingCount": 76,
+      "displayName": { "text": "サンデーカレー Sunday Curry", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～18時00分",
+          "火曜日: 11時00分～18時00分",
+          "水曜日: 11時00分～18時00分",
+          "木曜日: 11時00分～18時00分",
+          "金曜日: 11時00分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 10時00分～20時00分"
+        ]
+      },
+      "photos": [{ "name": "curry05.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9106_midnightcurry",
+      "formattedAddress": "東京都宵香区夜市1-2-9 ナイトマーケットタワー 3F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 3, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～2時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 189,
+      "displayName": { "text": "ミッドナイトカレー Midnight Curry", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～2時00分",
+          "火曜日: 17時00分～2時00分",
+          "水曜日: 17時00分～2時00分",
+          "木曜日: 17時00分～3時00分",
+          "金曜日: 17時00分～3時00分",
+          "土曜日: 16時00分～3時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "curry06.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_9107_gardencurry",
+      "formattedAddress": "東京都香園区花畑5-3-14 ガーデンヒルズ 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 2, "hour": 11, "minute": 0 }, "close": { "day": 2, "hour": 21, "minute": 0 } },
+          { "open": { "day": 3, "hour": 11, "minute": 0 }, "close": { "day": 3, "hour": 21, "minute": 0 } },
+          { "open": { "day": 4, "hour": 11, "minute": 0 }, "close": { "day": 4, "hour": 21, "minute": 0 } },
+          { "open": { "day": 5, "hour": 11, "minute": 0 }, "close": { "day": 5, "hour": 22, "minute": 0 } },
+          { "open": { "day": 6, "hour": 10, "minute": 30 }, "close": { "day": 6, "hour": 22, "minute": 0 } },
+          { "open": { "day": 0, "hour": 10, "minute": 30 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 10時30分～22時00分",
+          "日曜日: 10時30分～21時00分"
+        ]
+      },
+      "userRatingCount": 132,
+      "displayName": { "text": "ガーデンカレー Garden Curry", "languageCode": "ja" },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～22時00分",
+          "土曜日: 10時30分～22時00分",
+          "日曜日: 10時30分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "curry07.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

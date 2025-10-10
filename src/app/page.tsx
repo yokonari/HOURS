@@ -19,15 +19,9 @@ export default function HomePage() {
     results,
     // 日付/時刻
     dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
-    // 位置/並び順
-    lat, lng, hasLatLng,
     // 最終受付考慮
     finalReception, setFinalReception,
-    loaderRef,
-    hasMore,
   } = usePlaces();
-
-  const waitingGeo = !hasLatLng;
 
   // ── ヘッダー＆フッターの実測高さ ───────────────────────────
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -94,7 +88,6 @@ export default function HomePage() {
               qInput={qInput}
               setQInput={setQInput}
               loading={loading}
-              waitingGeo={waitingGeo}
               onReset={resetSearch}
               searchHistory={searchHistory}
               onHistorySelect={searchFromHistory}
@@ -145,17 +138,20 @@ export default function HomePage() {
             <div className="flex flex-col items-center gap-5 text-center" style={{ color: 'var(--foreground)' }}>
               <Image
                 src="/images/top.png"
-                width={144}
-                height={144}
+                width={500}
+                height={496}
                 priority
                 alt="検索開始を案内するイラスト"
-                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40"
+                className="object-contain h-30 w-30 sm:h-40 sm:w-40 lg:h-45 lg:w-45"
                 sizes="(min-width: 1024px) 10rem, (min-width: 640px) 8rem, 6rem"
               />
-              <div className="space-y-3 text-sm sm:text-base lg:text-lg">
+              <div className="space-y-3 text-sm sm:text-base ">
                 <p>指定した日時に営業している施設を検索できます。</p>
                 <p className="mt-1 text-xs text-gray-500 sm:text-sm">
                   ※実際の受付時間は施設の公式情報をご確認ください。
+                </p>
+                <p className="mt-1 text-orange-600 text-sm font-medium">
+                  ※このサイトはデモ用です。表示されるデータはすべて架空です。
                 </p>
               </div>
             </div>
@@ -167,8 +163,6 @@ export default function HomePage() {
           results={results}
           dateStr={dateStr}
           timeStr={timeStr}
-          loaderRef={loaderRef}
-          hasMore={hasMore}
         />
 
         {/* 絞り込み結果0件メッセージ（検索後） */}

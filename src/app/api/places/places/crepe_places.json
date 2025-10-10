@@ -1,0 +1,676 @@
+{
+  "places": [
+    {
+      "id": "mock_9042_sweetgarden",
+      "formattedAddress": "東京都甘花区桜並木2-5-3 スイートガーデン 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 156,
+      "displayName": {
+        "text": "クレープスイートガーデン Crepe Sweet Garden",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre01.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    },
+    {
+      "id": "mock_9043_mille",
+      "formattedAddress": "東京都ミル区乳香1-3-8 ミルビル 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～20時30分",
+          "火曜日: 11時00分～20時30分",
+          "水曜日: 11時00分～20時30分",
+          "木曜日: 11時00分～20時30分",
+          "金曜日: 11時00分～21時30分",
+          "土曜日: 10時30分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 112,
+      "displayName": {
+        "text": "ミルクレープスタンド Mille Crepe Stand",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～20時30分",
+          "火曜日: 11時00分～20時30分",
+          "水曜日: 11時00分～20時30分",
+          "木曜日: 11時00分～20時30分",
+          "金曜日: 11時00分～21時30分",
+          "土曜日: 10時30分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre02.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    },
+    {
+      "id": "mock_9044_petitsoleil",
+      "formattedAddress": "東京都陽光区光町4-6-1 ソレイユテラス 2F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～20時30分",
+          "火曜日: 10時30分～20時30分",
+          "水曜日: 10時30分～20時30分",
+          "木曜日: 10時30分～20時30分",
+          "金曜日: 10時30分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 189,
+      "displayName": {
+        "text": "プチソレイユクレープ Petit Soleil",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～20時30分",
+          "火曜日: 10時30分～20時30分",
+          "水曜日: 10時30分～20時30分",
+          "木曜日: 10時30分～20時30分",
+          "金曜日: 10時30分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre03.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    },
+    {
+      "id": "mock_9045_luna",
+      "formattedAddress": "東京都月灯区夜空5-2-4 ルナタワー B1",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～22時00分",
+          "火曜日: 12時00分～22時00分",
+          "水曜日: 12時00分～22時00分",
+          "木曜日: 12時00分～22時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 12時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 95,
+      "displayName": {
+        "text": "ルナクレープバー Luna Crepe Bar",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～22時00分",
+          "火曜日: 12時00分～22時00分",
+          "水曜日: 12時00分～22時00分",
+          "木曜日: 12時00分～22時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 12時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre04.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    },
+    {
+      "id": "mock_9046_forest",
+      "formattedAddress": "東京都森林区緑路7-10-2 フォレストテラス 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～19時30分",
+          "火曜日: 10時00分～19時30分",
+          "水曜日: 10時00分～19時30分",
+          "木曜日: 10時00分～19時30分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 133,
+      "displayName": {
+        "text": "フォレストクレープ Forest Crepe",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～19時30分",
+          "火曜日: 10時00分～19時30分",
+          "水曜日: 10時00分～19時30分",
+          "木曜日: 10時00分～19時30分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時30分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre05.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    },
+    {
+      "id": "mock_9047_honeyberry",
+      "formattedAddress": "東京都蜂蜜区果実通1-8-6 ハニーフィールド 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 147,
+      "displayName": {
+        "text": "ハニーベリークレープ Honey Berry Crepe",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～20時00分",
+          "火曜日: 10時00分～20時00分",
+          "水曜日: 10時00分～20時00分",
+          "木曜日: 10時00分～20時00分",
+          "金曜日: 10時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cre06.png"
+        }
+      ],
+      "primaryType": "crepe_shop"
+    }
+  ]
+}

@@ -1,0 +1,2468 @@
+{
+  "places": [
+    {
+      "id": "mock_9001_hoshizora",
+      "formattedAddress": "東京都雲原区星見町5-12-8 スカイアークビル 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～19時00分",
+          "火曜日: 10時00分～19時00分",
+          "水曜日: 10時00分～19時00分",
+          "木曜日: 10時00分～19時00分",
+          "金曜日: 10時00分～20時00分",
+          "土曜日: 9時30分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 87,
+      "displayName": {
+        "text": "星空カフェ Hoshizora Coffee",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～19時00分",
+          "火曜日: 10時00分～19時00分",
+          "水曜日: 10時00分～19時00分",
+          "木曜日: 10時00分～19時00分",
+          "金曜日: 10時00分～20時00分",
+          "土曜日: 9時30分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe01.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9002_machinone",
+      "formattedAddress": "東京都灯波区音羽台2-4-19 サウスリッジテラス 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～18時00分",
+          "火曜日: 8時00分～18時00分",
+          "水曜日: 8時00分～18時00分",
+          "木曜日: 8時00分～18時00分",
+          "金曜日: 8時00分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 54,
+      "displayName": {
+        "text": "街音コーヒー Machinone Coffee Stand",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～18時00分",
+          "火曜日: 8時00分～18時00分",
+          "水曜日: 8時00分～18時00分",
+          "木曜日: 8時00分～18時00分",
+          "金曜日: 8時00分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe02.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9003_yorunomori",
+      "formattedAddress": "東京都霧坂市宵町1-6-3 ルミエール宵町 2F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 12時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 112,
+      "displayName": {
+        "text": "夜の森カフェ Yoru no Mori",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時00分",
+          "火曜日: 11時00分～21時00分",
+          "水曜日: 11時00分～21時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 12時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe03.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9004_sazanami",
+      "formattedAddress": "東京都潮見区波端4-1-22 クリスタルデッキ 1F",
+      "rating": 3.9,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～17時00分",
+          "火曜日: 7時30分～17時00分",
+          "水曜日: 7時30分～17時00分",
+          "木曜日: 7時30分～17時00分",
+          "金曜日: 7時30分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 43,
+      "displayName": {
+        "text": "さざなみブリュー Sazanami Brew",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～17時00分",
+          "火曜日: 7時30分～17時00分",
+          "水曜日: 7時30分～17時00分",
+          "木曜日: 7時30分～17時00分",
+          "金曜日: 7時30分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe04.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9005_tsukikage",
+      "formattedAddress": "東京都月浜区朧浜3-18-6 ネオンハーバー 3F",
+      "rating": 4.7,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 1,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 1,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～23時00分",
+          "火曜日: 12時00分～23時00分",
+          "水曜日: 12時00分～23時00分",
+          "木曜日: 12時00分～23時00分",
+          "金曜日: 12時00分～1時00分",
+          "土曜日: 12時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 201,
+      "displayName": {
+        "text": "月影ナイトロースト Tsukikage Night Roast",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～23時00分",
+          "火曜日: 12時00分～23時00分",
+          "水曜日: 12時00分～23時00分",
+          "木曜日: 12時00分～23時00分",
+          "金曜日: 12時00分～1時00分",
+          "土曜日: 12時00分～1時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe05.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9006_shironeko",
+      "formattedAddress": "東京都白路区静街6-9-11 ミルクホール白路 B1",
+      "rating": 4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～18時30分",
+          "火曜日: 9時30分～18時30分",
+          "水曜日: 9時30分～18時30分",
+          "木曜日: 9時30分～18時30分",
+          "金曜日: 9時30分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 78,
+      "displayName": {
+        "text": "白猫ブックカフェ Shiro Neko Book Cafe",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～18時30分",
+          "火曜日: 9時30分～18時30分",
+          "水曜日: 9時30分～18時30分",
+          "木曜日: 9時30分～18時30分",
+          "金曜日: 9時30分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe06.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9007_hanagumo",
+      "formattedAddress": "東京都花宙区霞彩町7-2-14 フロレゾン霞彩 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～20時30分",
+          "火曜日: 10時30分～20時30分",
+          "水曜日: 10時30分～20時30分",
+          "木曜日: 10時30分～20時30分",
+          "金曜日: 10時30分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 164,
+      "displayName": {
+        "text": "花雲ティーハウス Hanagumo Tea House",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～20時30分",
+          "火曜日: 10時30分～20時30分",
+          "水曜日: 10時30分～20時30分",
+          "木曜日: 10時30分～20時30分",
+          "金曜日: 10時30分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe07.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9008_kagerou",
+      "formattedAddress": "東京都杜灯区霧条1-15-2 ミッドフォグスクエア 1F",
+      "rating": 3.8,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 15,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 17,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～15時00分",
+          "火曜日: 7時00分～15時00分",
+          "水曜日: 7時00分～15時00分",
+          "木曜日: 7時00分～15時00分",
+          "金曜日: 7時00分～17時00分",
+          "土曜日: 8時00分～17時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 29,
+      "displayName": {
+        "text": "陽炎モーニングロースト Kagerou Morning Roast",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～15時00分",
+          "火曜日: 7時00分～15時00分",
+          "水曜日: 7時00分～15時00分",
+          "木曜日: 7時00分～15時00分",
+          "金曜日: 7時00分～17時00分",
+          "土曜日: 8時00分～17時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe08.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9009_aozora",
+      "formattedAddress": "東京都蒼路区天空台5-7-10 スカイブランチ 2F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～19時00分",
+          "火曜日: 9時00分～19時00分",
+          "水曜日: 9時00分～19時00分",
+          "木曜日: 9時00分～19時00分",
+          "金曜日: 9時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 95,
+      "displayName": {
+        "text": "碧空ラテラウンジ Aozora Latte Lounge",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～19時00分",
+          "火曜日: 9時00分～19時00分",
+          "水曜日: 9時00分～19時00分",
+          "木曜日: 9時00分～19時00分",
+          "金曜日: 9時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe09.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9010_midori",
+      "formattedAddress": "東京都翠灯市森光町12-3-4 グリーンブリーズ 1F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～18時30分",
+          "火曜日: 8時30分～18時30分",
+          "水曜日: 8時30分～18時30分",
+          "木曜日: 8時30分～18時30分",
+          "金曜日: 8時30分～22時00分",
+          "土曜日: 9時30分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 58,
+      "displayName": {
+        "text": "翠灯ブレンド Midori Blend",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～18時30分",
+          "火曜日: 8時30分～18時30分",
+          "水曜日: 8時30分～18時30分",
+          "木曜日: 8時30分～18時30分",
+          "金曜日: 8時30分～22時00分",
+          "土曜日: 9時30分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe10.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9011_kokage",
+      "formattedAddress": "東京都木陰区葉音1-2-18 コホクフォレスト 1F",
+      "rating": 3.7,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 16,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 16,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 16,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 16,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～16時00分",
+          "火曜日: 7時30分～16時00分",
+          "水曜日: 7時30分～16時00分",
+          "木曜日: 7時30分～16時00分",
+          "金曜日: 7時30分～18時00分",
+          "土曜日: 8時00分～18時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 33,
+      "displayName": {
+        "text": "木陰ロースタリー Kokage Roastery",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～16時00分",
+          "火曜日: 7時30分～16時00分",
+          "水曜日: 7時30分～16時00分",
+          "木曜日: 7時30分～16時00分",
+          "金曜日: 7時30分～18時00分",
+          "土曜日: 8時00分～18時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe11.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9012_rin",
+      "formattedAddress": "東京都凛灯区清波町9-5-2 オパールスクエア 5F",
+      "rating": 4.8,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～22時00分",
+          "火曜日: 12時00分～22時00分",
+          "水曜日: 12時00分～22時00分",
+          "木曜日: 12時00分～22時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 248,
+      "displayName": {
+        "text": "凛光クラフトコーヒー Rin Craft Coffee",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～22時00分",
+          "火曜日: 12時00分～22時00分",
+          "水曜日: 12時00分～22時00分",
+          "木曜日: 12時00分～22時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe12.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9013_suikou",
+      "formattedAddress": "東京都水光区灯泉3-11-7 アクアフロート 1F",
+      "rating": 3.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 17,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 19,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～17時00分",
+          "火曜日: 8時00分～17時00分",
+          "水曜日: 8時00分～17時00分",
+          "木曜日: 8時00分～17時00分",
+          "金曜日: 8時00分～19時00分",
+          "土曜日: 9時00分～19時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 25,
+      "displayName": {
+        "text": "水光カフェラボ Suikou Cafe Lab",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～17時00分",
+          "火曜日: 8時00分～17時00分",
+          "水曜日: 8時00分～17時00分",
+          "木曜日: 8時00分～17時00分",
+          "金曜日: 8時00分～19時00分",
+          "土曜日: 9時00分～19時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe13.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9014_hikari",
+      "formattedAddress": "東京都光映区映月6-14-5 ルシッドスクエア 1F",
+      "rating": 4.9,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 23,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～21時30分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 312,
+      "displayName": {
+        "text": "光彩リザーブ Hikari Reserve",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～21時30分",
+          "火曜日: 11時00分～21時30分",
+          "水曜日: 11時00分～21時30分",
+          "木曜日: 11時00分～21時30分",
+          "金曜日: 11時00分～23時00分",
+          "土曜日: 11時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe14.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9015_komorebi",
+      "formattedAddress": "東京都木洩区陽射町4-20-3 サニーリーフテラス 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 17,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 17,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 17,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 17,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～17時30分",
+          "火曜日: 8時30分～17時30分",
+          "水曜日: 8時30分～17時30分",
+          "木曜日: 8時30分～17時30分",
+          "金曜日: 8時30分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 67,
+      "displayName": {
+        "text": "木漏れ日コーヒーテーブル Komorebi Coffee Table",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～17時30分",
+          "火曜日: 8時30分～17時30分",
+          "水曜日: 8時30分～17時30分",
+          "木曜日: 8時30分～17時30分",
+          "金曜日: 8時30分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "cafe15.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9016_mizuho",
+      "formattedAddress": "東京都瑞穂区桜並木3-8-4 純喫茶みずほ 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～20時00分",
+          "火曜日: 9時00分～20時00分",
+          "水曜日: 9時00分～20時00分",
+          "木曜日: 9時00分～20時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 142,
+      "displayName": {
+        "text": "純喫茶みずほ Jun Kissaten Mizuho",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時00分～20時00分",
+          "火曜日: 9時00分～20時00分",
+          "水曜日: 9時00分～20時00分",
+          "木曜日: 9時00分～20時00分",
+          "金曜日: 9時00分～22時00分",
+          "土曜日: 10時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa01.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9017_kirameki",
+      "formattedAddress": "東京都煌町区銀月1-5-9 レトロビル 2F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 30
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～19時00分",
+          "火曜日: 8時30分～19時00分",
+          "水曜日: 8時30分～19時00分",
+          "木曜日: 8時30分～19時00分",
+          "金曜日: 8時30分～21時30分",
+          "土曜日: 9時00分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 96,
+      "displayName": {
+        "text": "喫茶きらめき Kissaten Kirameki",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時30分～19時00分",
+          "火曜日: 8時30分～19時00分",
+          "水曜日: 8時30分～19時00分",
+          "木曜日: 8時30分～19時00分",
+          "金曜日: 8時30分～21時30分",
+          "土曜日: 9時00分～21時30分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa02.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9018_yumeso",
+      "formattedAddress": "東京都夢想区花柳2-11-13 フローラル館 1F",
+      "rating": 4.7,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時00分",
+          "火曜日: 10時00分～22時00分",
+          "水曜日: 10時00分～22時00分",
+          "木曜日: 10時00分～22時00分",
+          "金曜日: 10時00分～0時00分",
+          "土曜日: 12時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 188,
+      "displayName": {
+        "text": "純喫茶ゆめ草 Jun Kissaten Yumeso",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時00分",
+          "火曜日: 10時00分～22時00分",
+          "水曜日: 10時00分～22時00分",
+          "木曜日: 10時00分～22時00分",
+          "金曜日: 10時00分～0時00分",
+          "土曜日: 12時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa03.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9019_shibukusa",
+      "formattedAddress": "東京都渋草区栄町1-3-8 グランドアーチ渋草 1F",
+      "rating": 3.9,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 18,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 7,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～18時00分",
+          "火曜日: 7時30分～18時00分",
+          "水曜日: 7時30分～18時00分",
+          "木曜日: 7時30分～18時00分",
+          "金曜日: 7時30分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 51,
+      "displayName": {
+        "text": "純喫茶しぶくさ Jun Kissaten Shibukusa",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時30分～18時00分",
+          "火曜日: 7時30分～18時00分",
+          "水曜日: 7時30分～18時00分",
+          "木曜日: 7時30分～18時00分",
+          "金曜日: 7時30分～20時00分",
+          "土曜日: 9時00分～20時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa04.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9020_nishiki",
+      "formattedAddress": "東京都錦彩区昭和通5-6-12 雪見テラス 2F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 22,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 22,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～19時30分",
+          "火曜日: 8時00分～19時30分",
+          "水曜日: 8時00分～19時30分",
+          "木曜日: 8時00分～19時30分",
+          "金曜日: 8時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 118,
+      "displayName": {
+        "text": "喫茶にしき Kissaten Nishiki",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～19時30分",
+          "火曜日: 8時00分～19時30分",
+          "水曜日: 8時00分～19時30分",
+          "木曜日: 8時00分～19時30分",
+          "金曜日: 8時00分～22時00分",
+          "土曜日: 9時00分～22時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa05.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9021_shiori",
+      "formattedAddress": "東京都栞町区文庫坂7-4-9 ブッククラシック 1F",
+      "rating": 4,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 9,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 23,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～21時00分",
+          "火曜日: 9時30分～21時00分",
+          "水曜日: 9時30分～21時00分",
+          "木曜日: 9時30分～21時00分",
+          "金曜日: 9時30分～0時00分",
+          "土曜日: 10時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 82,
+      "displayName": {
+        "text": "純喫茶しおり Jun Kissaten Shiori",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 9時30分～21時00分",
+          "火曜日: 9時30分～21時00分",
+          "水曜日: 9時30分～21時00分",
+          "木曜日: 9時30分～21時00分",
+          "金曜日: 9時30分～0時00分",
+          "土曜日: 10時00分～23時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa06.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    },
+    {
+      "id": "mock_9022_sazanami",
+      "formattedAddress": "東京都静波区潮風5-2-6 ブルーリッジ 1F",
+      "rating": 3.8,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 18,
+              "minute": 30
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 8,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 9,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～18時30分",
+          "火曜日: 8時00分～18時30分",
+          "水曜日: 8時00分～18時30分",
+          "木曜日: 8時00分～18時30分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 40,
+      "displayName": {
+        "text": "純喫茶さざ波 Jun Kissaten Sazanami",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～18時30分",
+          "火曜日: 8時00分～18時30分",
+          "水曜日: 8時00分～18時30分",
+          "木曜日: 8時00分～18時30分",
+          "金曜日: 8時00分～21時00分",
+          "土曜日: 9時00分～21時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "kissa07.png"
+        }
+      ],
+      "primaryType": "coffee_shop"
+    }
+  ]
+}
