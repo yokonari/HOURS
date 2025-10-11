@@ -23,33 +23,22 @@ export default function HomePage() {
     finalReception, setFinalReception,
   } = usePlaces();
 
-  const [keywordListResetKey, setKeywordListResetKey] = useState(0);
-  const handleSubmitSearch = useCallback((e?: React.FormEvent) => {
-    submitSearch(e);
-    setKeywordListResetKey((prev) => prev + 1);
-  }, [submitSearch]);
-
-  const handleSearchFromKeyword = useCallback((term: string) => {
-    searchFromHistory(term);
-    setKeywordListResetKey((prev) => prev + 1);
-  }, [searchFromHistory]);
-
   // ── ヘッダー＆フッターの実測高さ ───────────────────────────
   const headerRef = useRef<HTMLDivElement | null>(null);
   const footerRef = useRef<HTMLElement | null>(null);
   const [headerOffset, setHeaderOffset] = useState(120);
   const [footerOffset, setFooterOffset] = useState(0);
 
+  const updateOffsets = useCallback(() => {
+    const GAP_PX = 8;
+    const h = headerRef.current?.offsetHeight ?? 0;
+    const f = footerRef.current?.offsetHeight ?? 0; // border含む実測
+    setHeaderOffset(h + GAP_PX);
+    setFooterOffset(f);
+  }, []);
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const GAP_PX = 8;
-
-    const updateOffsets = () => {
-      const h = headerRef.current?.offsetHeight ?? 0;
-      const f = footerRef.current?.offsetHeight ?? 0; // border含む実測
-      setHeaderOffset(h + GAP_PX);
-      setFooterOffset(f);
-    };
 
     updateOffsets();
 
@@ -58,11 +47,11 @@ export default function HomePage() {
 
     if (typeof ResizeObserver !== 'undefined') {
       if (headerRef.current) {
-        roHeader = new ResizeObserver(updateOffsets);
+        roHeader = new ResizeObserver(() => updateOffsets());
         roHeader.observe(headerRef.current);
       }
       if (footerRef.current) {
-        roFooter = new ResizeObserver(updateOffsets);
+        roFooter = new ResizeObserver(() => updateOffsets());
         roFooter.observe(footerRef.current);
       }
     }
@@ -73,7 +62,20 @@ export default function HomePage() {
       roHeader?.disconnect();
       roFooter?.disconnect();
     };
-  }, []);
+  }, [updateOffsets]);
+
+  const [keywordListResetKey, setKeywordListResetKey] = useState(0);
+  const handleSubmitSearch = useCallback((e?: React.FormEvent) => {
+    submitSearch(e);
+    setKeywordListResetKey((prev) => prev + 1);
+    requestAnimationFrame(() => updateOffsets());
+  }, [submitSearch, updateOffsets]);
+
+  const handleSearchFromKeyword = useCallback((term: string) => {
+    searchFromHistory(term);
+    setKeywordListResetKey((prev) => prev + 1);
+    requestAnimationFrame(() => updateOffsets());
+  }, [searchFromHistory, updateOffsets]);
   // ───────────────────────────────────────────────────────────────
 
   // 空状態の高さ：100dvh からヘッダー＆フッターを厳密に差し引く
@@ -107,7 +109,11 @@ export default function HomePage() {
 
 
 
-            <details key={keywordListResetKey} className="text-xs text-gray-500 px-2">
+            <details
+              key={keywordListResetKey}
+              className="text-xs text-gray-500 px-2"
+              onToggle={updateOffsets}
+            >
               <summary className="cursor-pointer select-none text-gray-600 underline-offset-4 hover:underline">
                 対応キーワード
               </summary>
@@ -130,6 +136,8 @@ export default function HomePage() {
                   '蕎麦', 'そば',
                   'スーパー',
                   'たこ焼き',
+                  // うどんカテゴリのキーワードを追加しました。
+                  'うどん',
                   'アフタヌーンティー', '紅茶',
                   '中華',
                   'クレープ'
@@ -146,7 +154,7 @@ export default function HomePage() {
               </div>
             </details>
 
-            {/* 2行目: 日時選択と最終受付 */}
+            {/* 3行目: 日時選択と最終受付 */}
             <div className="flex items-center gap-2 h-10">
               <DateTimePicker
                 dateStr={dateStr}

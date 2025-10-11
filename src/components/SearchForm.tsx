@@ -140,7 +140,7 @@ export function SearchForm({
       {historyItems.length > 0 && (
         <div
           ref={historyContainerRef}
-          className="flex flex-wrap items-center gap-2"
+          className="flex items-center gap-2 overflow-x-auto whitespace-nowrap sm:flex-wrap sm:whitespace-normal"
         >
           {historyItems.map((term) => (
             <button

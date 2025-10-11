@@ -16,6 +16,7 @@ import shishaData from './places/shisha_places.json';
 import sobaData from './places/soba_places.json';
 import superData from './places/super_places.json';
 import takoyakiData from './places/takoyaki_places.json';
+import udonData from './places/udon_places.json'; // うどんカテゴリのモックデータを読み込みます。
 import afternoonTeaData from './places/afternoontea_places.json';
 import chineseData from './places/chinese_places.json';
 import crepeData from './places/crepe_places.json';
@@ -41,6 +42,7 @@ const shishaPlaces: SamplePlace[] = Array.isArray(shishaData.places) ? [...shish
 const sobaPlaces: SamplePlace[] = Array.isArray(sobaData.places) ? [...sobaData.places] : [];
 const superPlaces: SamplePlace[] = Array.isArray(superData.places) ? [...superData.places] : [];
 const takoyakiPlaces: SamplePlace[] = Array.isArray(takoyakiData.places) ? [...takoyakiData.places] : [];
+const udonPlaces: SamplePlace[] = Array.isArray(udonData.places) ? [...udonData.places] : []; // うどんカテゴリの配列を生成します。
 const afternoonTeaPlaces: SamplePlace[] = Array.isArray(afternoonTeaData.places) ? [...afternoonTeaData.places] : [];
 const chinesePlaces: SamplePlace[] = Array.isArray(chineseData.places) ? [...chineseData.places] : [];
 const crepePlaces: SamplePlace[] = Array.isArray(crepeData.places) ? [...crepeData.places] : [];
@@ -63,6 +65,7 @@ const SAMPLE_PLACES: SamplePlace[] = [
   ...sobaPlaces,
   ...superPlaces,
   ...takoyakiPlaces,
+  ...udonPlaces,
   ...afternoonTeaPlaces,
   ...chinesePlaces,
   ...crepePlaces,
@@ -89,6 +92,7 @@ export async function GET(req: Request) {
   const sobaKeywords = ['蕎麦', 'そば'];
   const superKeywords = ['スーパー'];
   const takoyakiKeywords = ['たこ焼き'];
+  const udonKeywords = ['うどん']; // うどん検索の完全一致キーワードを定義します。
   const afternoonTeaKeywords = ['アフタヌーンティー', '紅茶'];
   const chineseKeywords = ['中華'];
   const crepeKeywords = ['クレープ'];
@@ -110,6 +114,7 @@ export async function GET(req: Request) {
   const hasSobaKeyword = sobaKeywords.some((keyword) => qRaw === keyword);
   const hasSuperKeyword = superKeywords.some((keyword) => qRaw === keyword);
   const hasTakoyakiKeyword = takoyakiKeywords.some((keyword) => qRaw === keyword);
+  const hasUdonKeyword = udonKeywords.some((keyword) => qRaw === keyword); // うどんキーワードの検出結果です。
   const hasAfternoonTeaKeyword = afternoonTeaKeywords.some((keyword) => qRaw === keyword);
   const hasChineseKeyword = chineseKeywords.some((keyword) => qRaw === keyword);
   const hasCrepeKeyword = crepeKeywords.some((keyword) => qRaw === keyword);
@@ -175,6 +180,7 @@ export async function GET(req: Request) {
     hasSobaKeyword ? sobaPlaces : null,
     hasSuperKeyword ? superPlaces : null,
     hasTakoyakiKeyword ? takoyakiPlaces : null,
+    hasUdonKeyword ? udonPlaces : null,
     hasAfternoonTeaKeyword ? afternoonTeaPlaces : null,
     hasChineseKeyword ? chinesePlaces : null,
     hasCrepeKeyword ? crepePlaces : null,
@@ -192,8 +198,7 @@ export async function GET(req: Request) {
       // カテゴリが特定できた場合は、そのカテゴリに属する全件を対象にします。
       return combined;
     }
-    // カテゴリ未特定時も、サンプルデータ全体を候補として返します。
-    return SAMPLE_PLACES;
+    return [];
   })();
 
   // 必要なフィールドだけをコピーし、クライアント側の型に合う形で返します。
