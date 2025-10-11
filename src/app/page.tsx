@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { SearchForm } from '@/components/SearchForm';
 import { DateTimePicker } from '@/components/DateTimePicker';
 import { FinalReceptionSelector } from '@/components/FinalReceptionSelector';
@@ -22,6 +22,17 @@ export default function HomePage() {
     // 最終受付考慮
     finalReception, setFinalReception,
   } = usePlaces();
+
+  const [keywordListResetKey, setKeywordListResetKey] = useState(0);
+  const handleSubmitSearch = useCallback((e?: React.FormEvent) => {
+    submitSearch(e);
+    setKeywordListResetKey((prev) => prev + 1);
+  }, [submitSearch]);
+
+  const handleSearchFromKeyword = useCallback((term: string) => {
+    searchFromHistory(term);
+    setKeywordListResetKey((prev) => prev + 1);
+  }, [searchFromHistory]);
 
   // ── ヘッダー＆フッターの実測高さ ───────────────────────────
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -82,7 +93,7 @@ export default function HomePage() {
         className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm"
       >
         <div className="mx-auto max-w-[600px] px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4">
-          <form onSubmit={submitSearch} className="space-y-2 sm:space-y-3">
+          <form onSubmit={handleSubmitSearch} className="space-y-2 sm:space-y-3">
             {/* 1行目: 検索フォーム */}
             <SearchForm
               qInput={qInput}
@@ -90,12 +101,53 @@ export default function HomePage() {
               loading={loading}
               onReset={resetSearch}
               searchHistory={searchHistory}
-              onHistorySelect={searchFromHistory}
+              onHistorySelect={handleSearchFromKeyword}
               onClearHistory={clearSearchHistory}
             />
 
+
+
+            <details key={keywordListResetKey} className="text-xs text-gray-500 px-2">
+              <summary className="cursor-pointer select-none text-gray-600 underline-offset-4 hover:underline">
+                対応キーワード
+              </summary>
+              <div className="mt-2 flex flex-wrap gap-2 text-xs text-gray-600">
+                {[
+                  'カフェ', '喫茶', 'コーヒー',
+                  'バー',
+                  '本屋', '本', '書店',
+                  'ケーキ',
+                  'カレー',
+                  'ドーナツ',
+                  'ファミレス',
+                  'ハンバーガー',
+                  'ドラッグストア', '薬',
+                  'オムライス',
+                  'パン',
+                  'ラーメン',
+                  '居酒屋',
+                  'シーシャ',
+                  '蕎麦', 'そば',
+                  'スーパー',
+                  'たこ焼き',
+                  'アフタヌーンティー', '紅茶',
+                  '中華',
+                  'クレープ'
+                ].map((keyword) => (
+                  <button
+                    key={keyword}
+                    type="button"
+                    onClick={() => handleSearchFromKeyword(keyword)}
+                    className="rounded-full border border-gray-200 px-3 py-1 transition hover:bg-gray-50"
+                  >
+                    {keyword}
+                  </button>
+                ))}
+              </div>
+            </details>
+
             {/* 2行目: 日時選択と最終受付 */}
-            <div className="flex items-center gap-3 h-10 sm:gap-4">
+            <div className="flex items-center gap-2 h-10">
               <DateTimePicker
                 dateStr={dateStr}
                 setDateStr={setDateStr}
@@ -132,7 +184,7 @@ export default function HomePage() {
         {/* 初期（空）状態：上下中央に配置。高さはちょうど残り分 */}
         {isEmpty && (
           <div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center max-w-[600px]"
             style={{ height: emptyStateHeight }}
           >
             <div className="flex flex-col items-center gap-5 text-center" style={{ color: 'var(--foreground)' }}>
@@ -150,9 +202,11 @@ export default function HomePage() {
                 <p className="mt-1 text-xs text-gray-500 sm:text-sm">
                   ※実際の受付時間は施設の公式情報をご確認ください。
                 </p>
+
                 <p className="mt-1 text-orange-600 text-sm font-medium">
                   ※このサイトはデモ用です。表示されるデータはすべて架空です。
                 </p>
+
               </div>
             </div>
           </div>

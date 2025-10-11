@@ -1,7 +1,7 @@
 // components/SearchForm.tsx
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 export function SearchForm({
   qInput,
@@ -23,12 +23,10 @@ export function SearchForm({
   const canClear = qInput.length > 0 && !loading;
   const inputRef = useRef<HTMLInputElement | null>(null);
   const historyContainerRef = useRef<HTMLDivElement | null>(null);
-  const [historyVisible, setHistoryVisible] = useState(false);
 
   const handleResetClick = () => {
     if (loading) return;
     onReset?.();
-    setHistoryVisible(false);
   };
 
   const handleClearPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
@@ -51,34 +49,17 @@ export function SearchForm({
 
   const historyItems = searchHistory ?? [];
 
-  useEffect(() => {
-    if (historyItems.length === 0) {
-      setHistoryVisible(false);
-    }
-  }, [historyItems.length]);
-
   const handleHistoryClick = (term: string) => {
     if (onHistorySelect) {
       onHistorySelect(term);
     } else {
       setQInput(term);
     }
-    setHistoryVisible(false);
   };
 
-  const handleInputFocus = () => {
-    if (historyItems.length > 0) {
-      setHistoryVisible(true);
-    }
-  };
+  const handleInputFocus = () => {};
 
-  const handleInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const next = event.relatedTarget as Node | null;
-    if (next && historyContainerRef.current?.contains(next)) {
-      return;
-    }
-    setHistoryVisible(false);
-  };
+  const handleInputBlur = (_event: React.FocusEvent<HTMLInputElement>) => {};
 
   return (
     <div className="flex min-w-0 flex-col gap-2">
@@ -95,7 +76,7 @@ export function SearchForm({
           {/* ロゴ画像でブランドを視覚的に示しつつボタン機能を維持します。 */}
           <Image
             src="/images/title.png"
-            width={95}
+            width={90}
             height={19}
             alt="HOURS のロゴ"
             priority={false}
@@ -156,7 +137,7 @@ export function SearchForm({
           </div>
         </div>
       </div>
-      {historyVisible && historyItems.length > 0 && (
+      {historyItems.length > 0 && (
         <div
           ref={historyContainerRef}
           className="flex flex-wrap items-center gap-2"
@@ -178,7 +159,6 @@ export function SearchForm({
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => {
                 onClearHistory();
-                setHistoryVisible(false);
               }}
               className="text-[11px] text-gray-400 underline-offset-2 hover:underline"
             >
