@@ -64,18 +64,38 @@ export default function HomePage() {
     };
   }, [updateOffsets]);
 
-  const [keywordListResetKey, setKeywordListResetKey] = useState(0);
+  const [extrasOpen, setExtrasOpen] = useState(false);
+  const [extrasVisible, setExtrasVisible] = useState(true);
+
+
   const handleSubmitSearch = useCallback((e?: React.FormEvent) => {
     submitSearch(e);
-    setKeywordListResetKey((prev) => prev + 1);
     requestAnimationFrame(() => updateOffsets());
+    setExtrasOpen(false);
+    setExtrasVisible(true);
   }, [submitSearch, updateOffsets]);
 
   const handleSearchFromKeyword = useCallback((term: string) => {
     searchFromHistory(term);
-    setKeywordListResetKey((prev) => prev + 1);
     requestAnimationFrame(() => updateOffsets());
+    setExtrasOpen(false);
+    setExtrasVisible(true);
   }, [searchFromHistory, updateOffsets]);
+
+  useEffect(() => {
+    if (!extrasOpen && !extrasVisible) return;
+    if (hasSearched) return;
+    const handlePointerDown = (event: PointerEvent) => {
+      if (headerRef.current?.contains(event.target as Node)) return;
+      setExtrasOpen(false);
+      setExtrasVisible(false);
+    };
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [extrasOpen, extrasVisible, hasSearched]);
+
   // ───────────────────────────────────────────────────────────────
 
   // 空状態の高さ：100dvh からヘッダー＆フッターを厳密に差し引く
@@ -95,7 +115,12 @@ export default function HomePage() {
         className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)] shadow-sm"
       >
         <div className="mx-auto max-w-[600px] px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4">
-          <form onSubmit={handleSubmitSearch} className="space-y-2 sm:space-y-3">
+          <form
+            onSubmit={handleSubmitSearch}
+            onFocusCapture={() => requestAnimationFrame(() => updateOffsets())}
+            onBlurCapture={() => requestAnimationFrame(() => updateOffsets())}
+            className="space-y-2 sm:space-y-3"
+          >
             {/* 1行目: 検索フォーム */}
             <SearchForm
               qInput={qInput}
@@ -105,56 +130,19 @@ export default function HomePage() {
               searchHistory={searchHistory}
               onHistorySelect={handleSearchFromKeyword}
               onClearHistory={clearSearchHistory}
+              forceOpen={extrasOpen}
+              onOpen={() => {
+                setExtrasVisible(true);
+                setExtrasOpen(true);
+              }}
+              onClose={() => {
+                setExtrasOpen(false);
+                setExtrasVisible(false);
+              }}
+              onKeywordSelect={handleSearchFromKeyword}
             />
 
-
-
-            <details
-              key={keywordListResetKey}
-              className="text-xs text-gray-500 px-2"
-              onToggle={updateOffsets}
-            >
-              <summary className="cursor-pointer select-none text-gray-600 underline-offset-4 hover:underline">
-                対応キーワード
-              </summary>
-              <div className="mt-2 flex flex-wrap gap-2 text-xs text-gray-600">
-                {[
-                  'カフェ', '喫茶', 'コーヒー',
-                  'バー',
-                  '本屋', '本', '書店',
-                  'ケーキ',
-                  'カレー',
-                  'ドーナツ',
-                  'ファミレス',
-                  'ハンバーガー',
-                  'ドラッグストア', '薬',
-                  'オムライス',
-                  'パン',
-                  'ラーメン',
-                  '居酒屋',
-                  'シーシャ',
-                  '蕎麦', 'そば',
-                  'スーパー',
-                  'たこ焼き',
-                  // うどんカテゴリのキーワードを追加しました。
-                  'うどん',
-                  'アフタヌーンティー', '紅茶',
-                  '中華',
-                  'クレープ'
-                ].map((keyword) => (
-                  <button
-                    key={keyword}
-                    type="button"
-                    onClick={() => handleSearchFromKeyword(keyword)}
-                    className="rounded-full border border-gray-200 px-3 py-1 transition hover:bg-gray-50"
-                  >
-                    {keyword}
-                  </button>
-                ))}
-              </div>
-            </details>
-
-            {/* 3行目: 日時選択と最終受付 */}
+            {/* 2行目: 日時選択と最終受付 */}
             <div className="flex items-center gap-2 h-10">
               <DateTimePicker
                 dateStr={dateStr}
@@ -164,7 +152,7 @@ export default function HomePage() {
                 dateLabel={dateLabel}
                 timeLabel={timeLabel}
               />
-              <div className="h-full flex items-center">
+              <div className="h-full flex items中心">
                 <FinalReceptionSelector value={finalReception} onChange={setFinalReception} />
               </div>
             </div>

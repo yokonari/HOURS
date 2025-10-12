@@ -16,6 +16,11 @@ import shishaData from './places/shisha_places.json';
 import sobaData from './places/soba_places.json';
 import superData from './places/super_places.json';
 import takoyakiData from './places/takoyaki_places.json';
+import convenienceData from './places/convenience_places.json'; // コンビニカテゴリのモックデータを読み込みます。
+import gyudonData from './places/gyudon_places.json'; // 牛丼カテゴリのモックデータを読み込みます。
+import sushiData from './places/sushi_places.json'; // 回転寿司カテゴリのモックデータを読み込みます。
+import taiyakiData from './places/taiyaki_places.json'; // たい焼きカテゴリのモックデータを読み込みます。
+import italianData from './places/italian_places.json'; // イタリアンカテゴリのモックデータを読み込みます。
 import udonData from './places/udon_places.json'; // うどんカテゴリのモックデータを読み込みます。
 import afternoonTeaData from './places/afternoontea_places.json';
 import chineseData from './places/chinese_places.json';
@@ -42,6 +47,11 @@ const shishaPlaces: SamplePlace[] = Array.isArray(shishaData.places) ? [...shish
 const sobaPlaces: SamplePlace[] = Array.isArray(sobaData.places) ? [...sobaData.places] : [];
 const superPlaces: SamplePlace[] = Array.isArray(superData.places) ? [...superData.places] : [];
 const takoyakiPlaces: SamplePlace[] = Array.isArray(takoyakiData.places) ? [...takoyakiData.places] : [];
+const conveniencePlaces: SamplePlace[] = Array.isArray(convenienceData.places) ? [...convenienceData.places] : []; // コンビニカテゴリの配列を生成します。
+const gyudonPlaces: SamplePlace[] = Array.isArray(gyudonData.places) ? [...gyudonData.places] : []; // 牛丼カテゴリの配列を生成します。
+const sushiPlaces: SamplePlace[] = Array.isArray(sushiData.places) ? [...sushiData.places] : []; // 回転寿司カテゴリの配列を生成します。
+const taiyakiPlaces: SamplePlace[] = Array.isArray(taiyakiData.places) ? [...taiyakiData.places] : []; // たい焼きカテゴリの配列を生成します。
+const italianPlaces: SamplePlace[] = Array.isArray(italianData.places) ? [...italianData.places] : []; // イタリアンカテゴリの配列を生成します。
 const udonPlaces: SamplePlace[] = Array.isArray(udonData.places) ? [...udonData.places] : []; // うどんカテゴリの配列を生成します。
 const afternoonTeaPlaces: SamplePlace[] = Array.isArray(afternoonTeaData.places) ? [...afternoonTeaData.places] : [];
 const chinesePlaces: SamplePlace[] = Array.isArray(chineseData.places) ? [...chineseData.places] : [];
@@ -65,6 +75,11 @@ const SAMPLE_PLACES: SamplePlace[] = [
   ...sobaPlaces,
   ...superPlaces,
   ...takoyakiPlaces,
+  ...conveniencePlaces,
+  ...gyudonPlaces,
+  ...sushiPlaces,
+  ...taiyakiPlaces,
+  ...italianPlaces,
   ...udonPlaces,
   ...afternoonTeaPlaces,
   ...chinesePlaces,
@@ -92,6 +107,11 @@ export async function GET(req: Request) {
   const sobaKeywords = ['蕎麦', 'そば'];
   const superKeywords = ['スーパー'];
   const takoyakiKeywords = ['たこ焼き'];
+  const convenienceKeywords = ['コンビニ']; // コンビニ検索の完全一致キーワードを定義します。
+  const gyudonKeywords = ['牛丼']; // 牛丼検索の完全一致キーワードを定義します。
+  const sushiKeywords = ['回転寿司', '寿司']; // 回転寿司検索の完全一致キーワードを定義します。
+  const taiyakiKeywords = ['たい焼き']; // たい焼き検索の完全一致キーワードを定義します。
+  const italianKeywords = ['イタリアン', 'ピザ', 'パスタ']; // イタリアン検索の完全一致キーワードを定義します。
   const udonKeywords = ['うどん']; // うどん検索の完全一致キーワードを定義します。
   const afternoonTeaKeywords = ['アフタヌーンティー', '紅茶'];
   const chineseKeywords = ['中華'];
@@ -114,12 +134,24 @@ export async function GET(req: Request) {
   const hasSobaKeyword = sobaKeywords.some((keyword) => qRaw === keyword);
   const hasSuperKeyword = superKeywords.some((keyword) => qRaw === keyword);
   const hasTakoyakiKeyword = takoyakiKeywords.some((keyword) => qRaw === keyword);
+  const hasConvenienceKeyword = convenienceKeywords.some((keyword) => qRaw === keyword); // コンビニキーワードの検出結果です。
+  const hasGyudonKeyword = gyudonKeywords.some((keyword) => qRaw === keyword); // 牛丼キーワードの検出結果です。
+  const hasItalianKeyword = italianKeywords.some((keyword) => qRaw === keyword); // イタリアン関連キーワードの検出結果です。
+  const hasSushiKeyword = sushiKeywords.some((keyword) => qRaw === keyword); // 回転寿司キーワードの検出結果です。
+  const hasTaiyakiKeyword = taiyakiKeywords.some((keyword) => qRaw === keyword); // たい焼きキーワードの検出結果です。
   const hasUdonKeyword = udonKeywords.some((keyword) => qRaw === keyword); // うどんキーワードの検出結果です。
   const hasAfternoonTeaKeyword = afternoonTeaKeywords.some((keyword) => qRaw === keyword);
   const hasChineseKeyword = chineseKeywords.some((keyword) => qRaw === keyword);
   const hasCrepeKeyword = crepeKeywords.some((keyword) => qRaw === keyword);
 
-  const dateParam = url.searchParams.get('date');
+  const rawDateParam = url.searchParams.get('date');
+  const dateParam = (() => {
+    if (!rawDateParam) return null;
+    if (/^\d{8}$/.test(rawDateParam)) {
+      return `${rawDateParam.slice(0, 4)}-${rawDateParam.slice(4, 6)}-${rawDateParam.slice(6, 8)}`;
+    }
+    return rawDateParam;
+  })();
   const timeParam = url.searchParams.get('time');
   const finalReceptionParam = url.searchParams.get('finalReception') ?? 'none';
 
@@ -134,9 +166,9 @@ export async function GET(req: Request) {
   const applyScheduleFilter = (list: SamplePlace[]) => {
     if (weekdayFilter == null || minutesFilter == null) return list;
     const bufferMinutes =
-      finalReceptionParam === '30min'
+      finalReceptionParam === '30' || finalReceptionParam === '30min'
         ? 30
-        : finalReceptionParam === '60min'
+        : finalReceptionParam === '60' || finalReceptionParam === '60min'
           ? 60
           : 0;
 
@@ -180,6 +212,11 @@ export async function GET(req: Request) {
     hasSobaKeyword ? sobaPlaces : null,
     hasSuperKeyword ? superPlaces : null,
     hasTakoyakiKeyword ? takoyakiPlaces : null,
+    hasConvenienceKeyword ? conveniencePlaces : null, // コンビニカテゴリで一致した場合は全件を返します。
+    hasGyudonKeyword ? gyudonPlaces : null, // 牛丼カテゴリで一致した場合は全件を返します。
+    hasSushiKeyword ? sushiPlaces : null, // 回転寿司カテゴリで一致した場合は全件を返します。
+    hasTaiyakiKeyword ? taiyakiPlaces : null, // たい焼きカテゴリで一致した場合は全件を返します。
+    hasItalianKeyword ? italianPlaces : null, // イタリアンカテゴリで一致した場合は全件を返します。
     hasUdonKeyword ? udonPlaces : null,
     hasAfternoonTeaKeyword ? afternoonTeaPlaces : null,
     hasChineseKeyword ? chinesePlaces : null,

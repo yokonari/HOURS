@@ -1,0 +1,304 @@
+{
+  "places": [
+    {
+      "id": "mock_14001_gyuchaya",
+      "formattedAddress": "東京都旨町区牛路1-3-5 牛茶屋ビル 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 7, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 7, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 7, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 7, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 7, "minute": 0 }, "close": { "day": 6, "hour": 0, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 0, "minute": 0 } },
+          { "open": { "day": 0, "hour": 8, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～23時00分",
+          "火曜日: 7時00分～23時00分",
+          "水曜日: 7時00分～23時00分",
+          "木曜日: 7時00分～23時00分",
+          "金曜日: 7時00分～0時00分",
+          "土曜日: 7時00分～0時00分",
+          "日曜日: 8時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 164,
+      "displayName": {
+        "text": "牛茶屋 Gyudon Chaya",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 7時00分～23時00分",
+          "火曜日: 7時00分～23時00分",
+          "水曜日: 7時00分～23時00分",
+          "木曜日: 7時00分～23時00分",
+          "金曜日: 7時00分～0時00分",
+          "土曜日: 7時00分～0時00分",
+          "日曜日: 8時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "gyu01.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14002_gyuharbor",
+      "formattedAddress": "東京都旨町区港北2-6-4 ベイハーベスト 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 6, "minute": 0 }, "close": { "day": 2, "hour": 2, "minute": 0 } },
+          { "open": { "day": 2, "hour": 6, "minute": 0 }, "close": { "day": 3, "hour": 2, "minute": 0 } },
+          { "open": { "day": 3, "hour": 6, "minute": 0 }, "close": { "day": 4, "hour": 2, "minute": 0 } },
+          { "open": { "day": 4, "hour": 6, "minute": 0 }, "close": { "day": 5, "hour": 2, "minute": 0 } },
+          { "open": { "day": 5, "hour": 6, "minute": 0 }, "close": { "day": 6, "hour": 3, "minute": 0 } },
+          { "open": { "day": 6, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 3, "minute": 0 } },
+          { "open": { "day": 0, "hour": 7, "minute": 0 }, "close": { "day": 1, "hour": 1, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 6時00分～2時00分",
+          "火曜日: 6時00分～2時00分",
+          "水曜日: 6時00分～2時00分",
+          "木曜日: 6時00分～2時00分",
+          "金曜日: 6時00分～3時00分",
+          "土曜日: 7時00分～3時00分",
+          "日曜日: 7時00分～1時00分"
+        ]
+      },
+      "userRatingCount": 138,
+      "displayName": {
+        "text": "ベイハーバー牛丼 Bay Harbor Gyudon",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 6時00分～2時00分",
+          "火曜日: 6時00分～2時00分",
+          "水曜日: 6時00分～2時00分",
+          "木曜日: 6時00分～2時00分",
+          "金曜日: 6時00分～3時00分",
+          "土曜日: 7時00分～3時00分",
+          "日曜日: 7時00分～1時00分"
+        ]
+      },
+      "photos": [{ "name": "gyu02.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14003_gyunight",
+      "formattedAddress": "東京都旨町区宵町4-5-7 ナイトダイナー 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 17, "minute": 0 }, "close": { "day": 2, "hour": 5, "minute": 0 } },
+          { "open": { "day": 2, "hour": 17, "minute": 0 }, "close": { "day": 3, "hour": 5, "minute": 0 } },
+          { "open": { "day": 3, "hour": 17, "minute": 0 }, "close": { "day": 4, "hour": 5, "minute": 0 } },
+          { "open": { "day": 4, "hour": 17, "minute": 0 }, "close": { "day": 5, "hour": 5, "minute": 0 } },
+          { "open": { "day": 5, "hour": 17, "minute": 0 }, "close": { "day": 6, "hour": 6, "minute": 0 } },
+          { "open": { "day": 6, "hour": 16, "minute": 0 }, "close": { "day": 0, "hour": 6, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～5時00分",
+          "火曜日: 17時00分～5時00分",
+          "水曜日: 17時00分～5時00分",
+          "木曜日: 17時00分～5時00分",
+          "金曜日: 17時00分～6時00分",
+          "土曜日: 16時00分～6時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 202,
+      "displayName": {
+        "text": "宵の牛丼 Midnight Bowl",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 17時00分～5時00分",
+          "火曜日: 17時00分～5時00分",
+          "水曜日: 17時00分～5時00分",
+          "木曜日: 17時00分～5時00分",
+          "金曜日: 17時00分～6時00分",
+          "土曜日: 16時00分～6時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [{ "name": "gyu03.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14004_gyuforest",
+      "formattedAddress": "東京都旨町区緑町8-2-9 フォレストパーク 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 10, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 30 } },
+          { "open": { "day": 2, "hour": 10, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 30 } },
+          { "open": { "day": 3, "hour": 10, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 30 } },
+          { "open": { "day": 4, "hour": 10, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 10, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 9, "minute": 30 }, "close": { "day": 6, "hour": 23, "minute": 0 } },
+          { "open": { "day": 0, "hour": 9, "minute": 30 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時30分",
+          "火曜日: 10時00分～22時30分",
+          "水曜日: 10時00分～22時30分",
+          "木曜日: 10時00分～23時00分",
+          "金曜日: 10時00分～23時00分",
+          "土曜日: 9時30分～23時00分",
+          "日曜日: 9時30分～21時00分"
+        ]
+      },
+      "userRatingCount": 151,
+      "displayName": {
+        "text": "森の牛丼 Forest Bowl",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時00分～22時30分",
+          "火曜日: 10時00分～22時30分",
+          "水曜日: 10時00分～22時30分",
+          "木曜日: 10時00分～23時00分",
+          "金曜日: 10時00分～23時00分",
+          "土曜日: 9時30分～23時00分",
+          "日曜日: 9時30分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "gyu04.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14005_gyumarket",
+      "formattedAddress": "東京都旨町区市場通り5-7-3 マーケットスクエア 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 5, "minute": 30 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 5, "minute": 30 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 5, "minute": 30 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 5, "minute": 30 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 5, "minute": 30 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 5, "minute": 30 }, "close": { "day": 6, "hour": 23, "minute": 0 } },
+          { "open": { "day": 0, "hour": 6, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 5時30分～23時00分",
+          "火曜日: 5時30分～23時00分",
+          "水曜日: 5時30分～23時00分",
+          "木曜日: 5時30分～23時00分",
+          "金曜日: 5時30分～23時00分",
+          "土曜日: 5時30分～23時00分",
+          "日曜日: 6時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 94,
+      "displayName": {
+        "text": "市場牛丼 Market Bowl",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 5時30分～23時00分",
+          "火曜日: 5時30分～23時00分",
+          "水曜日: 5時30分～23時00分",
+          "木曜日: 5時30分～23時00分",
+          "金曜日: 5時30分～23時00分",
+          "土曜日: 5時30分～23時00分",
+          "日曜日: 6時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "gyu05.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14006_gyulab",
+      "formattedAddress": "東京都旨町区技術坂3-2-6 ヌードルラボ 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 8, "minute": 0 }, "close": { "day": 1, "hour": 22, "minute": 0 } },
+          { "open": { "day": 2, "hour": 8, "minute": 0 }, "close": { "day": 2, "hour": 22, "minute": 0 } },
+          { "open": { "day": 3, "hour": 8, "minute": 0 }, "close": { "day": 3, "hour": 22, "minute": 0 } },
+          { "open": { "day": 4, "hour": 8, "minute": 0 }, "close": { "day": 4, "hour": 22, "minute": 0 } },
+          { "open": { "day": 5, "hour": 8, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 8, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 0 } },
+          { "open": { "day": 0, "hour": 8, "minute": 0 }, "close": { "day": 0, "hour": 21, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～22時00分",
+          "火曜日: 8時00分～22時00分",
+          "水曜日: 8時00分～22時00分",
+          "木曜日: 8時00分～22時00分",
+          "金曜日: 8時00分～23時00分",
+          "土曜日: 8時00分～23時00分",
+          "日曜日: 8時00分～21時00分"
+        ]
+      },
+      "userRatingCount": 223,
+      "displayName": {
+        "text": "牛丼ラボ Gyudon Lab",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 8時00分～22時00分",
+          "火曜日: 8時00分～22時00分",
+          "水曜日: 8時00分～22時00分",
+          "木曜日: 8時00分～22時00分",
+          "金曜日: 8時00分～23時00分",
+          "土曜日: 8時00分～23時00分",
+          "日曜日: 8時00分～21時00分"
+        ]
+      },
+      "photos": [{ "name": "gyu06.png" }],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_14007_gyusky",
+      "formattedAddress": "東京都旨町区星空5-9-11 スカイタワー 38F",
+      "rating": 4.7,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 59 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 59 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 59 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 59 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 59 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 59 } },
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 23, "minute": 59 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 247,
+      "displayName": {
+        "text": "天空牛丼 Sky Gyudon",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "gyu07.png" }],
+      "primaryType": "restaurant"
+    }
+  ]
+}

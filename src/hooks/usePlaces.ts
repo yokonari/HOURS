@@ -27,7 +27,7 @@ export function usePlaces() {
   } = useSearchHistory();
 
   // 最終受付考慮
-  const [finalReception, setFinalReceptionState] = useState<'none' | '30min' | '60min'>('none');
+  const [finalReception, setFinalReceptionState] = useState<'none' | '30' | '60'>('none');
 
   // 検索状態
   const [hasSearched, setHasSearched] = useState(false);
@@ -96,7 +96,7 @@ export function usePlaces() {
 
     const params = new URLSearchParams();
     params.set('q', trimmed);
-    if (dateStr) params.set('date', dateStr);
+    if (dateStr) params.set('date', dateStr.replace(/-/g, ''));
     if (timeStr) params.set('time', timeStr);
     if (finalReception !== 'none') params.set('finalReception', finalReception);
 
@@ -132,7 +132,6 @@ export function usePlaces() {
   const executeSearch = useCallback((rawTerm: string) => {
     const trimmed = rawTerm.trim();
     setQInput(trimmed);
-    setQ(trimmed);
     setError(null);
 
     if (typeof window !== 'undefined') {
@@ -151,7 +150,12 @@ export function usePlaces() {
     refreshNow();
     setHasSearched(true);
     addHistory(trimmed);
-  }, [addHistory, refreshNow]);
+    if (trimmed === q) {
+      fetchPlaces(trimmed);
+    } else {
+      setQ(trimmed);
+    }
+  }, [addHistory, refreshNow, q, fetchPlaces]);
 
   const submitSearch = useCallback((e?: React.FormEvent) => {
     if (e) e.preventDefault();

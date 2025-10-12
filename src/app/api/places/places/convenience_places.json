@@ -1,0 +1,262 @@
+{
+  "places": [
+    {
+      "id": "mock_13001_convsunrise",
+      "formattedAddress": "東京都灯街区朝日1-2-3 サンライズタワー 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 59 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 59 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 59 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 59 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 59 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 59 } },
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 23, "minute": 59 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 145,
+      "displayName": {
+        "text": "コンビニサンライズ Convenience Sunrise",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "conv01.png" }],
+      "primaryType": "store"
+    },
+    {
+      "id": "mock_13002_convharbor",
+      "formattedAddress": "東京都灯街区港町5-7-2 ベイフロント 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 5, "minute": 0 }, "close": { "day": 2, "hour": 1, "minute": 0 } },
+          { "open": { "day": 2, "hour": 5, "minute": 0 }, "close": { "day": 3, "hour": 1, "minute": 0 } },
+          { "open": { "day": 3, "hour": 5, "minute": 0 }, "close": { "day": 4, "hour": 1, "minute": 0 } },
+          { "open": { "day": 4, "hour": 5, "minute": 0 }, "close": { "day": 5, "hour": 1, "minute": 0 } },
+          { "open": { "day": 5, "hour": 5, "minute": 0 }, "close": { "day": 6, "hour": 2, "minute": 0 } },
+          { "open": { "day": 6, "hour": 6, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 0 } },
+          { "open": { "day": 0, "hour": 6, "minute": 0 }, "close": { "day": 1, "hour": 0, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 5時00分～1時00分",
+          "火曜日: 5時00分～1時00分",
+          "水曜日: 5時00分～1時00分",
+          "木曜日: 5時00分～1時00分",
+          "金曜日: 5時00分～2時00分",
+          "土曜日: 6時00分～2時00分",
+          "日曜日: 6時00分～0時00分"
+        ]
+      },
+      "userRatingCount": 118,
+      "displayName": {
+        "text": "ベイハーバーコンビニ Bay Harbor Convenience",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 5時00分～1時00分",
+          "火曜日: 5時00分～1時00分",
+          "水曜日: 5時00分～1時00分",
+          "木曜日: 5時00分～1時00分",
+          "金曜日: 5時00分～2時00分",
+          "土曜日: 6時00分～2時00分",
+          "日曜日: 6時00分～0時00分"
+        ]
+      },
+      "photos": [{ "name": "conv02.png" }],
+      "primaryType": "store"
+    },
+    {
+      "id": "mock_13003_convstation",
+      "formattedAddress": "東京都灯街区駅前3-4-1 ステーションプラザ 1F",
+      "rating": 4.3,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 4, "minute": 30 }, "close": { "day": 2, "hour": 1, "minute": 30 } },
+          { "open": { "day": 2, "hour": 4, "minute": 30 }, "close": { "day": 3, "hour": 1, "minute": 30 } },
+          { "open": { "day": 3, "hour": 4, "minute": 30 }, "close": { "day": 4, "hour": 1, "minute": 30 } },
+          { "open": { "day": 4, "hour": 4, "minute": 30 }, "close": { "day": 5, "hour": 1, "minute": 30 } },
+          { "open": { "day": 5, "hour": 4, "minute": 30 }, "close": { "day": 6, "hour": 2, "minute": 30 } },
+          { "open": { "day": 6, "hour": 5, "minute": 0 }, "close": { "day": 0, "hour": 2, "minute": 30 } },
+          { "open": { "day": 0, "hour": 5, "minute": 0 }, "close": { "day": 1, "hour": 0, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 4時30分～1時30分",
+          "火曜日: 4時30分～1時30分",
+          "水曜日: 4時30分～1時30分",
+          "木曜日: 4時30分～1時30分",
+          "金曜日: 4時30分～2時30分",
+          "土曜日: 5時00分～2時30分",
+          "日曜日: 5時00分～0時00分"
+        ]
+      },
+      "userRatingCount": 201,
+      "displayName": {
+        "text": "ステーションコンビニ Station Convenience",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 4時30分～1時30分",
+          "火曜日: 4時30分～1時30分",
+          "水曜日: 4時30分～1時30分",
+          "木曜日: 4時30分～1時30分",
+          "金曜日: 4時30分～2時30分",
+          "土曜日: 5時00分～2時30分",
+          "日曜日: 5時00分～0時00分"
+        ]
+      },
+      "photos": [{ "name": "conv03.png" }],
+      "primaryType": "store"
+    },
+    {
+      "id": "mock_13004_convpark",
+      "formattedAddress": "東京都灯街区緑町6-8-12 グリーンパーク 1F",
+      "rating": 4.0,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 6, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 0 } },
+          { "open": { "day": 2, "hour": 6, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 0 } },
+          { "open": { "day": 3, "hour": 6, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 0 } },
+          { "open": { "day": 4, "hour": 6, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 0 } },
+          { "open": { "day": 5, "hour": 6, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 0 } },
+          { "open": { "day": 6, "hour": 6, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 0 } },
+          { "open": { "day": 0, "hour": 7, "minute": 0 }, "close": { "day": 0, "hour": 22, "minute": 0 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 6時00分～23時00分",
+          "火曜日: 6時00分～23時00分",
+          "水曜日: 6時00分～23時00分",
+          "木曜日: 6時00分～23時00分",
+          "金曜日: 6時00分～23時00分",
+          "土曜日: 6時00分～23時00分",
+          "日曜日: 7時00分～22時00分"
+        ]
+      },
+      "userRatingCount": 97,
+      "displayName": {
+        "text": "パークサイドコンビニ Parkside Convenience",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 6時00分～23時00分",
+          "火曜日: 6時00分～23時00分",
+          "水曜日: 6時00分～23時00分",
+          "木曜日: 6時00分～23時00分",
+          "金曜日: 6時00分～23時00分",
+          "土曜日: 6時00分～23時00分",
+          "日曜日: 7時00分～22時00分"
+        ]
+      },
+      "photos": [{ "name": "conv04.png" }],
+      "primaryType": "store"
+    },
+    {
+      "id": "mock_13005_convcreek",
+      "formattedAddress": "東京都灯街区川辺2-5-5 クリークサイド 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 59 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 59 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 59 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 59 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 59 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 59 } },
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 23, "minute": 59 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 123,
+      "displayName": {
+        "text": "クリークコンビニ Creek Convenience",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "conv05.png" }],
+      "primaryType": "store"
+    },
+    {
+      "id": "mock_13006_convsky",
+      "formattedAddress": "東京都灯街区星見7-9-14 スカイビュータワー 2F",
+      "rating": 4.4,
+      "regularOpeningHours": {
+        "periods": [
+          { "open": { "day": 1, "hour": 0, "minute": 0 }, "close": { "day": 1, "hour": 23, "minute": 59 } },
+          { "open": { "day": 2, "hour": 0, "minute": 0 }, "close": { "day": 2, "hour": 23, "minute": 59 } },
+          { "open": { "day": 3, "hour": 0, "minute": 0 }, "close": { "day": 3, "hour": 23, "minute": 59 } },
+          { "open": { "day": 4, "hour": 0, "minute": 0 }, "close": { "day": 4, "hour": 23, "minute": 59 } },
+          { "open": { "day": 5, "hour": 0, "minute": 0 }, "close": { "day": 5, "hour": 23, "minute": 59 } },
+          { "open": { "day": 6, "hour": 0, "minute": 0 }, "close": { "day": 6, "hour": 23, "minute": 59 } },
+          { "open": { "day": 0, "hour": 0, "minute": 0 }, "close": { "day": 0, "hour": 23, "minute": 59 } }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "userRatingCount": 177,
+      "displayName": {
+        "text": "スカイビューコンビニ Skyview Convenience",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 24時間営業",
+          "火曜日: 24時間営業",
+          "水曜日: 24時間営業",
+          "木曜日: 24時間営業",
+          "金曜日: 24時間営業",
+          "土曜日: 24時間営業",
+          "日曜日: 24時間営業"
+        ]
+      },
+      "photos": [{ "name": "conv06.png" }],
+      "primaryType": "store"
+    }
+  ]
+}

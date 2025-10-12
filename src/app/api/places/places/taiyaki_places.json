@@ -1,628 +1,120 @@
 {
   "places": [
     {
-      "id": "mock_10201_skyplaza",
-      "formattedAddress": "東京都食材区空町1-4-8 スカイプラザ 1F",
-      "rating": 4.2,
-      "regularOpeningHours": {
-        "periods": [
-          {
-            "open": {
-              "day": 1,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 1,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 2,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 2,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 3,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 3,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 4,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 4,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 5,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 5,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 6,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 6,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 0,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 0,
-              "hour": 23,
-              "minute": 0
-            }
-          }
-        ],
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "userRatingCount": 312,
-      "displayName": {
-        "text": "スカイプラザマーケット Sky Plaza Market",
-        "languageCode": "ja"
-      },
-      "currentOpeningHours": {
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "photos": [
-        {
-          "name": "super01.png"
-        }
-      ],
-      "primaryType": "grocery_or_supermarket"
-    },
-    {
-      "id": "mock_10202_riverfresh",
-      "formattedAddress": "東京都食材区川辺3-9-2 リバーサイドモール B1",
-      "rating": 4.1,
-      "regularOpeningHours": {
-        "periods": [
-          {
-            "open": {
-              "day": 1,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 1,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 2,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 2,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 3,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 3,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 4,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 4,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 5,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 5,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 6,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 6,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 0,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 0,
-              "hour": 23,
-              "minute": 0
-            }
-          }
-        ],
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "userRatingCount": 284,
-      "displayName": {
-        "text": "リバーフレッシュストア River Fresh Store",
-        "languageCode": "ja"
-      },
-      "currentOpeningHours": {
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "photos": [
-        {
-          "name": "super02.png"
-        }
-      ],
-      "primaryType": "grocery_or_supermarket"
-    },
-    {
-      "id": "mock_10203_midnightmart",
-      "formattedAddress": "東京都食材区宵町2-5-6 ミッドナイトスクエア 1F",
-      "rating": 4.3,
-      "regularOpeningHours": {
-        "periods": [
-          {
-            "open": {
-              "day": 1,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 2,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 2,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 3,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 3,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 4,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 4,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 5,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 5,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 6,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 6,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 0,
-              "hour": 1,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 0,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 1,
-              "hour": 1,
-              "minute": 0
-            }
-          }
-        ],
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～1時00分",
-          "火曜日: 9時00分～1時00分",
-          "水曜日: 9時00分～1時00分",
-          "木曜日: 9時00分～1時00分",
-          "金曜日: 9時00分～1時00分",
-          "土曜日: 9時00分～1時00分",
-          "日曜日: 9時00分～1時00分"
-        ]
-      },
-      "userRatingCount": 265,
-      "displayName": {
-        "text": "ミッドナイトマート Midnight Mart",
-        "languageCode": "ja"
-      },
-      "currentOpeningHours": {
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～1時00分",
-          "火曜日: 9時00分～1時00分",
-          "水曜日: 9時00分～1時00分",
-          "木曜日: 9時00分～1時00分",
-          "金曜日: 9時00分～1時00分",
-          "土曜日: 9時00分～1時00分",
-          "日曜日: 9時00分～1時00分"
-        ]
-      },
-      "photos": [
-        {
-          "name": "super03.png"
-        }
-      ],
-      "primaryType": "grocery_or_supermarket"
-    },
-    {
-      "id": "mock_10204_greenbasket",
-      "formattedAddress": "東京都食材区緑丘6-3-4 グリーンバスケット 1F",
-      "rating": 4,
-      "regularOpeningHours": {
-        "periods": [
-          {
-            "open": {
-              "day": 1,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 1,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 2,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 2,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 3,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 3,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 4,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 4,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 5,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 5,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 6,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 6,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 0,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 0,
-              "hour": 23,
-              "minute": 0
-            }
-          }
-        ],
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "userRatingCount": 198,
-      "displayName": {
-        "text": "グリーンバスケット Green Basket",
-        "languageCode": "ja"
-      },
-      "currentOpeningHours": {
-        "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
-        ]
-      },
-      "photos": [
-        {
-          "name": "super04.png"
-        }
-      ],
-      "primaryType": "grocery_or_supermarket"
-    },
-    {
-      "id": "mock_10205_sunrisefoods",
-      "formattedAddress": "東京都食材区朝陽1-2-7 サンライズタウン 1F",
+      "id": "mock_17001_tairyuten",
+      "formattedAddress": "東京都甘香区焼通り2-6-8 たい焼き天 1F",
       "rating": 4.4,
       "regularOpeningHours": {
         "periods": [
           {
             "open": {
               "day": 1,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 1,
-              "hour": 23,
+              "hour": 19,
               "minute": 0
             }
           },
           {
             "open": {
               "day": 2,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 2,
-              "hour": 23,
+              "hour": 19,
               "minute": 0
             }
           },
           {
             "open": {
               "day": 3,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 3,
-              "hour": 23,
+              "hour": 19,
               "minute": 0
             }
           },
           {
             "open": {
               "day": 4,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 4,
-              "hour": 23,
+              "hour": 19,
               "minute": 0
             }
           },
           {
             "open": {
               "day": 5,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 5,
-              "hour": 23,
+              "hour": 20,
               "minute": 0
             }
           },
           {
             "open": {
               "day": 6,
-              "hour": 9,
+              "hour": 10,
               "minute": 0
             },
             "close": {
               "day": 6,
-              "hour": 23,
-              "minute": 0
-            }
-          },
-          {
-            "open": {
-              "day": 0,
-              "hour": 9,
-              "minute": 0
-            },
-            "close": {
-              "day": 0,
-              "hour": 23,
+              "hour": 20,
               "minute": 0
             }
           }
         ],
         "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
+          "月曜日: 10時00分～19時00分",
+          "火曜日: 10時00分～19時00分",
+          "水曜日: 10時00分～19時00分",
+          "木曜日: 10時00分～19時00分",
+          "金曜日: 10時00分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 定休日"
         ]
       },
-      "userRatingCount": 341,
+      "userRatingCount": 142,
       "displayName": {
-        "text": "サンライズフーズ Sunrise Foods",
+        "text": "たい焼き天 Taiyaki Ten",
         "languageCode": "ja"
       },
       "currentOpeningHours": {
         "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
+          "月曜日: 10時00分～19時00分",
+          "火曜日: 10時00分～19時00分",
+          "水曜日: 10時00分～19時00分",
+          "木曜日: 10時00分～19時00分",
+          "金曜日: 10時00分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 定休日"
         ]
       },
       "photos": [
         {
-          "name": "super05.png"
+          "name": "tai01.png"
         }
       ],
-      "primaryType": "grocery_or_supermarket"
+      "primaryType": "restaurant"
     },
     {
-      "id": "mock_10206_starrymart",
-      "formattedAddress": "東京都食材区星見4-8-10 スタリーモール 2F",
+      "id": "mock_17002_taikazari",
+      "formattedAddress": "東京都甘香区川辺1-4-12 水辺ビル 1F",
       "rating": 4.3,
       "regularOpeningHours": {
         "periods": [
@@ -630,47 +122,47 @@
             "open": {
               "day": 1,
               "hour": 9,
-              "minute": 0
+              "minute": 30
             },
             "close": {
               "day": 1,
-              "hour": 23,
-              "minute": 0
+              "hour": 19,
+              "minute": 30
             }
           },
           {
             "open": {
               "day": 2,
               "hour": 9,
-              "minute": 0
+              "minute": 30
             },
             "close": {
               "day": 2,
-              "hour": 23,
-              "minute": 0
+              "hour": 19,
+              "minute": 30
             }
           },
           {
             "open": {
               "day": 3,
               "hour": 9,
-              "minute": 0
+              "minute": 30
             },
             "close": {
               "day": 3,
-              "hour": 23,
-              "minute": 0
+              "hour": 19,
+              "minute": 30
             }
           },
           {
             "open": {
               "day": 4,
               "hour": 9,
-              "minute": 0
+              "minute": 30
             },
             "close": {
               "day": 4,
-              "hour": 23,
+              "hour": 20,
               "minute": 0
             }
           },
@@ -678,11 +170,11 @@
             "open": {
               "day": 5,
               "hour": 9,
-              "minute": 0
+              "minute": 30
             },
             "close": {
               "day": 5,
-              "hour": 23,
+              "hour": 20,
               "minute": 0
             }
           },
@@ -694,7 +186,7 @@
             },
             "close": {
               "day": 6,
-              "hour": 23,
+              "hour": 19,
               "minute": 0
             }
           },
@@ -706,43 +198,515 @@
             },
             "close": {
               "day": 0,
-              "hour": 23,
+              "hour": 18,
               "minute": 0
             }
           }
         ],
         "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
+          "月曜日: 9時30分～19時30分",
+          "火曜日: 9時30分～19時30分",
+          "水曜日: 9時30分～19時30分",
+          "木曜日: 9時30分～20時00分",
+          "金曜日: 9時30分～20時00分",
+          "土曜日: 9時00分～19時00分",
+          "日曜日: 9時00分～18時00分"
         ]
       },
-      "userRatingCount": 289,
+      "userRatingCount": 128,
       "displayName": {
-        "text": "スタリーマート Starry Mart",
+        "text": "たい飾り Tai Kazari",
         "languageCode": "ja"
       },
       "currentOpeningHours": {
         "weekdayDescriptions": [
-          "月曜日: 9時00分～23時00分",
-          "火曜日: 9時00分～23時00分",
-          "水曜日: 9時00分～23時00分",
-          "木曜日: 9時00分～23時00分",
-          "金曜日: 9時00分～23時00分",
-          "土曜日: 9時00分～23時00分",
-          "日曜日: 9時00分～23時00分"
+          "月曜日: 9時30分～19時30分",
+          "火曜日: 9時30分～19時30分",
+          "水曜日: 9時30分～19時30分",
+          "木曜日: 9時30分～20時00分",
+          "金曜日: 9時30分～20時00分",
+          "土曜日: 9時00分～19時00分",
+          "日曜日: 9時00分～18時00分"
         ]
       },
       "photos": [
         {
-          "name": "super06.png"
+          "name": "tai02.png"
         }
       ],
-      "primaryType": "grocery_or_supermarket"
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_17003_taifune",
+      "formattedAddress": "東京都甘香区港丘5-2-5 港見テラス 1F",
+      "rating": 4.6,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 19,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～20時00分",
+          "火曜日: 11時00分～20時00分",
+          "水曜日: 11時00分～20時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 10時00分～19時00分"
+        ]
+      },
+      "userRatingCount": 167,
+      "displayName": {
+        "text": "たい舟 Tai Fune",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 11時00分～20時00分",
+          "火曜日: 11時00分～20時00分",
+          "水曜日: 11時00分～20時00分",
+          "木曜日: 11時00分～21時00分",
+          "金曜日: 11時00分～21時00分",
+          "土曜日: 10時00分～21時00分",
+          "日曜日: 10時00分～19時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tai03.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_17004_taikusa",
+      "formattedAddress": "東京都甘香区緑坂3-1-11 グリーングローブ 1F",
+      "rating": 4.2,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 2,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 0,
+              "hour": 19,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 11時00分～19時00分",
+          "水曜日: 11時00分～19時00分",
+          "木曜日: 11時00分～20時00分",
+          "金曜日: 11時00分～20時00分",
+          "土曜日: 10時30分～20時00分",
+          "日曜日: 10時30分～19時00分"
+        ]
+      },
+      "userRatingCount": 119,
+      "displayName": {
+        "text": "たい草 Tai Kusa",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 定休日",
+          "火曜日: 11時00分～19時00分",
+          "水曜日: 11時00分～19時00分",
+          "木曜日: 11時00分～20時00分",
+          "金曜日: 11時00分～20時00分",
+          "土曜日: 10時30分～20時00分",
+          "日曜日: 10時30分～19時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tai04.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_17005_taikairo",
+      "formattedAddress": "東京都甘香区宵町4-10-6 ナイトプロムナード 1F",
+      "rating": 4.5,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 1,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 2,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 3,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 4,
+              "hour": 21,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 12,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 0,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 11,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 0,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～21時00分",
+          "火曜日: 12時00分～21時00分",
+          "水曜日: 12時00分～21時00分",
+          "木曜日: 12時00分～21時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 11時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "userRatingCount": 188,
+      "displayName": {
+        "text": "たい回廊 Tai Kairou",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 12時00分～21時00分",
+          "火曜日: 12時00分～21時00分",
+          "水曜日: 12時00分～21時00分",
+          "木曜日: 12時00分～21時00分",
+          "金曜日: 12時00分～0時00分",
+          "土曜日: 11時00分～0時00分",
+          "日曜日: 定休日"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tai05.png"
+        }
+      ],
+      "primaryType": "restaurant"
+    },
+    {
+      "id": "mock_17006_taikurouro",
+      "formattedAddress": "東京都甘香区雨香町7-3-5 しずくテラス 1F",
+      "rating": 4.1,
+      "regularOpeningHours": {
+        "periods": [
+          {
+            "open": {
+              "day": 1,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 1,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 2,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 2,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 3,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 3,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 4,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 4,
+              "hour": 19,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 5,
+              "hour": 10,
+              "minute": 30
+            },
+            "close": {
+              "day": 5,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 6,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 6,
+              "hour": 20,
+              "minute": 0
+            }
+          },
+          {
+            "open": {
+              "day": 0,
+              "hour": 10,
+              "minute": 0
+            },
+            "close": {
+              "day": 0,
+              "hour": 18,
+              "minute": 0
+            }
+          }
+        ],
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～19時00分",
+          "火曜日: 10時30分～19時00分",
+          "水曜日: 10時30分～19時00分",
+          "木曜日: 10時30分～19時00分",
+          "金曜日: 10時30分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 10時00分～18時00分"
+        ]
+      },
+      "userRatingCount": 136,
+      "displayName": {
+        "text": "たい紅楼 Tai Kurouro",
+        "languageCode": "ja"
+      },
+      "currentOpeningHours": {
+        "weekdayDescriptions": [
+          "月曜日: 10時30分～19時00分",
+          "火曜日: 10時30分～19時00分",
+          "水曜日: 10時30分～19時00分",
+          "木曜日: 10時30分～19時00分",
+          "金曜日: 10時30分～20時00分",
+          "土曜日: 10時00分～20時00分",
+          "日曜日: 10時00分～18時00分"
+        ]
+      },
+      "photos": [
+        {
+          "name": "tai06.png"
+        }
+      ],
+      "primaryType": "restaurant"
     }
   ]
 }
