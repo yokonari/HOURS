@@ -28,6 +28,7 @@ export function SearchForm({
   onClose?: () => void;
   onKeywordSelect?: (keyword: string) => void;
 }) {
+  // 入力欄が空でなくローディング中でなければ「クリア」ボタンを使えるようにします。
   const canClear = qInput.length > 0 && !loading;
   const inputRef = useRef<HTMLInputElement | null>(null);
   const suggestionsRef = useRef<HTMLDivElement | null>(null);
@@ -37,6 +38,7 @@ export function SearchForm({
   // 最後に選択したキーワードを保持しボタン表示へ反映します。
   const [selectedKeyword, setSelectedKeyword] = useState('');
   const isOpen = forceOpen || showSuggestions;
+  // キーワード候補は配列でまとめておくと、表示も処理も楽に管理できます。
   const keywordOptions = [
     'カフェ', '喫茶', 'コーヒー',
     'バー',
@@ -68,6 +70,7 @@ export function SearchForm({
 
   const handleResetClick = () => {
     if (loading) return;
+    // フォーム全体を初期状態に戻し、外部から渡されたリセット処理も呼び出します。
     setShowSuggestions(false);
     setIsKeywordDropdownOpen(false);
     setSelectedKeyword('');
@@ -96,6 +99,7 @@ export function SearchForm({
   const historyItems = searchHistory ?? [];
 
   const handleHistoryClick = (term: string) => {
+    // 履歴から選択した語句は入力欄へ復元し、必要なら外部ハンドラに通知します。
     if (onHistorySelect) {
       onHistorySelect(term);
     } else {
@@ -108,6 +112,7 @@ export function SearchForm({
   };
 
   const handleKeywordClick = (keyword: string) => {
+    // ドロップダウンで選んだキーワードも入力欄に反映し、サジェストを閉じます。
     setSelectedKeyword(keyword);
     if (onKeywordSelect) {
       onKeywordSelect(keyword);
@@ -123,6 +128,7 @@ export function SearchForm({
   };
 
   const handleInputFocus = () => {
+    // フォーカス時にサジェストを開き、親コンポーネントへ通知します。
     setShowSuggestions(true);
     onOpen?.();
   };
@@ -165,6 +171,29 @@ export function SearchForm({
       setShowSuggestions(false);
     }
   }, [forceOpen]);
+
+  useEffect(() => {
+    const shouldListen = showSuggestions || forceOpen || isKeywordDropdownOpen;
+    if (!shouldListen) return;
+    // ヘッダー外をクリックした場合に履歴とキーワード一覧を閉じます。
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (
+        inputRef.current?.contains(target) ||
+        suggestionsRef.current?.contains(target) ||
+        keywordDropdownRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setShowSuggestions(false);
+      setIsKeywordDropdownOpen(false);
+      onClose?.();
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showSuggestions, forceOpen, isKeywordDropdownOpen, onClose]);
 
   useEffect(() => {
     if (!isKeywordDropdownOpen) return;

@@ -16,6 +16,7 @@ export function PlaceCard({
   const name = p.displayName?.text ?? '(名称不明)';
 
   const photoName = p.photos?.[0]?.name as string | undefined;
+  // 画像 URL はデータによって種類が異なるので、ケースごとに分岐させています。
   const imgSrc = (() => {
     if (!photoName) return undefined;
     if (/^https?:/.test(photoName)) return photoName;
@@ -30,6 +31,7 @@ export function PlaceCard({
 
   const selectedMinutes = (() => {
     if (timeStr) {
+      // "HH:MM" 形式を分解して分単位の数値に変換すると比較しやすくなります。
       const [h, m] = timeStr.split(':').map(Number);
       return (h || 0) * 60 + (m || 0);
     }
@@ -46,6 +48,7 @@ export function PlaceCard({
   const formatHoursText = (text: string | undefined) => {
     if (!text) return 'ー';
 
+    // 表記ゆれ（「10時00分」など）を分かりやすい「10:00」形式へ揃えます。
     const withColon = text.replace(/(\d{1,2})時(\d{2})分/g, (_match, h, m) => `${Number(h)}:${m}`);
     const noLeadingZero = withColon.replace(/(\d{1,2}):(\d{2})/g, (_match, h, m) => `${Number(h)}:${m}`);
     return noLeadingZero.replace(/[〜～]/g, ' ー ');
@@ -57,6 +60,7 @@ export function PlaceCard({
     if (!addr) return undefined;
     // Remove Japanese postal codes like "〒123-4567" and trim leftover whitespace or commas
     const withoutPostal = addr.replace(/〒\s*\d{3}-\d{4}[ ,，　]?/g, '').trim().replace(/^[,，\s]+/, '');
+    // 郵便番号だけの住所は見栄えが悪いため、残った文字列が空なら非表示にします。
     return withoutPostal.length > 0 ? withoutPostal : undefined;
   })();
 
@@ -91,6 +95,7 @@ export function PlaceCard({
         <div className="shrink-0 relative h-full">
           <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">
             {imgSrc ? (
+              // 画像が取得できた場合はそのまま表示。lazy-load で初期表示を軽くします。
               <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
@@ -113,9 +118,11 @@ export function PlaceCard({
           <div className="mt-auto pt-1 flex items-center gap-2 text-sm leading-tight sm:pt-3 sm:gap-4 sm:text-base">
             <div className="text-on-surface truncate flex items-center gap-1 leading-tight">
               <span>{wdJp}:</span>
+              {/* 営業時間は「開始 ー 終了」の2パートに分けて読みやすく並べ替えています。 */}
               <span>{renderHoursText(hoursText)}</span>
             </div>
             {typeof p.rating === 'number' && (
+              // 評価がある場合のみスコアを表示します。レビュー数も括弧付きで追記します。
               <div
                 className="ml-2 inline-flex items-center gap-1 text-sm leading-none text-on-surface sm:ml-3 sm:text-base"
                 title={`${p.rating.toFixed(1)} / 5`}

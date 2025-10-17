@@ -15,6 +15,7 @@ export function DateTimePicker({
 }) {
   const dateTimeInputRef = useRef<HTMLInputElement>(null);
 
+  // datetime-local の値が変化したときに、日付と時刻をフォーム用に分割して保存します。
   const handleDateTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     if (!value) {
@@ -37,6 +38,7 @@ export function DateTimePicker({
     const input = dateTimeInputRef.current;
     if (!input) return;
 
+    // showPicker は一部のブラウザしか対応していませんが、利用できれば一番自然な開き方になります。
     const withPicker = input as HTMLInputElement & {
       showPicker?: () => void;
     };
@@ -60,6 +62,7 @@ export function DateTimePicker({
     openDateTimePicker();
   };
 
+  // Enter や Space でもピッカーが開くようにしてアクセシビリティを高めます。
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -67,7 +70,7 @@ export function DateTimePicker({
     }
   };
 
-  // 日付と時刻を組み合わせてdatetime-local用の値を作成
+  // 日付と時刻を組み合わせて datetime-local 用の値を作成します。
   const dateTimeValue = (() => {
     if (!dateStr) return '';
 
@@ -91,6 +94,7 @@ export function DateTimePicker({
 
   return (
     <div className="h-full flex items-center">
+      {/* フォームの見た目と実際の input を分けるテクニックです。透明な input を上に重ねています。 */}
       <div className="relative group h-10">
         <input
           ref={dateTimeInputRef}

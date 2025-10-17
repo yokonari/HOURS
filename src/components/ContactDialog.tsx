@@ -16,6 +16,12 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
   const [messageDraft, setMessageDraft] = useState('');
   const titleId = useId();
   const descriptionId = useId();
+  const resetFormState = () => {
+    setSubmitted(false);
+    setSending(false);
+    setErrorMessage(null);
+    setMessageDraft('');
+  };
 
   // ダイアログが開いている間は背面のスクロールを抑制する
   useEffect(() => {
@@ -29,19 +35,18 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
   useEffect(() => {
     if (open) {
-      setSubmitted(false);
-      setSending(false);
-      setErrorMessage(null);
-      setMessageDraft('');
+      resetFormState();
     }
   }, [open]);
 
   const handleClose = () => {
+    // 閉じるタイミングで状態を初期化すると、次に開いたときも新鮮なフォームになります。
     setSending(false);
     setErrorMessage(null);
     onClose();
   };
 
+  // フォーム送信時の基本的な流れを1つの関数にまとめています。
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (sending) return;
@@ -89,6 +94,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
       console.error('Failed to submit contact form', error);
       setErrorMessage('通信中にエラーが発生しました。ネットワーク環境をご確認のうえ再度お試しください。');
     } finally {
+      // 成功しても失敗しても状態を解除し、再送信できるようにしておきます。
       setSending(false);
     }
   };
@@ -99,6 +105,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
+      {/* 背景の半透明レイヤー。ここをクリックするとモーダルを閉じられます。 */}
       <button
         type="button"
         aria-label="閉じる"
@@ -130,6 +137,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
         </div>
 
         <form className="mt-5 space-y-4" onSubmit={handleSubmit}>
+          {/* 名前とメールアドレスは任意項目です。`autoComplete` を付けると入力が少し楽になります。 */}
           <div>
             <label htmlFor="contact-name" className="block text-sm font-medium text-on-surface">
               お名前（任意）
@@ -176,6 +184,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
           </div>
 
           {submitted && (
+            // 成功メッセージは送信ボタンの直前にまとめて表示するとユーザーが気づきやすいです。
             <p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-700">
               送信が完了しました。
             </p>

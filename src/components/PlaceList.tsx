@@ -12,11 +12,13 @@ export function PlaceList({
   dateStr: string;
   timeStr: string;
 }) {
+  // カードの表示幅をレスポンシブに調整するため、ビューポート幅を追跡しています。
   const [viewportWidth, setViewportWidth] = useState<number | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // ブラウザ幅が変わるたびにカード幅を再計算できるよう、resize イベントを購読します。
     const updateViewport = () => setViewportWidth(window.innerWidth);
 
     updateViewport();
@@ -43,6 +45,7 @@ export function PlaceList({
   return (
     <>
       {results.length > 0 && (
+        // デモデータであることを明示し、ユーザーが誤認しないように注意書きを添えています。
         <p className="mt-1 lg:text-sm text-orange-600 text-xs font-medium">
           ※この一覧はデモ用に生成された架空の店舗データです。
         </p>
@@ -56,6 +59,7 @@ export function PlaceList({
         ].join(' ')}
       >
         {results.map((p) => (
+          // 固有 ID があればそれを優先し、無ければ名称＋住所でユニークさを担保します。
           <PlaceCard
             key={p.id ?? `${p.displayName?.text ?? ''}-${p.formattedAddress ?? ''}`}
             place={p}
