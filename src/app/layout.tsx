@@ -3,9 +3,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { notoSansJp } from './ui/fonts'
 
+// NEXT_PUBLIC_SITE_URL には本番ドメイン（例: https://hours.example.com）を環境変数で指定します。
+
 // Next.js のページ全体で共有したい情報をまとめる場所です。まずはここにタイトルなどを登録します。
 export const metadata: Metadata = {
   title: "HOURS | 営業時間で見つける（デモ）",
+  // metadataBase を設定すると相対パスのOGP画像も本番ドメインへ展開されます。
+  metadataBase: new URL('https://hours.yokonari.com'),
   // OGP 画像を設定すると SNS でシェアしたときに見栄えの良いカードが表示されます。
   openGraph: {
     images: [
