@@ -345,6 +345,8 @@ export function SearchForm({
               <button
                 type="button"
                 onClick={() => {
+                  // ドロップダウン操作時は入力欄のフォーカスを外してモバイルキーボードを閉じます。
+                  inputRef.current?.blur();
                   setIsKeywordDropdownOpen((prev) => {
                     const next = !prev;
                     if (next) {
