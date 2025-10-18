@@ -1,7 +1,7 @@
 // components/SearchForm.tsx
 'use client';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 export function SearchForm({
   qInput,
@@ -33,6 +33,8 @@ export function SearchForm({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const suggestionsRef = useRef<HTMLDivElement | null>(null);
   const keywordDropdownRef = useRef<HTMLDivElement | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const inputContainerRef = useRef<HTMLDivElement | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   // 最後に選択したキーワードを保持しボタン表示へ反映します。
   const [selectedKeyword, setSelectedKeyword] = useState('');
@@ -43,30 +45,30 @@ export function SearchForm({
   const isOpen = forceOpen || showSuggestions;
   // キーワード候補は配列でまとめておくと、表示も処理も楽に管理できます。
   const keywordOptions = [
-    'カフェ', '喫茶', 'コーヒー',
+    'カフェ',
     'バー',
-    '本屋', '本', '書店',
+    '本屋',
     'ケーキ',
     'カレー',
     'ドーナツ',
     'ファミレス',
     'ハンバーガー',
-    'ドラッグストア', '薬',
+    'ドラッグストア',
     'オムライス',
     'パン',
     'ラーメン',
     '居酒屋',
     'シーシャ',
-    '蕎麦', 'そば',
+    '蕎麦',
     'スーパー',
     'たこ焼き',
-    '回転寿司', '寿司',
+    '回転寿司',
     'たい焼き',
-    'イタリアン', 'ピザ', 'パスタ',
+    'イタリアン',
     '牛丼',
     'コンビニ',
     'うどん',
-    'アフタヌーンティー', '紅茶',
+    'アフタヌーンティー',
     '中華',
     'クレープ',
   ];
@@ -173,6 +175,28 @@ export function SearchForm({
     }
   }, [forceOpen]);
 
+  useLayoutEffect(() => {
+    const updateDropdownMetrics = () => {
+      if (!rootRef.current || !inputContainerRef.current) return;
+      const rootRect = rootRef.current.getBoundingClientRect();
+      const inputRect = inputContainerRef.current.getBoundingClientRect();
+      const left = inputRect.left - rootRect.left;
+      rootRef.current.style.setProperty('--dropdown-left', `${Math.max(left, 0)}px`);
+      rootRef.current.style.setProperty('--dropdown-width', `${inputRect.width}px`);
+    };
+    updateDropdownMetrics();
+    const ObserverCtor = typeof ResizeObserver !== 'undefined' ? ResizeObserver : null;
+    const observer = ObserverCtor ? new ObserverCtor(updateDropdownMetrics) : null;
+    if (observer && inputContainerRef.current) {
+      observer.observe(inputContainerRef.current);
+    }
+    window.addEventListener('resize', updateDropdownMetrics);
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('resize', updateDropdownMetrics);
+    };
+  }, []);
+
   useEffect(() => {
     const shouldListen = showSuggestions || forceOpen;
     if (!shouldListen) return;
@@ -197,6 +221,7 @@ export function SearchForm({
 
   return (
     <div
+      ref={rootRef}
       className="relative min-w-0"
       onPointerDownCapture={(event) => {
         const target = event.target as Node;
@@ -212,12 +237,12 @@ export function SearchForm({
         }
       }}
     >
-      <div className="flex min-w-0 flex-col gap-2">
-        <div className="flex min-w-0 items-center gap-2">
-        {/* 「HOURS」ロゴ画像のボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
-        <button
-          type="button"
-          onClick={handleResetClick}
+      <div className="flex min-w-0 flex-col">
+        <div className="flex min-w-0 items-center">
+          {/* 「HOURS」ロゴ画像のボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
+          <button
+            type="button"
+            onClick={handleResetClick}
           aria-label="初期状態に戻る"
           className="px-3 py-1 text-s font-semibold tracking-[0.16em] transition hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-40"
           style={{ color: 'var(--primary)' }}
@@ -234,7 +259,7 @@ export function SearchForm({
           {/* スクリーンリーダー向けにテキストも提供します。 */}
           <span className="sr-only">HOURS</span>
         </button>
-        <div className="relative min-w-0 flex-1">
+        <div ref={inputContainerRef} className="relative min-w-0 flex-1">
           <input
             ref={inputRef}
             type="search"
@@ -286,14 +311,13 @@ export function SearchForm({
             </button>
           </div>
         </div>
-        {/* 常に2行分の高さを確保してヘッダーが変形しないようにします。 */}
-        <div aria-hidden="true" className="h-6" />
-      </div>
+        </div>
       </div>
       {isOpen && (
         <div
           ref={suggestionsRef}
-          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-[1000] text-xs text-gray-600"
+          className="absolute top-[calc(100%+0.5rem)] z-[1000] text-xs text-gray-600"
+          style={{ left: 'var(--dropdown-left, 0px)', width: 'var(--dropdown-width, 100%)' }}
         >
           <div
             className="max-h-96 overflow-y-auto rounded-lg border border-gray-200 bg-white py-2 shadow-lg"
@@ -302,14 +326,14 @@ export function SearchForm({
           >
             {showHistory && historyItems.length > 0 && (
               <div className="pb-2">
-                <p className="px-4 pb-2 text-[11px] font-semibold text-gray-400">履歴</p>
+                <p className="px-4 pb-1 text-[11px] font-semibold text-gray-400">履歴</p>
                 {historyItems.map((term) => (
                   <button
                     key={term}
                     type="button"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleHistoryClick(term)}
-                    className="block w-full px-4 py-2 text-left text-on-surface transition hover:bg-gray-50"
+                    className="block w-full px-6 py-1 text-left text-on-surface transition hover:bg-gray-100"
                     role="option"
                     aria-label={term}
                   >
@@ -323,7 +347,7 @@ export function SearchForm({
                     onClick={() => {
                       onClearHistory();
                     }}
-                    className="block w-full px-4 py-2 text-left text-[11px] text-gray-400 hover:text-gray-500"
+                    className="block w-full px-6 py-1 text-left text-[11px] hover:bg-gray-100"
                   >
                     履歴をクリア
                   </button>
@@ -334,10 +358,10 @@ export function SearchForm({
             <div
               ref={keywordDropdownRef}
               className={[
-                showHistory && historyItems.length > 0 ? 'mt-2 border-t border-gray-100 pt-2' : 'pt-0',
+                showHistory && historyItems.length > 0 ? 'mt-2 border-t border-gray-300 pt-2' : 'pt-0',
               ].join(' ')}
             >
-              <p className="px-4 pb-2 text-[11px] font-semibold text-gray-400">対応キーワード</p>
+              <p className="px-4 pb-1 text-[11px] font-semibold text-gray-400">対応キーワード</p>
               {keywordOptions.map((keyword) => {
                 const active = selectedKeyword === keyword;
                 return (
@@ -347,10 +371,10 @@ export function SearchForm({
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleKeywordClick(keyword)}
                     className={[
-                      'block w-full px-4 py-2 text-left transition-colors',
+                      'block w-full px-6 py-1 text-left transition-colors',
                       active
                         ? 'bg-gray-100 text-on-surface'
-                        : 'text-on-surface hover:bg-gray-50',
+                        : 'text-on-surface hover:bg-gray-100',
                     ].join(' ')}
                     title={keyword}
                     aria-label={keyword}
