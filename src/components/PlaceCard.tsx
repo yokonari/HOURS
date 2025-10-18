@@ -22,10 +22,10 @@ export function PlaceCard({
     if (!photoName) return undefined;
     if (/^https?:/.test(photoName)) return photoName;
     if (photoName.includes('/')) {
-      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=65`;
+      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=60`;
     }
     // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
-    return `/images/places/${photoName}`;
+    return `/images/places/${photoName}?quality=0.5`;
   })();
 
   const weekdayJS = new Date(`${dateStr}T00:00:00`).getDay();
