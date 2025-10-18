@@ -37,6 +37,8 @@ export function SearchForm({
   const [isKeywordDropdownOpen, setIsKeywordDropdownOpen] = useState(false);
   // 最後に選択したキーワードを保持しボタン表示へ反映します。
   const [selectedKeyword, setSelectedKeyword] = useState('');
+  // モバイルでのタップ操作が入力欄のフォーカスアウトを引き起こしてもサジェストを閉じないよう管理します。
+  const pointerDownInsideRef = useRef(false);
   const isOpen = forceOpen || showSuggestions;
   // キーワード候補は配列でまとめておくと、表示も処理も楽に管理できます。
   const keywordOptions = [
@@ -135,6 +137,9 @@ export function SearchForm({
 
   const handleInputBlur = (_event: React.FocusEvent<HTMLInputElement>) => {
     // フォーカスが完全に外れたタイミングで履歴表示を閉じます。
+    if (pointerDownInsideRef.current) {
+      return;
+    }
     requestAnimationFrame(() => {
       const active = document.activeElement;
       if (!active) {
@@ -214,7 +219,22 @@ export function SearchForm({
   }, [isKeywordDropdownOpen, forceOpen, onClose]);
 
   return (
-    <div className="flex min-w-0 flex-col gap-2">
+    <div
+      className="flex min-w-0 flex-col gap-2"
+      onPointerDownCapture={(event) => {
+        const target = event.target as Node;
+        if (
+          suggestionsRef.current?.contains(target) ||
+          keywordDropdownRef.current?.contains(target) ||
+          inputRef.current?.contains(target as Node)
+        ) {
+          pointerDownInsideRef.current = true;
+          requestAnimationFrame(() => {
+            pointerDownInsideRef.current = false;
+          });
+        }
+      }}
+    >
       <div className="flex min-w-0 items-center gap-2">
         {/* 「HOURS」ロゴ画像のボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
         <button
