@@ -34,9 +34,10 @@ export function SearchForm({
   const suggestionsRef = useRef<HTMLDivElement | null>(null);
   const keywordDropdownRef = useRef<HTMLDivElement | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [isKeywordDropdownOpen, setIsKeywordDropdownOpen] = useState(false);
   // 最後に選択したキーワードを保持しボタン表示へ反映します。
   const [selectedKeyword, setSelectedKeyword] = useState('');
+  // 履歴用に既存の表示フラグを分かりやすい名前へ割り当てます。
+  const showHistory = showSuggestions;
   // モバイルでのタップ操作が入力欄のフォーカスアウトを引き起こしてもサジェストを閉じないよう管理します。
   const pointerDownInsideRef = useRef(false);
   const isOpen = forceOpen || showSuggestions;
@@ -74,7 +75,6 @@ export function SearchForm({
     if (loading) return;
     // フォーム全体を初期状態に戻し、外部から渡されたリセット処理も呼び出します。
     setShowSuggestions(false);
-    setIsKeywordDropdownOpen(false);
     setSelectedKeyword('');
     onClose?.();
     onReset?.();
@@ -110,7 +110,6 @@ export function SearchForm({
     if (!forceOpen) {
       setShowSuggestions(false);
     }
-    setIsKeywordDropdownOpen(false);
   };
 
   const handleKeywordClick = (keyword: string) => {
@@ -126,7 +125,6 @@ export function SearchForm({
     if (!forceOpen) {
       setShowSuggestions(false);
     }
-    setIsKeywordDropdownOpen(false);
   };
 
   const handleInputFocus = () => {
@@ -147,7 +145,6 @@ export function SearchForm({
           setShowSuggestions(false);
           onClose?.();
         }
-        setIsKeywordDropdownOpen(false);
         return;
       }
       if (active === inputRef.current) return;
@@ -156,7 +153,6 @@ export function SearchForm({
         setShowSuggestions(false);
         onClose?.();
       }
-      setIsKeywordDropdownOpen(false);
     });
   };
 
@@ -178,7 +174,7 @@ export function SearchForm({
   }, [forceOpen]);
 
   useEffect(() => {
-    const shouldListen = showSuggestions || forceOpen || isKeywordDropdownOpen;
+    const shouldListen = showSuggestions || forceOpen;
     if (!shouldListen) return;
     // ヘッダー外をクリックした場合に履歴とキーワード一覧を閉じます。
     const handleClickOutside = (event: MouseEvent) => {
@@ -191,36 +187,17 @@ export function SearchForm({
         return;
       }
       setShowSuggestions(false);
-      setIsKeywordDropdownOpen(false);
       onClose?.();
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showSuggestions, forceOpen, isKeywordDropdownOpen, onClose]);
-
-  useEffect(() => {
-    if (!isKeywordDropdownOpen) return;
-    // キーワードドロップダウンの外側クリックで閉じる処理です。
-    const handleClickOutside = (event: MouseEvent) => {
-      if (keywordDropdownRef.current && !keywordDropdownRef.current.contains(event.target as Node)) {
-        setIsKeywordDropdownOpen(false);
-        if (!forceOpen) {
-          setShowSuggestions(false);
-          onClose?.();
-        }
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isKeywordDropdownOpen, forceOpen, onClose]);
+  }, [showSuggestions, forceOpen, onClose]);
 
   return (
     <div
-      className="flex min-w-0 flex-col gap-2"
+      className="relative min-w-0"
       onPointerDownCapture={(event) => {
         const target = event.target as Node;
         if (
@@ -235,7 +212,8 @@ export function SearchForm({
         }
       }}
     >
-      <div className="flex min-w-0 items-center gap-2">
+      <div className="flex min-w-0 flex-col gap-2">
+        <div className="flex min-w-0 items-center gap-2">
         {/* 「HOURS」ロゴ画像のボタンで検索状態を丁寧にリセットし初期画面へ戻します。 */}
         <button
           type="button"
@@ -308,100 +286,81 @@ export function SearchForm({
             </button>
           </div>
         </div>
+        {/* 常に2行分の高さを確保してヘッダーが変形しないようにします。 */}
+        <div aria-hidden="true" className="h-6" />
+      </div>
       </div>
       {isOpen && (
-        <div ref={suggestionsRef} className="space-y-2 text-xs text-gray-600">
-          {historyItems.length > 0 && (
-            <div className="flex items-center gap-1 overflow-x-auto whitespace-nowrap sm:flex-wrap sm:whitespace-normal">
-              {historyItems.map((term) => (
-                <button
-                  key={term}
-                  type="button"
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => handleHistoryClick(term)}
-                  className="rounded-full border border-gray-300 px-3 py-1 text-xs text-on-surface transition hover:bg-gray-50"
-                >
-                  {term}
-                </button>
-              ))}
-              {onClearHistory && (
-                <button
-                  type="button"
-                  onMouseDown={(e) => e.preventDefault()}
-                  onClick={() => {
-                    onClearHistory();
-                  }}
-                  className="text-[11px] text-gray-400 underline-offset-2 hover:underline"
-                >
-                  履歴をクリア
-                </button>
-              )}
-            </div>
-          )}
+        <div
+          ref={suggestionsRef}
+          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-[1000] text-xs text-gray-600"
+        >
+          <div
+            className="max-h-96 overflow-y-auto rounded-lg border border-gray-200 bg-white py-2 shadow-lg"
+            role="listbox"
+            aria-label="検索サジェスト"
+          >
+            {showHistory && historyItems.length > 0 && (
+              <div className="pb-2">
+                <p className="px-4 pb-2 text-[11px] font-semibold text-gray-400">履歴</p>
+                {historyItems.map((term) => (
+                  <button
+                    key={term}
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => handleHistoryClick(term)}
+                    className="block w-full px-4 py-2 text-left text-on-surface transition hover:bg-gray-50"
+                    role="option"
+                    aria-label={term}
+                  >
+                    {term}
+                  </button>
+                ))}
+                {onClearHistory && (
+                  <button
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => {
+                      onClearHistory();
+                    }}
+                    className="block w-full px-4 py-2 text-left text-[11px] text-gray-400 hover:text-gray-500"
+                  >
+                    履歴をクリア
+                  </button>
+                )}
+              </div>
+            )}
 
-          <div className="mt-2 text-xs text-gray-600">
-            <div className="relative inline-block" ref={keywordDropdownRef}>
-              {/* FinalReceptionSelector と揃えた外観のドロップダウンで検索キーワードを選べます。 */}
-              <button
-                type="button"
-                onClick={() => {
-                  // ドロップダウン操作時は入力欄のフォーカスを外してモバイルキーボードを閉じます。
-                  inputRef.current?.blur();
-                  setIsKeywordDropdownOpen((prev) => {
-                    const next = !prev;
-                    if (next) {
-                      setShowSuggestions(true);
-                      onOpen?.();
-                    } else if (!forceOpen) {
-                      setShowSuggestions(false);
-                      onClose?.();
-                    }
-                    return next;
-                  });
-                }}
-                className="inline-flex min-w-[12rem] items-center justify-between rounded-full border border-gray-300 bg-transparent px-3 transition hover:bg-white focus:bg-white focus:ring-2 focus:ring-gray-300"
-                style={{ color: 'var(--on-surface)' }}
-                aria-expanded={isKeywordDropdownOpen}
-                aria-label={`対応キーワードの選択（現在: ${selectedKeyword || '未選択' }）`}
-                title={`対応キーワード: ${selectedKeyword || '未選択'}`}
-              >
-                <span>
-                  {selectedKeyword || '対応キーワード'}
-                </span>
-                <span
-                  className="material-symbols-rounded text-[16px] leading-none"
-                  style={{ fontVariationSettings: `'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 18` }}
-                  aria-hidden="true"
-                >
-                  {isKeywordDropdownOpen ? 'expand_less' : 'expand_more'}
-                </span>
-              </button>
-              {isKeywordDropdownOpen && (
-                <div className="absolute top-full left-0 z-50 mt-1 w-fit min-w-[12rem] rounded-lg border border-gray-200 bg-white shadow-lg max-h-80 overflow-y-auto">
-                  {keywordOptions.map((keyword) => {
-                    const active = selectedKeyword === keyword;
-                    return (
-                      <button
-                        key={keyword}
-                        type="button"
-                        onClick={() => {
-                          handleKeywordClick(keyword);
-                        }}
-                        className={[
-                          'w-full px-3 py-2 text-left transition-colors',
-                          active
-                            ? 'bg-gray-100 text-on-surface'
-                            : 'text-on-surface hover:bg-gray-50',
-                        ].join(' ')}
-                        title={keyword}
-                        aria-label={keyword}
-                      >
-                        <span>{keyword}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
+            <div
+              ref={keywordDropdownRef}
+              className={[
+                showHistory && historyItems.length > 0 ? 'mt-2 border-t border-gray-100 pt-2' : 'pt-0',
+              ].join(' ')}
+            >
+              <p className="px-4 pb-2 text-[11px] font-semibold text-gray-400">対応キーワード</p>
+              {keywordOptions.map((keyword) => {
+                const active = selectedKeyword === keyword;
+                return (
+                  <button
+                    key={keyword}
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => handleKeywordClick(keyword)}
+                    className={[
+                      'block w-full px-4 py-2 text-left transition-colors',
+                      active
+                        ? 'bg-gray-100 text-on-surface'
+                        : 'text-on-surface hover:bg-gray-50',
+                    ].join(' ')}
+                    title={keyword}
+                    aria-label={keyword}
+                    role="option"
+                    aria-selected={active}
+                  >
+                    <span>{keyword}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
