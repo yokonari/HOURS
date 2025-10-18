@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { Place } from '@/types/place';
 import { jpWeek, getOpeningHoursDisplayInfo } from '@/lib/openingHours';
 
@@ -96,17 +97,30 @@ export function PlaceCard({
         <div className="shrink-0 relative h-full">
           <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">
             {imgSrc ? (
-              // 画像が取得できた場合はそのまま表示。lazy-load で初期表示を軽くします。
-              <img
-                src={imgSrc}
-                width={THUMB_SIZE}
-                height={THUMB_SIZE}
-                alt={name}
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-                fetchPriority="low"
-              />
+              /^https?:/.test(imgSrc) ? (
+                // 外部ホストの画像は Next.js 最適化を使わずにそのまま表示します。
+                <img
+                  src={imgSrc}
+                  width={THUMB_SIZE}
+                  height={THUMB_SIZE}
+                  alt={name}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+              ) : (
+                // ローカル/モック画像は Next.js の最適化を通して軽量に読み込みます。
+                <Image
+                  src={imgSrc}
+                  alt={name}
+                  width={THUMB_SIZE}
+                  height={THUMB_SIZE}
+                  quality={50}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              )
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
             )}
