@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { Place } from '@/types/place';
 import { jpWeek, getOpeningHoursDisplayInfo } from '@/lib/openingHours';
 
@@ -18,10 +17,17 @@ export function PlaceCard({
 
   const photoName = p.photos?.[0]?.name as string | undefined;
   const THUMB_SIZE = 120;
+  const THUMB_SIZE_MOBILE = 96;
   // 画像 URL はデータによって種類が異なるので、ケースごとに分岐させています。
   const imgSrc = (() => {
     if (!photoName) return undefined;
-    if (/^https?:/.test(photoName)) return photoName;
+    if (/^https?:/.test(photoName)) {
+      const url = new URL(photoName);
+      if (!url.searchParams.has('quality')) {
+        url.searchParams.set('quality', '0.55');
+      }
+      return url.toString();
+    }
     if (photoName.includes('/')) {
       return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=55`;
     }
@@ -97,32 +103,16 @@ export function PlaceCard({
         <div className="shrink-0 relative h-full">
           <div className="h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
             {imgSrc ? (
-              /^https?:/.test(imgSrc) ? (
-                // 外部ホストの画像は Next.js 最適化を使わずにそのまま表示します。
-                <img
-                  src={imgSrc}
-                  width={THUMB_SIZE}
-                  height={THUMB_SIZE}
-                  alt={name}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
-              ) : (
-                // ローカル/モック画像は Next.js の最適化を通して軽量に読み込みます。
-                <Image
-                  src={imgSrc}
-                  alt={name}
-                  width={THUMB_SIZE}
-                  height={THUMB_SIZE}
-                  quality={40}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8c+bMfQAI6QNv1lBw9gAAAABJRU5ErkJggg=="
-                />
-              )
+              <img
+                src={imgSrc}
+                width={THUMB_SIZE}
+                height={THUMB_SIZE}
+                alt={name}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+              />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
             )}
