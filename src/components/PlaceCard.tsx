@@ -116,7 +116,7 @@ export function PlaceCard({
                   alt={name}
                   width={THUMB_SIZE}
                   height={THUMB_SIZE}
-                  quality={60}
+                  quality={40}
                   loading="lazy"
                   className="h-full w-full object-cover"
                   placeholder="blur"
