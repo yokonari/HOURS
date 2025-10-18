@@ -16,12 +16,13 @@ export function PlaceCard({
   const name = p.displayName?.text ?? '(名称不明)';
 
   const photoName = p.photos?.[0]?.name as string | undefined;
+  const THUMB_SIZE = 160;
   // 画像 URL はデータによって種類が異なるので、ケースごとに分岐させています。
   const imgSrc = (() => {
     if (!photoName) return undefined;
     if (/^https?:/.test(photoName)) return photoName;
     if (photoName.includes('/')) {
-      return `/api/photo?name=${encodeURIComponent(photoName)}&w=200&h=200`;
+      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=65`;
     }
     // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
     return `/images/places/${photoName}`;
@@ -96,7 +97,16 @@ export function PlaceCard({
           <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">
             {imgSrc ? (
               // 画像が取得できた場合はそのまま表示。lazy-load で初期表示を軽くします。
-              <img src={imgSrc} alt={name} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              <img
+                src={imgSrc}
+                width={THUMB_SIZE}
+                height={THUMB_SIZE}
+                alt={name}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+              />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
             )}
