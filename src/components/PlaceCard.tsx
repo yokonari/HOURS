@@ -17,16 +17,16 @@ export function PlaceCard({
   const name = p.displayName?.text ?? '(名称不明)';
 
   const photoName = p.photos?.[0]?.name as string | undefined;
-  const THUMB_SIZE = 160;
+  const THUMB_SIZE = 120;
   // 画像 URL はデータによって種類が異なるので、ケースごとに分岐させています。
   const imgSrc = (() => {
     if (!photoName) return undefined;
     if (/^https?:/.test(photoName)) return photoName;
     if (photoName.includes('/')) {
-      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=60`;
+      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=55`;
     }
     // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
-    return `/images/places/${photoName}?quality=0.5`;
+    return `/images/places/${photoName}`;
   })();
 
   const weekdayJS = new Date(`${dateStr}T00:00:00`).getDay();
@@ -95,7 +95,7 @@ export function PlaceCard({
         style={widthStyle}
       >
         <div className="shrink-0 relative h-full">
-          <div className="h-full w-24 overflow-hidden bg-gray-100 sm:w-28">
+          <div className="h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
             {imgSrc ? (
               /^https?:/.test(imgSrc) ? (
                 // 外部ホストの画像は Next.js 最適化を使わずにそのまま表示します。
@@ -116,9 +116,11 @@ export function PlaceCard({
                   alt={name}
                   width={THUMB_SIZE}
                   height={THUMB_SIZE}
-                  quality={50}
+                  quality={60}
                   loading="lazy"
                   className="h-full w-full object-cover"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8c+bMfQAI6QNv1lBw9gAAAABJRU5ErkJggg=="
                 />
               )
             ) : (
