@@ -210,7 +210,7 @@ export default function HomePage() {
                 width={320}
                 height={318}
                 priority
-                quality={60}
+                quality={40}
                 alt="検索開始を案内するイラスト"
                 className="object-contain h-30 w-30 sm:h-40 sm:w-40 lg:h-45 lg:w-45"
                 sizes="(min-width: 1024px) 10rem, (min-width: 640px) 8rem, 6rem"

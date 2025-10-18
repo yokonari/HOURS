@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { Place } from '@/types/place';
 import { jpWeek, getOpeningHoursDisplayInfo } from '@/lib/openingHours';
 
@@ -30,6 +31,19 @@ export function PlaceCard({
     // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
     return `/images/places/${photoName}`;
   })();
+
+  const isLocalImage = typeof imgSrc === 'string' && imgSrc.startsWith('/images/places/');
+  const [useLocalFallback, setUseLocalFallback] = useState(false);
+  const localOptimizedSrc = isLocalImage ? `${imgSrc}.webp` : undefined;
+  const localDisplaySrc = isLocalImage
+    ? useLocalFallback || !localOptimizedSrc
+      ? (imgSrc as string)
+      : localOptimizedSrc
+    : undefined;
+
+  useEffect(() => {
+    setUseLocalFallback(false);
+  }, [imgSrc]);
 
   const weekdayJS = new Date(`${dateStr}T00:00:00`).getDay();
 
@@ -97,18 +111,32 @@ export function PlaceCard({
         style={widthStyle}
       >
         <div className="shrink-0 relative h-full">
-          <div className="h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
+          <div className="relative h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
             {imgSrc ? (
-              <Image
-                src={imgSrc}
-                alt={name}
-                width={THUMB_SIZE}
-                height={THUMB_SIZE}
-                loading="lazy"
-                quality={40}
-                className="h-full w-full object-cover"
-                sizes="(min-width: 640px) 120px, 96px"
-              />
+              isLocalImage ? (
+                <Image
+                  src={localDisplaySrc as string}
+                  alt={name}
+                  fill
+                  loading="lazy"
+                  quality={40}
+                  className="object-cover"
+                  sizes="(min-width: 640px) 120px, 96px"
+                  onError={() => setUseLocalFallback(true)}
+                />
+              ) : (
+                <img
+                  src={`${imgSrc}${imgSrc.includes('?') ? '&' : '?'}quality=55`}
+                  width={THUMB_SIZE}
+                  height={THUMB_SIZE}
+                  alt={name}
+                  className="object-cover"
+                  style={{ width: '100%', height: '100%' }}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+              )
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
             )}
