@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { Place } from '@/types/place';
 import { jpWeek, getOpeningHoursDisplayInfo } from '@/lib/openingHours';
 
@@ -17,19 +18,14 @@ export function PlaceCard({
 
   const photoName = p.photos?.[0]?.name as string | undefined;
   const THUMB_SIZE = 120;
-  const THUMB_SIZE_MOBILE = 96;
   // 画像 URL はデータによって種類が異なるので、ケースごとに分岐させています。
   const imgSrc = (() => {
     if (!photoName) return undefined;
     if (/^https?:/.test(photoName)) {
-      const url = new URL(photoName);
-      if (!url.searchParams.has('quality')) {
-        url.searchParams.set('quality', '0.55');
-      }
-      return url.toString();
+      return photoName;
     }
     if (photoName.includes('/')) {
-      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=55`;
+      return `/api/photo?name=${encodeURIComponent(photoName)}&w=${THUMB_SIZE}&h=${THUMB_SIZE}&quality=50`;
     }
     // モックデータではファイル名のみを返すため、ローカルの公開ディレクトリにマッピングします。
     return `/images/places/${photoName}`;
@@ -103,15 +99,15 @@ export function PlaceCard({
         <div className="shrink-0 relative h-full">
           <div className="h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
             {imgSrc ? (
-              <img
+              <Image
                 src={imgSrc}
+                alt={name}
                 width={THUMB_SIZE}
                 height={THUMB_SIZE}
-                alt={name}
-                className="h-full w-full object-cover"
                 loading="lazy"
-                decoding="async"
-                fetchPriority="low"
+                quality={40}
+                className="h-full w-full object-cover"
+                sizes="(min-width: 640px) 120px, 96px"
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
