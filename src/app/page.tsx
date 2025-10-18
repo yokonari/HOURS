@@ -214,9 +214,9 @@ export default function HomePage() {
                 className="object-contain h-30 w-30 sm:h-40 sm:w-40 lg:h-45 lg:w-45"
                 sizes="(min-width: 1024px) 10rem, (min-width: 640px) 8rem, 6rem"
               />
-              <div className="space-y-3 text-sm sm:text-base ">
+              <div className="text-sm sm:text-base text-left">
                 <p>指定した日時に営業している施設を検索できます。</p>
-                <p className="mt-1 text-xs text-gray-500 sm:text-sm">
+                <p className="mt-1 pb-2 text-xs text-gray-500 sm:text-sm">
                   ※実際の受付時間は施設の公式情報をご確認ください。
                 </p>
 

@@ -333,7 +333,7 @@ export function SearchForm({
                     type="button"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleHistoryClick(term)}
-                    className="block w-full px-6 py-1 text-left text-on-surface transition hover:bg-gray-100"
+                    className="block w-full px-6 py-1.5 text-left text-on-surface transition hover:bg-gray-100"
                     role="option"
                     aria-label={term}
                   >
@@ -347,7 +347,7 @@ export function SearchForm({
                     onClick={() => {
                       onClearHistory();
                     }}
-                    className="block w-full px-6 py-1 text-left text-[11px] hover:bg-gray-100"
+                    className="block w-full px-6 py-1.5 text-left text-[11px] hover:bg-gray-100"
                   >
                     履歴をクリア
                   </button>
@@ -371,10 +371,7 @@ export function SearchForm({
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={() => handleKeywordClick(keyword)}
                     className={[
-                      'block w-full px-6 py-1 text-left transition-colors',
-                      active
-                        ? 'bg-gray-100 text-on-surface'
-                        : 'text-on-surface hover:bg-gray-100',
+                      'block w-full px-6 py-1.5 text-left transition-colors text-on-surface hover:bg-gray-100',
                     ].join(' ')}
                     title={keyword}
                     aria-label={keyword}
