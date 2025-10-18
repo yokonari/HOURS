@@ -6,8 +6,23 @@ import { notoSansJp } from './ui/fonts'
 // Next.js のページ全体で共有したい情報をまとめる場所です。まずはここにタイトルなどを登録します。
 export const metadata: Metadata = {
   title: "HOURS | 営業時間で見つける（デモ）",
-  // app/opengraph-image.* や app/twitter-image.* を置いておくと自動でOGP/Twitter画像が生成されます。
-  metadataBase: new URL('https://hours.yokonari.com'),
+  description: "営業時間でお店を検索できるデモアプリ",
+  metadataBase: new URL("https://hours.yokonari.com"),
+
+  openGraph: {
+    title: "HOURS | 営業時間で見つける（デモ）",
+    description: "営業時間でお店を検索できるデモアプリ",
+    url: "https://hours.yokonari.com",
+    siteName: "HOURS",
+    type: "website",
+    images: [
+      {
+        url: "https://hours.yokonari.com/ogp.png", // 絶対URLで指定！
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
