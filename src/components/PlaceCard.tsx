@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Place } from '@/types/place';
 import { jpWeek, getOpeningHoursDisplayInfo } from '@/lib/openingHours';
@@ -33,13 +32,9 @@ export function PlaceCard({
   })();
 
   const isLocalImage = typeof imgSrc === 'string' && imgSrc.startsWith('/images/places/');
+  const localBaseSrc = isLocalImage ? (imgSrc as string) : undefined;
+  const localWebpSrc = localBaseSrc ? `${localBaseSrc}.webp` : undefined;
   const [useLocalFallback, setUseLocalFallback] = useState(false);
-  const localOptimizedSrc = isLocalImage ? `${imgSrc}.webp` : undefined;
-  const localDisplaySrc = isLocalImage
-    ? useLocalFallback || !localOptimizedSrc
-      ? (imgSrc as string)
-      : localOptimizedSrc
-    : undefined;
 
   useEffect(() => {
     setUseLocalFallback(false);
@@ -99,88 +94,103 @@ export function PlaceCard({
 
   const widthStyle = cardWidth != null ? { width: cardWidth, maxWidth: '100%' as const } : undefined;
 
+  const categoryLabel = p.primaryTypeDisplayName?.text ?? p.primaryType ?? '';
+
   return (
     <li
       className="block w-full max-w-full lg:w-[400px] lg:max-w-[400px] lg:flex-none"
       style={widthStyle}
     >
       {/* 2列表示時も同じ幅になるようにしています */}
-      {/* Googleマップへの外部リンクは廃止し、カード自体は情報表示専用にしています。 */}
-      <article
-        className="group flex h-24 w-full max-w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm sm:h-32 sm:shadow"
-        style={widthStyle}
+      <a
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(categoryLabel || name)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-2xl"
+        aria-label={`${name} を Google マップで開く`}
       >
-        <div className="shrink-0 relative h-full">
-          <div className="relative h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
-            {imgSrc ? (
-              isLocalImage ? (
-                <Image
-                  src={localDisplaySrc as string}
-                  alt={name}
-                  fill
-                  loading="lazy"
-                  quality={40}
-                  className="object-cover"
-                  sizes="(min-width: 640px) 120px, 96px"
-                  onError={() => setUseLocalFallback(true)}
-                />
+        <article
+          className="group flex h-24 w-full max-w-full overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm transition sm:h-32 sm:shadow hover:shadow-md"
+          style={widthStyle}
+        >
+          <div className="shrink-0 relative h-full">
+            <div className="relative h-full w-[96px] overflow-hidden bg-gray-100 sm:w-[120px]">
+              {imgSrc ? (
+                isLocalImage ? (
+                  <picture className="block h-full w-full">
+                    {!useLocalFallback && localWebpSrc && (
+                      <source srcSet={localWebpSrc} type="image/webp" />
+                    )}
+                    <img
+                      src={useLocalFallback || !localWebpSrc ? (localBaseSrc as string) : localWebpSrc}
+                      width={THUMB_SIZE}
+                      height={THUMB_SIZE}
+                      alt={name}
+                      className="object-cover"
+                      style={{ width: '100%', height: '100%' }}
+                      loading="lazy"
+                      decoding="async"
+                      onError={() => setUseLocalFallback(true)}
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={`${imgSrc}${imgSrc.includes('?') ? '&' : '?'}quality=55`}
+                    width={THUMB_SIZE}
+                    height={THUMB_SIZE}
+                    alt={name}
+                    className="object-cover"
+                    style={{ width: '100%', height: '100%' }}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
+                )
               ) : (
-                <img
-                  src={`${imgSrc}${imgSrc.includes('?') ? '&' : '?'}quality=55`}
-                  width={THUMB_SIZE}
-                  height={THUMB_SIZE}
-                  alt={name}
-                  className="object-cover"
-                  style={{ width: '100%', height: '100%' }}
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
-              )
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
-            )}
-          </div>
-        </div>
-
-        <div className="min-w-0 flex-1 p-2 flex flex-col overflow-hidden sm:p-5">
-          <div className="min-w-0">
-            <h2 className="truncate text-base font-medium text-on-surface leading-tight sm:text-lg" title={name}>
-              {name}
-            </h2>
-            {displayAddress && (
-              <div className="mt-0.5 text-sm text-on-surface-light truncate sm:text-base" title={displayAddress}>
-                {displayAddress}
-              </div>
-            )}
-          </div>
-
-          <div className="mt-auto pt-1 flex items-center gap-2 text-sm leading-tight sm:pt-3 sm:gap-4 sm:text-base">
-            <div className="text-on-surface truncate flex items-center gap-1 leading-tight">
-              <span>{wdJp}:</span>
-              {/* 営業時間は「開始 ー 終了」の2パートに分けて読みやすく並べ替えています。 */}
-              <span>{renderHoursText(hoursText)}</span>
+                <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">No image</div>
+              )}
             </div>
-            {typeof p.rating === 'number' && (
-              // 評価がある場合のみスコアを表示します。レビュー数も括弧付きで追記します。
-              <div
-                className="ml-2 inline-flex items-center gap-1 text-sm leading-none text-on-surface sm:ml-3 sm:text-base"
-                title={`${p.rating.toFixed(1)} / 5`}
-              >
-                <span aria-hidden className="text-[#F5C518] leading-none">★</span>
-                <span className="leading-none">
-                  {p.rating.toFixed(1)}
-                </span>
-                {typeof p.userRatingCount === 'number' && p.userRatingCount > 0 && (
-                  <span className="ml-1 text-on-surface-light leading-none text-sm sm:text-base">
-                    ({p.userRatingCount})
-                  </span>
-                )}
-              </div>
-            )}
           </div>
-        </div>
-      </article>
+
+          <div className="min-w-0 flex-1 p-2 flex flex-col overflow-hidden sm:p-5">
+            <div className="min-w-0">
+              <h2 className="truncate text-base font-medium text-on-surface leading-tight sm:text-lg" title={name}>
+                {name}
+              </h2>
+              {displayAddress && (
+                <div className="mt-0.5 text-sm text-on-surface-light truncate sm:text-base" title={displayAddress}>
+                  {displayAddress}
+                </div>
+              )}
+            </div>
+
+            <div className="mt-auto pt-1 flex items-center gap-2 text-sm leading-tight sm:pt-3 sm:gap-4 sm:text-base">
+              <div className="text-on-surface truncate flex items-center gap-1 leading-tight">
+                <span>{wdJp}:</span>
+                {/* 営業時間は「開始 ー 終了」の2パートに分けて読みやすく並べ替えています。 */}
+                <span>{renderHoursText(hoursText)}</span>
+              </div>
+              {typeof p.rating === 'number' && (
+                // 評価がある場合のみスコアを表示します。レビュー数も括弧付きで追記します。
+                <div
+                  className="ml-2 inline-flex items-center gap-1 text-sm leading-none text-on-surface sm:ml-3 sm:text-base"
+                  title={`${p.rating.toFixed(1)} / 5`}
+                >
+                  <span aria-hidden className="text-[#F5C518] leading-none">★</span>
+                  <span className="leading-none">
+                    {p.rating.toFixed(1)}
+                  </span>
+                  {typeof p.userRatingCount === 'number' && p.userRatingCount > 0 && (
+                    <span className="ml-1 text-on-surface-light leading-none text-sm sm:text-base">
+                      ({p.userRatingCount})
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </article>
+      </a>
     </li>
   );
 }
