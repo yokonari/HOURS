@@ -209,6 +209,7 @@ export function usePlaces() {
     searchHistory,
     searchFromHistory,
     clearSearchHistory: clearHistory,
+    searchKeyword: q,
     // 検索状態
     loading, error, hasSearched,
     // 結果

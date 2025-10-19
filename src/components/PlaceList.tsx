@@ -7,10 +7,12 @@ export function PlaceList({
   results,
   dateStr,
   timeStr,
+  searchKeyword,
 }: {
   results: Place[];
   dateStr: string;
   timeStr: string;
+  searchKeyword?: string;
 }) {
   // カードの表示幅をレスポンシブに調整するため、ビューポート幅を追跡しています。
   const [viewportWidth, setViewportWidth] = useState<number | null>(null);
@@ -66,6 +68,7 @@ export function PlaceList({
             dateStr={dateStr}
             timeStr={timeStr}
             cardWidth={cardWidth}
+            searchKeyword={searchKeyword}
           />
         ))}
       </ul>

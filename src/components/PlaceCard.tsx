@@ -8,11 +8,13 @@ export function PlaceCard({
   dateStr,
   timeStr,
   cardWidth,
+  searchKeyword,
 }: {
   place: Place;
   dateStr: string;
   timeStr: string;
   cardWidth?: number | null;
+  searchKeyword?: string;
 }) {
   const name = p.displayName?.text ?? '(名称不明)';
 
@@ -95,6 +97,7 @@ export function PlaceCard({
   const widthStyle = cardWidth != null ? { width: cardWidth, maxWidth: '100%' as const } : undefined;
 
   const categoryLabel = p.primaryTypeDisplayName?.text ?? p.primaryType ?? '';
+  const mapQuery = (searchKeyword?.trim() ?? '') || categoryLabel || name;
 
   return (
     <li
@@ -103,7 +106,7 @@ export function PlaceCard({
     >
       {/* 2列表示時も同じ幅になるようにしています */}
       <a
-        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(categoryLabel || name)}`}
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
         target="_blank"
         rel="noopener noreferrer"
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-2xl"

@@ -22,6 +22,7 @@ export default function HomePage() {
     dateStr, setDateStr, timeStr, setTimeStr, dateLabel, timeLabel,
     // 最終受付考慮
     finalReception, setFinalReception,
+    searchKeyword,
   } = usePlaces();
 
   // ── ヘッダー＆フッターの実測高さ ───────────────────────────
@@ -235,6 +236,7 @@ export default function HomePage() {
           results={results}
           dateStr={dateStr}
           timeStr={timeStr}
+          searchKeyword={searchKeyword}
         />
 
         {/* 絞り込み結果0件メッセージ（検索後） */}
