@@ -30,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={notoSansJp.variable}>
       <head>
+        <meta name="apple-mobile-web-app-title" content="HOURS" />
         {/* Google Fonts に素早く接続するための設定です。フォント読み込みが速くなります。 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
