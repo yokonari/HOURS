@@ -19,19 +19,6 @@
 			"service": "hours"
 		}
 	],
-	"d1_databases": [
-		{
-			"binding": "hours_db",
-			"database_name": "hours-db",
-			"database_id": "c0cfddb9-0342-4841-a0be-4ddd181c75b1",
-			"preview_database_id": "6fd41edb-1324-47ef-984e-b02e24ddd697" // ← dev で使うID
-		},
-		{
-			"binding": "hours_db_dev",
-			"database_name": "hours-db-dev",
-			"database_id": "6fd41edb-1324-47ef-984e-b02e24ddd697"
-		}
-	],
 	"r2_buckets": [
 		{
 			"binding": "NEXT_INC_CACHE_R2_BUCKET", // ここが env.NEXT_INC_CACHE_R2_BUCKET になる
